@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-18 23:48:41 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="DataBase.User" table="User" catalog="CompanyDocs">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="account" type="string">
+            <column name="account" length="20" not-null="true" />
+        </property>
+        <property name="passwd" type="string">
+            <column name="passwd" length="20" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true" />
+        </property>
+        <property name="auth" type="int">
+            <column name="auth" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="qq" type="string">
+            <column name="qq" length="20" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>
