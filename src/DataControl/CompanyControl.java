@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import DataBase.Company;
+import DataBase.CompanyTable;
+import DataBase.File;
+import DataBase.FileCompany;
 import DataBase.HibernateTools;
 
 /**
@@ -71,5 +74,22 @@ public class CompanyControl {
 		}
 		HibernateTools.closeSession(session, tran);
 		return company;
+	}
+	
+	public Company getCompanyByFile(File file){
+		Company company = null;
+		String hql = "from FileCompany fc where fc.file.id= "+file.getId();
+		Session session = HibernateTools.getSession();
+		Transaction tran = session.beginTransaction();
+		List<FileCompany> list = session.createQuery(hql).list();
+		for (FileCompany fc : list) {
+			company = fc.getCompany();
+		}
+		HibernateTools.closeSession(session, tran);
+		return company;
+	}
+	
+	public CompanyTable getTableByName(String name){
+		return null;
 	}
 }

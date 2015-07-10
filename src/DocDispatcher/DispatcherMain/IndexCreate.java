@@ -51,7 +51,7 @@ public class IndexCreate {
 	}
 	public static int isIndex(String str){
 		for(int i=0;i<p.length;i++){
-			if(p[i].matcher(str).matches())
+			if(p[i].matcher(str).matches())	
 				return i;
 		}
 		return -1;

@@ -1,6 +1,6 @@
 package DataBase;
 
-// Generated 2015-6-18 23:48:40 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-6-24 20:13:35 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +16,7 @@ public class Company implements java.io.Serializable {
 	private String kind;
 	private String trade;
 	private Set<FileCompany> fileCompanies = new HashSet<FileCompany>(0);
+	private Set<CompanyTable> companyTables = new HashSet<CompanyTable>(0);
 
 	public Company() {
 	}
@@ -26,12 +27,13 @@ public class Company implements java.io.Serializable {
 	}
 
 	public Company(String num, String name, String kind, String trade,
-			Set<FileCompany> fileCompanies) {
+			Set<FileCompany> fileCompanies, Set<CompanyTable> companyTables) {
 		this.num = num;
 		this.name = name;
 		this.kind = kind;
 		this.trade = trade;
 		this.fileCompanies = fileCompanies;
+		this.companyTables = companyTables;
 	}
 
 	public Integer getId() {
@@ -80,6 +82,14 @@ public class Company implements java.io.Serializable {
 
 	public void setFileCompanies(Set<FileCompany> fileCompanies) {
 		this.fileCompanies = fileCompanies;
+	}
+
+	public Set<CompanyTable> getCompanyTables() {
+		return this.companyTables;
+	}
+
+	public void setCompanyTables(Set<CompanyTable> companyTables) {
+		this.companyTables = companyTables;
 	}
 
 }

@@ -9,18 +9,8 @@ import com.google.gson.GsonBuilder;
 public class ReturnDataTools {
 	private boolean success=false;
 	private String errorMessage="";
-	private String jsonString="";
+	private Object jsonString="";
 	
-	public ReturnDataTools(boolean success,String error,String json){
-		this.success=success;
-		this.errorMessage=error;
-		this.jsonString=json;
-	}
-	
-    public ReturnDataTools(boolean success,String error){
-		this.success=success;
-		this.errorMessage=error;
-	}
 	
 	public ReturnDataTools(){
 		
@@ -33,20 +23,14 @@ public class ReturnDataTools {
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
-
-	public void setJsonString(String jsonString) {
-		this.jsonString = jsonString;
-	}
 	
 	public void setJsonString(Object object) {
-		Gson gson=new GsonBuilder().serializeNulls().create();
-		this.jsonString=gson.toJson(object);
+		this.jsonString=object;
 	}
 	
-	public void setJsonString(Object []object){
-		Gson gson=new GsonBuilder().serializeNulls().create();
-		this.jsonString=gson.toJson(object);
-	}
+//	public void setJsonString(Object []object){
+//		this.jsonString=Object;
+//	}
 	
 	@Override
 	public String toString() {

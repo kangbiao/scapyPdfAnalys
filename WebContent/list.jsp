@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="static/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/datatable.css">
+<link href="static/css/jquery-webox.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.2.min.js"></script>
 <style>
 td {
@@ -27,7 +28,6 @@ td {
 			style="width: 100%; height: 600px; height: auto !important; min-height: 600px;">
 			<c:choose>
 				<c:when test="${param.companyid==null}">
-
 
 					<div role="tabpanel" class="tab-pane active" id="left"
 						style="margin-top: 20px">
@@ -126,7 +126,7 @@ td {
 								</thead>
 							</table>
 							<div class="btn-group" role="group" aria-label="..."
-								style="float: right; margin-right: 20px;">
+								style="float: righ: ;t; margin-right: 20px;">
 								<button type="button" class="btn btn-default" id="deal">处理</button>
 								<button type="button" class="btn btn-default" id="ingore">忽略</button>
 							</div>
@@ -136,6 +136,7 @@ td {
 
 					<script>
 						$(function() {
+							
 							$("#faildocumenticon").click(function() {
 								$(".badge").remove();
 							});
@@ -236,6 +237,15 @@ td {
 									"data" : "twopath"
 								} ]
 							});
+							$(document).on('click','#outside',function(){
+								$.webox({
+									height:610,
+									width:1200,
+									bgvisibel:true,
+									title:'数据修改',
+									iframe:'editTable.jsp?'+Math.random
+								});
+							});
 						});
 					</script>
 				</c:otherwise>
@@ -248,5 +258,6 @@ td {
 	<script src="static/js/bootstrap.min.js"></script>
 	<script src="static/js/datatable.min.js"></script>
 	<script src="static/js/datatable.bootstrap.js"></script>
+	<script src="static/js/jquery-webox.js"></script>
 </body>
 </html>

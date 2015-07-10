@@ -191,8 +191,7 @@ public class DocumentDao
 				{
 					fileBean.setTwopath("<a class='btn btn-primary btn-xs' href='file/"
 							+ rs.getString("pdfpath")
-							+ "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' href='file/"
-							+ rs.getString("htmlpath") + "'>HTML</a>&nbsp;&nbsp;<input name='selectedfile' value='"+rs.getString("fileid")+"' type='checkbox'>");
+							+ "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' href='javascript:void(0);' title='点击修改' id='outside'>处理</a>&nbsp;&nbsp;<input name='selectedfile' value='"+rs.getString("fileid")+"' type='checkbox'>");
 				}
 				fileBean.setTime(rs.getString("time"));
 				fileBean.setCompany_name(rs.getString("name"));

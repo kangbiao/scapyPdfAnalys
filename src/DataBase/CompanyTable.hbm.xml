@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-25 13:36:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="DataBase.CompanyTable" table="CompanyTable" catalog="CompanyDocs">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="noLiuDongZc" class="DataBase.NoLiuDongZc" fetch="select">
+            <column name="fldzjId" />
+        </many-to-one>
+        <many-to-one name="suoYouZqymain" class="DataBase.SuoYouZqymain" fetch="select">
+            <column name="syzqyId" />
+        </many-to-one>
+        <many-to-one name="yinYeLiRun" class="DataBase.YinYeLiRun" fetch="select">
+            <column name="yylyId" />
+        </many-to-one>
+        <many-to-one name="liuDongZiC" class="DataBase.LiuDongZiC" fetch="select">
+            <column name="ldzjId" />
+        </many-to-one>
+        <many-to-one name="suoYouZqy" class="DataBase.SuoYouZqy" fetch="select">
+            <column name="suoyzId" />
+        </many-to-one>
+        <many-to-one name="yinYeShouY" class="DataBase.YinYeShouY" fetch="select">
+            <column name="yysrId" />
+        </many-to-one>
+        <many-to-one name="company" class="DataBase.Company" fetch="select">
+            <column name="companyid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="liuDongFuZ" class="DataBase.LiuDongFuZ" fetch="select">
+            <column name="ldfzId" />
+        </many-to-one>
+        <many-to-one name="xianJinLl" class="DataBase.XianJinLl" fetch="select">
+            <column name="xjlyId" />
+        </many-to-one>
+        <many-to-one name="nliuDongFuZ" class="DataBase.NliuDongFuZ" fetch="select">
+            <column name="fldfzId" />
+        </many-to-one>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="year" type="string">
+            <column name="year" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

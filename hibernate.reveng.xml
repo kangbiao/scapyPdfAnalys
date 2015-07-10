@@ -3,9 +3,19 @@
 
 <hibernate-reverse-engineering>
   <table-filter match-catalog="CompanyDocs" match-name="Company"/>
+  <table-filter match-catalog="CompanyDocs" match-name="CompanyTable"/>
   <table-filter match-catalog="CompanyDocs" match-name="File"/>
   <table-filter match-catalog="CompanyDocs" match-name="FileCompany"/>
   <table-filter match-catalog="CompanyDocs" match-name="FileTag"/>
+  <table-filter match-catalog="CompanyDocs" match-name="LiuDongFuZ"/>
+  <table-filter match-catalog="CompanyDocs" match-name="LiuDongZiC"/>
+  <table-filter match-catalog="CompanyDocs" match-name="NLiuDongFuZ"/>
+  <table-filter match-catalog="CompanyDocs" match-name="NoLiuDongZC"/>
+  <table-filter match-catalog="CompanyDocs" match-name="SuoYouZQY"/>
+  <table-filter match-catalog="CompanyDocs" match-name="SuoYouZQYMain"/>
   <table-filter match-catalog="CompanyDocs" match-name="Tag"/>
   <table-filter match-catalog="CompanyDocs" match-name="User"/>
+  <table-filter match-catalog="CompanyDocs" match-name="XianJinLL"/>
+  <table-filter match-catalog="CompanyDocs" match-name="YinYeLiRun"/>
+  <table-filter match-catalog="CompanyDocs" match-name="YinYeShouY"/>
 </hibernate-reverse-engineering>
