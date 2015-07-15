@@ -1,6 +1,6 @@
 package DataBase;
 
-// Generated 2015-6-24 20:13:35 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-7-14 14:07:08 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -21,6 +21,7 @@ public class File implements java.io.Serializable {
 	private Date time;
 	private int status;
 	private Set<FileCompany> fileCompanies = new HashSet<FileCompany>(0);
+	private Set<CompanyTable> companyTables = new HashSet<CompanyTable>(0);
 	private Set<FileTag> fileTags = new HashSet<FileTag>(0);
 
 	public File() {
@@ -34,13 +35,15 @@ public class File implements java.io.Serializable {
 	}
 
 	public File(String filename, String pdfpath, String htmlpath, Date time,
-			int status, Set<FileCompany> fileCompanies, Set<FileTag> fileTags) {
+			int status, Set<FileCompany> fileCompanies,
+			Set<CompanyTable> companyTables, Set<FileTag> fileTags) {
 		this.filename = filename;
 		this.pdfpath = pdfpath;
 		this.htmlpath = htmlpath;
 		this.time = time;
 		this.status = status;
 		this.fileCompanies = fileCompanies;
+		this.companyTables = companyTables;
 		this.fileTags = fileTags;
 	}
 
@@ -98,6 +101,14 @@ public class File implements java.io.Serializable {
 
 	public void setFileCompanies(Set<FileCompany> fileCompanies) {
 		this.fileCompanies = fileCompanies;
+	}
+
+	public Set<CompanyTable> getCompanyTables() {
+		return this.companyTables;
+	}
+
+	public void setCompanyTables(Set<CompanyTable> companyTables) {
+		this.companyTables = companyTables;
 	}
 
 	public Set<FileTag> getFileTags() {

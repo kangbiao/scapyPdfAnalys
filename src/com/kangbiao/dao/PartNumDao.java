@@ -22,22 +22,25 @@ public class PartNumDao
 	// 获取总的文档数量
 	public String getDocumentNum()
 	{
-		return  FileDataControl.getControl().getFileNums()+"";
+		return FileDataControl.getControl().getFileNums()+"";
 	}
 
 	// 获取待处理的文档数量
 	public String getFailDocumentNum()
 	{
-		return FileDataControl.getControl().getUnDealFileNums()+"";
+		return "\n失败/总处理 : "
+				+ FileDataControl.getControl().getUnDealFileNums() + "/"
+				+ FileDataControl.getControl().getFileNums();
 	}
 
 	// 获取爬虫状态
 	public String getReptileStatus()
 	{
 		if(NetControl.getRunStatus()==Reptile.STOP)
-		   return "<font color='red'>已停止</font>";
+		  return "<font color='red'>已停止</font>";
 		else if(NetControl.getRunStatus()==Reptile.RUNNING)
-			return "<font color='green'>正在运行!</font>";
-		return "<font color='yellow'>已挂起!</font>";
+			return "<font color='green'>正在运行</font>";
+		return "<font color='yellow'>已挂起</font>";
 	}
+
 }

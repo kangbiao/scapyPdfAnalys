@@ -1,41 +1,44 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-6-25 13:36:57 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-7-14 14:07:09 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="DataBase.CompanyTable" table="CompanyTable" catalog="CompanyDocs">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="noLiuDongZc" class="DataBase.NoLiuDongZc" fetch="select">
+        <many-to-one name="noLiuDongZc" class="DataBase.NoLiuDongZc" fetch="select" lazy="false">
             <column name="fldzjId" />
         </many-to-one>
-        <many-to-one name="suoYouZqymain" class="DataBase.SuoYouZqymain" fetch="select">
+        <many-to-one name="suoYouZqymain" class="DataBase.SuoYouZqymain" fetch="select" lazy="false">
             <column name="syzqyId" />
         </many-to-one>
-        <many-to-one name="yinYeLiRun" class="DataBase.YinYeLiRun" fetch="select">
+        <many-to-one name="yinYeLiRun" class="DataBase.YinYeLiRun" fetch="select" lazy="false">
             <column name="yylyId" />
         </many-to-one>
-        <many-to-one name="liuDongZiC" class="DataBase.LiuDongZiC" fetch="select">
+        <many-to-one name="file" class="DataBase.File" fetch="select" lazy="false">
+            <column name="fileid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="liuDongZiC" class="DataBase.LiuDongZiC" fetch="select" lazy="false">
             <column name="ldzjId" />
         </many-to-one>
-        <many-to-one name="suoYouZqy" class="DataBase.SuoYouZqy" fetch="select">
+        <many-to-one name="suoYouZqy" class="DataBase.SuoYouZqy" fetch="select" lazy="false">
             <column name="suoyzId" />
         </many-to-one>
-        <many-to-one name="yinYeShouY" class="DataBase.YinYeShouY" fetch="select">
+        <many-to-one name="yinYeShouY" class="DataBase.YinYeShouY" fetch="select" lazy="false">
             <column name="yysrId" />
         </many-to-one>
-        <many-to-one name="company" class="DataBase.Company" fetch="select">
+        <many-to-one name="company" class="DataBase.Company" fetch="select" lazy="false">
             <column name="companyid" not-null="true" />
         </many-to-one>
-        <many-to-one name="liuDongFuZ" class="DataBase.LiuDongFuZ" fetch="select">
+        <many-to-one name="liuDongFuZ" class="DataBase.LiuDongFuZ" fetch="select" lazy="false">
             <column name="ldfzId" />
         </many-to-one>
-        <many-to-one name="xianJinLl" class="DataBase.XianJinLl" fetch="select">
+        <many-to-one name="xianJinLl" class="DataBase.XianJinLl" fetch="select" lazy="false">
             <column name="xjlyId" />
         </many-to-one>
-        <many-to-one name="nliuDongFuZ" class="DataBase.NliuDongFuZ" fetch="select">
+        <many-to-one name="nliuDongFuZ" class="DataBase.NliuDongFuZ" fetch="select" lazy="false">
             <column name="fldfzId" />
         </many-to-one>
         <property name="status" type="int">

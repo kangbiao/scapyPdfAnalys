@@ -25,7 +25,8 @@ import ServerTools.ServletTools;
 @WebServlet("/FileDeal")
 public class FileDeal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private static final String fileid="fileidString";
+	private static final String TYPE="type";
     public FileDeal() {
         super();
     }
@@ -37,22 +38,11 @@ public class FileDeal extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletTools.charSet(request, response);
 		ReturnDataTools re=new ReturnDataTools();
-		StringBuilder jsonString=new StringBuilder();
-		JSONObject json=null;
-		try{
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					request.getInputStream(), "UTF-8"));
-			int ch;
-			while((ch=in.read())!=-1)
-				jsonString.append((char)ch);
-			json=new JSONObject(jsonString.toString());
-		}catch(Exception e){
-			re.setSuccess(false);
-			response.getWriter().write(re.toString());
-		}
-		String id[]=json.getString("fileidString").split(",");
+		
+		String id[]=request.getParameter(fileid).split(",");
+		String type=request.getParameter(TYPE);
 		for(int i=0;i<id.length;i++){
-			if(json.getBoolean("type"))
+			if(type.equals("true"))
 				dealFile(Integer.valueOf(id[i]));
 			else  ignoFile(Integer.valueOf(id[i]));
 		}
@@ -63,7 +53,8 @@ public class FileDeal extends HttpServlet {
 	/* 处理 */
 	private void dealFile(int id){
 		File mfile=FileDataControl.getControl().getFileById(id);
-		TableDispathcher.getTableDispathcher().putFiledata(mfile);
+		mfile.setStatus(File.SUCCESS);
+		HibernateTools.updateData(mfile);
 	}
 	/* 忽略 */
 	private void ignoFile(int id){

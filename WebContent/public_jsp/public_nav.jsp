@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-	<div class="row" style="height:20px"></div>
+	<div class="container">
+	<%--<div class="row" style="height:20px"></div>--%>
     <div class="row">
 			<div class="navbar navbar-default" style="background-color:#1c588f;color:white" role="navigation">
 			<div class="navbar-header">
@@ -22,7 +22,7 @@
 					<li><a href="index.jsp">系统首页</a></li>
 					<li><a href="list.jsp">文档信息</a></li>
 					<li><a href="statistable.jsp">数据统计</a></li>
-					<li><a href="user.jsp">个人设置</a></li>
+					<li><a href="user.jsp">系统设置</a></li>
 				</ul>
 				<p style="float:right;height:10ox;margin-top:15px;">欢迎你:Admin</p>
 			</div>

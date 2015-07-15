@@ -21,13 +21,17 @@ public class NetConf {
 	private static final String TASKHOUR = "taskhour"; /* 每次开始运行的时间(时) */
 	private static final String TASKMINUTE = "taskmin"; /* 每次开始运行的时间(分) */
 	private static final String TASKSECOND = "tasksecond"; /* 每次开始运行的时间(秒) */
-
+	private static final String ISRIGHTSUS="isrightsus";
+	private static final String GETNUM="getnum";
+	
 	private static String Confpath = "netconf";
 
 	private String time;  /* 时间戳 */
 	private int taskhour;
 	private int taskmin;
 	private int tasksecond;
+	private int dealnum;
+	private boolean isRightSus;
 
 	private static JSONObject json; /* 防止Gson 将它转成JSON */
 
@@ -51,6 +55,8 @@ public class NetConf {
 			setTaskHour(json.getInt(TASKHOUR));
 			setTaskMin(json.getInt(TASKMINUTE));
 			setTaskSecond(json.getInt(TASKSECOND));
+			setRightSus(json.getBoolean(ISRIGHTSUS));
+			setDealnum(json.getInt(GETNUM));
 			json = null;
 		} catch (FileNotFoundException e) {
 			/* 配置文件不存在 异常 */
@@ -61,6 +67,8 @@ public class NetConf {
 			setTaskHour(23);
 			setTaskMin(59);
 			setTaskSecond(59);
+			setRightSus(true);
+			setDealnum(0);
 		}
 	}
 
@@ -105,5 +113,20 @@ public class NetConf {
 
 	public void setTaskSecond(int second) {
 		this.tasksecond=second;
+	}
+	public int getDealnum() {
+		return dealnum;
+	}
+
+	public void setDealnum(int dealnum) {
+		this.dealnum = dealnum;
+	}
+
+	public boolean isRightSus() {
+		return isRightSus;
+	}
+
+	public void setRightSus(boolean isRightSus) {
+		this.isRightSus = isRightSus;
 	}
 }

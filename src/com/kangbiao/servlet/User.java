@@ -33,14 +33,14 @@ public class User extends HttpServlet
 		}
 		else if (action.equals("adduser"))
 		{
-			
+
 		}
 		else if (action.equals("deluser"))
 		{
-			
+
 		}
 		else if (action.equals("edituser")) {
-			
+
 		}
 //		DocumentDao documentDao = new DocumentDao();
 //		AjaxReturnDocInfo ajaxReturnDocInfo = new AjaxReturnDocInfo();

@@ -25,6 +25,7 @@ public class TableGet extends HttpServlet {
 	private static final String COMPANYNAME="companyName";
 	private static final String TABLETYPE="tableType";
 	private static final String TABLEPART="tablePart";
+	private static final String COLUMNS="tableColumns";
 	private static final String YEAR="year";
 	private static final String STATUS="status";
 	
@@ -39,9 +40,10 @@ public class TableGet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletTools.charSet(request, response);
 		TableJsonTools table=new TableJsonTools();//返回表格数据
-		String companyName,year;
+		String companyName,year,columns;
 		int status,tableType,tablePart;
 		companyName=request.getParameter(COMPANYNAME);
+		columns=request.getParameter(COLUMNS);
 		tableType=Integer.valueOf(request.getParameter(TABLETYPE));
 		tablePart=Integer.valueOf(request.getParameter(TABLEPART));
 		year=request.getParameter(YEAR);
@@ -51,14 +53,21 @@ public class TableGet extends HttpServlet {
 		ArrayList<String> tablearr=TableTools.getTableHead(tableType);//表头
 		ArrayList<ArrayList> data=new ArrayList<ArrayList>(); //数据
 		String name[]=companyName.split(",");//公司名称
+		
 		//获取表格
 		for(int i=0;i<name.length;i++){
 			CompanyTable mtable = TableDataControl.getControl()
 					.getTableByFilteValue(name[i], year, status);
-			if(mtable==null)
+			if(mtable==null){
 				data.add(createNullList(name[i],tablearr.size()));
+				continue;
+			}
 			 //获得表数据项目
-			data.addAll(TableTools.getTableItem(mtable, tableType, tablePart));
+			if(columns==null||columns.equals("")){
+				data.addAll(TableTools.getTableItem(mtable, tableType, tablePart,null));
+			}else{
+				data.addAll(TableTools.getTableItem(mtable, tableType, tablePart,columns.split(",")));
+			}
 			data.add(createSplitList(tablearr.size()));
 		}
 		
@@ -66,6 +75,7 @@ public class TableGet extends HttpServlet {
 		table.putData(data);
 		table.setSuccess(true);
 		response.getWriter().write(table.toString());
+		System.gc();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -62,44 +62,44 @@ public class IndexCreate {
 		String folder=new File(htmlpath).getParent();
 		String FrameFile=createFrameFile();
 
-		LinkedList<TempLink> list=new LinkedList<TempLink>();
-		File file=new File(htmlpath);
-		Document doc=null;
-		try{
-		doc=Jsoup.parse(file, null);
-		}catch(Exception e){
-			return ;
-		}
-		Elements ptext=doc.select("p");
-		int kind=0;
-		int position=1;
-		for (Element ele : ptext) {
-			if(ele.text().length()>25||ele.text().length()<5) continue;
-			if ((kind=isIndex(ele.text()))!=-1){
-				ele.before(LinkItem.replace("@", "N"+position));
-				list.add(new TempLink("N"+position++, ele.text()));
-			}
-		}
-		savaFile(file, doc.html());  //保存修改
-		
-		/*创建索引*/
-		StringBuilder sbuilder=new StringBuilder();
-		for(TempLink link:list){
-			String item=LinkHref.replace("@",link.at);
-			item=item.replace("$", link.content);
-			sbuilder.append(item);
-		}
-		FrameFile=FrameFile.replace(FrameReplace, sbuilder.toString());
-		File mfile=new File(folder+File.separator+"frame.html");
-		savaFile(mfile, FrameFile);
-		File mainfile=new File(folder+File.separator+"main.html");
-		File orgfile=new File(ServerPublic.CONFFOLD+File.separator+"main.html");
-		savaFile(mainfile, FileReadTools.TextFileRead(orgfile));
+//		LinkedList<TempLink> list=new LinkedList<TempLink>();
+//		File file=new File(htmlpath);
+//		Document doc=null;
+//		try{
+//		doc=Jsoup.parse(file, null);
+//		}catch(Exception e){
+//			return ;
+//		}
+//		Elements ptext=doc.select("p");
+//		int kind=0;
+//		int position=1;
+//		for (Element ele : ptext) {
+//			if(ele.text().length()>25||ele.text().length()<5) continue;
+//			if ((kind=isIndex(ele.text()))!=-1){
+//				ele.before(LinkItem.replace("@", "N"+position));
+//				list.add(new TempLink("N"+position++, ele.text()));
+//			}
+//		}
+//		savaFile(file, doc.html());  //保存修改
+//		
+//		/*创建索引*/
+//		StringBuilder sbuilder=new StringBuilder();
+//		for(TempLink link:list){
+//			String item=LinkHref.replace("@",link.at);
+//			item=item.replace("$", link.content);
+//			sbuilder.append(item);
+//		}
+//		FrameFile=FrameFile.replace(FrameReplace, sbuilder.toString());
+//		File mfile=new File(folder+File.separator+"frame.html");
+//		savaFile(mfile, FrameFile);
+//		File mainfile=new File(folder+File.separator+"main.html");
+//		File orgfile=new File(ServerPublic.CONFFOLD+File.separator+"main.html");
+//		savaFile(mainfile, FileReadTools.TextFileRead(orgfile));
 		DataBase.File dbfile=FileDataControl.getControl().getFileByhtml(htmlpath.replace(ServerPublic.FolderPath, ""));
 		if(dbfile==null)
 			return ;
-		  dbfile.setHtmlpath(mainfile.getAbsolutePath().replace(ServerPublic.FolderPath, ""));
-		HibernateTools.updateData(dbfile);
+//		  dbfile.setHtmlpath(mainfile.getAbsolutePath().replace(ServerPublic.FolderPath, ""));
+//		HibernateTools.updateData(dbfile);
 		
 		/* 通知表格提取进程提取表格数据 */
 		TableDispathcher.getTableDispathcher().putFiledata(dbfile);

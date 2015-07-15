@@ -68,21 +68,30 @@ public class FileDataControl {
 		return file;
 	}
 	
-	public int getFileNums(){
-		String hql = "from File file ";
+	public long getFileNums(){
+		String hql = "select count(*) from File file ";
 		Session session = HibernateTools.getSession();
 		Transaction tran = session.beginTransaction();
-		List<File> list = session.createQuery(hql).list();
+		List list = session.createQuery(hql).list();
 		HibernateTools.closeSession(session, tran);
-		return list.size();
+		return (Long)list.get(0);
 	}
 	
-	public int getUnDealFileNums(){
-		String hql = "from File file where file.status ="+File.FAIL;
+	public long getUnDealFileNums(){
+		String hql = "select count(*) from File file where file.status ="+File.FAIL;
 		Session session = HibernateTools.getSession();
 		Transaction tran = session.beginTransaction();
-		List<File> list = session.createQuery(hql).list();
+		List list = session.createQuery(hql).list();
+		HibernateTools.closeSession(session, tran);	
+		return (Long)list.get(0);
+	}
+	
+	public long getDealTableFileNum(){
+		String hql = "select count(*) from CompanyTable tab ";
+		Session session = HibernateTools.getSession();
+		Transaction tran = session.beginTransaction();
+		List list = session.createQuery(hql).list();
 		HibernateTools.closeSession(session, tran);
-		return list.size();
+		return (Long)list.get(0);
 	}
 }

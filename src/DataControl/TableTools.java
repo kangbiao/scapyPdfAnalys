@@ -1,8 +1,18 @@
 package DataControl;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import DataBase.CompanyTable;
+import DataBase.LiuDongFuZ;
+import DataBase.LiuDongZiC;
+import DataBase.NliuDongFuZ;
+import DataBase.NoLiuDongZc;
+import DataBase.SuoYouZqy;
+import DataBase.XianJinLl;
+import DataBase.YinYeLiRun;
+import DataBase.YinYeShouY;
+import NetReptile.DataFormat.LogTool;
 /**
  * 创造表数据
  * @author liaoshichao
@@ -56,793 +66,290 @@ public class TableTools {
 		return item;
 	}
 	
-	public static ArrayList<ArrayList> getTableItem(CompanyTable tab,int tabletype,int tablepart){
-		ArrayList<ArrayList> item=null;
-		switch(tabletype+tablepart){
+	/**
+	 * 获取完整的第三级表
+	 * @param tab CompanyTable
+	 * @param tabletype 表格type
+	 * @param tablepart 表格part
+	 * @return
+	 */
+	public static ArrayList<ArrayList> getTableItem(CompanyTable tab,int tabletype, int tablepart,String column[]) {
+		ArrayList<ArrayList> item = null;
+		switch (tabletype) {
 		case ZCFZ:
-			item=getZCFZItem(tab,tablepart);
+			try {
+				item = getZCFZItem(tab, tablepart,column);
+			} catch (Exception e) {
+				LogTool.E("error in TableTools getTableItem:ZCFZ--->" + e.toString());
+			}
 			break;
 		case LRB:
-			item=getLRBItem(tab,tablepart);
+			try {
+				item = getLRBItem(tab, tablepart,column);
+			} catch (Exception e) {
+				LogTool.E("error in TableTools getTableItem:LRB--->" + e.toString());
+			}
 			break;
 		case XJLL:
-			item=getXJLLItem(tab,tablepart);
+			try {
+				item = getXJLLItem(tab, tablepart,column);
+			} catch (Exception e) {
+				LogTool.E("error in TableTools getTableItem:XJLL--->" + e.toString());
+			}
 			break;
 		case SYZQYBD:
-			item=getSYZQYBDItem(tab,tablepart);
+			try {
+				item = getSYZQYBDItem(tab, tablepart,column);
+			} catch (Exception e) {
+				LogTool.E("error in TableTools getTableItem--->" + e.toString());
+			}
 			break;
-			default : break;
+		default:
+			break;
+		}
+		return item;
+	}
+	/**
+	 * create Column 数组便于利用反射获取数据
+	 * @param length
+	 * @return
+	 */
+	private static String [] createColumn(int length){
+		String column[]=new String[length];
+		for(int i=1;i<length+1;i++)
+			column[i-1]=i+"";
+		return column;
+	}
+	
+	private static ArrayList<ArrayList> getZCFZItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+		ArrayList<String> oiten;
+		int i=0;
+		switch(tablepart){
+		case 0:
+			oiten=new ArrayList<String>();
+			break;
+		case 1:
+			if(column==null)
+				column=createColumn(TableItem.LDZC.length);
+			LiuDongZiC ldzc=tab.getLiuDongZiC();
+			Class clsldzc=ldzc.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.LDZC[Integer.valueOf(column[n])-1]);
+				Method method=clsldzc.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(ldzc));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			// 12
+			break;
+		case 2:
+			if(column==null)
+				column=createColumn(TableItem.FLDZC.length);
+			NoLiuDongZc nldzc=tab.getNoLiuDongZc();
+			Class clsnldzc=nldzc.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.FLDZC[Integer.valueOf(column[n])-1]);
+				Method method=clsnldzc.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(nldzc));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			//  18
+			break;
+		case 3:
+			if(column==null)
+				column=createColumn(TableItem.LDFZ.length);
+			LiuDongFuZ ldfz=tab.getLiuDongFuZ();
+			Class clsldfz=ldfz.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.LDFZ[Integer.valueOf(column[n])-1]);
+				Method method=clsldfz.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(ldfz));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			//  13
+			break;
+		case 4:
+			if(column==null)
+				column=createColumn(TableItem.FLDFZ.length);
+			NliuDongFuZ fldfz=tab.getNliuDongFuZ();
+			Class clsfldfz=fldfz.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.FLDFZ[Integer.valueOf(column[n])-1]);
+				Method method=clsfldfz.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(fldfz));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			// 8
+			break;
+		case 5:
+			if(column==null)
+				column=createColumn(TableItem.SYZQY.length);
+			SuoYouZqy syzqy=tab.getSuoYouZqy();
+			Class clssyzqy=syzqy.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.SYZQY[Integer.valueOf(column[n])-1]);
+				Method method=clssyzqy.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(syzqy));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			//  11
+			break;
+			default: break;
+		}
+		return item;
+	}
+	private static ArrayList<ArrayList> getLRBItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+		ArrayList<String> oiten;
+		int i=0;
+		switch(tablepart){
+		case 0:
+			i=0;
+			break;
+		case 1:
+			if(column==null)
+				column=createColumn(TableItem.YinYSY.length);
+			YinYeShouY yysy=tab.getYinYeShouY();
+			Class clsyysy=yysy.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.YinYSY[Integer.valueOf(column[n])-1]);
+				Method method=clsyysy.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(yysy));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			// 11
+			break;
+		case 2:
+			if(column==null)
+				column=createColumn(TableItem.YinYLR.length);
+			YinYeLiRun yylr=tab.getYinYeLiRun();
+			Class clsyylr=yylr.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.YinYLR[Integer.valueOf(column[n])-1]);
+				Method method=clsyylr.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(yylr));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			//16
+			break;
+			default: break;
+		}
+		return item;
+	}
+	private static ArrayList<ArrayList> getXJLLItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+		ArrayList<String> oiten;
+		switch(tablepart){
+		case 1:
+			if(column==null)
+				column=createColumn(TableItem.XJLL.length);
+			XianJinLl xjll=tab.getXianJinLl();
+			Class clsxjll=xjll.getClass();
+			for(int n=0;n<column.length;n++){
+				oiten=new ArrayList<String>();
+				oiten.add(tab.getCompany().getName());
+				oiten.add(TableItem.XJLL[Integer.valueOf(column[n])-1]);
+				Method method=clsxjll.getDeclaredMethod("getItem"+column[n]);
+				String temp=(String)(method.invoke(xjll));
+				String t1="",t2="";
+				try{
+					t1=temp.split(",")[0];
+					t2=temp.split(",")[1];
+				}catch(Exception e){
+					t1=t2="-";
+				}
+				oiten.add(t1);
+				oiten.add(t2);
+				item.add(oiten);
+			}
+			//28
+			break;
+			default: break;
 		}
 		return item;
 	}
 	
-	private static ArrayList<ArrayList> getZCFZItem(CompanyTable tab,int tablepart){
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
-		ArrayList<String> oiten;
-		int i=0;
-		switch(tablepart){
-		case 0:
-			oiten=new ArrayList<String>();
-			
-			break;
-		case 1:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem1().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem2().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem3().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem4().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem5().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem6().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem7().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem8().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem9().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem10().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem11().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem11().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDZC[i++]);
-			oiten.add(tab.getLiuDongZiC().getItem12().split(",")[0]);
-			oiten.add(tab.getLiuDongZiC().getItem12().split(",")[1]);
-			item.add(oiten);
-			break;
-		case 2:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem1().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem2().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem3().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem4().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem5().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem6().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem7().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem8().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem9().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem10().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem11().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem11().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem12().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem12().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem13().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem13().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem14().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem14().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem15().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem15().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem16().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem16().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem17().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem17().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDZC[i++]);
-			oiten.add(tab.getNoLiuDongZc().getItem18().split(",")[0]);
-			oiten.add(tab.getNoLiuDongZc().getItem18().split(",")[1]);
-			item.add(oiten);
-			break;
-		case 3:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem1().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem2().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem3().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem4().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem5().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem6().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem7().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem8().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem9().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem10().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem11().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem11().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem12().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem12().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.LDFZ[i++]);
-			oiten.add(tab.getLiuDongFuZ().getItem13().split(",")[0]);
-			oiten.add(tab.getLiuDongFuZ().getItem13().split(",")[1]);
-			item.add(oiten);
-			break;
-		case 4:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem1().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem2().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem3().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem4().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem5().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem6().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem7().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.FLDFZ[i++]);
-			oiten.add(tab.getNliuDongFuZ().getItem8().split(",")[0]);
-			oiten.add(tab.getNliuDongFuZ().getItem8().split(",")[1]);
-			item.add(oiten);
-			break;
-		case 5:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem1().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem2().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem3().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem4().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem5().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem6().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem7().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem8().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem9().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem10().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.SYZQY[i++]);
-			oiten.add(tab.getSuoYouZqy().getItem11().split(",")[0]);
-			oiten.add(tab.getSuoYouZqy().getItem11().split(",")[1]);
-			item.add(oiten);
-			break;
-			default: break;
-		}
-		return item;
-	}
-	private static ArrayList<ArrayList> getLRBItem(CompanyTable tab,int tablepart){
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
-		ArrayList<String> oiten;
-		int i=0;
-		switch(tablepart){
-		case 0:
-			i=0;
-			
-			break;
-		case 1:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem1().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem2().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem3().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem4().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem5().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem6().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem7().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem8().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem9().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem10().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYSY[i++]);
-			oiten.add(tab.getYinYeShouY().getItem11().split(",")[0]);
-			oiten.add(tab.getYinYeShouY().getItem11().split(",")[1]);
-			item.add(oiten);
-			break;
-		case 2:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem1().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem2().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem3().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem4().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem5().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem6().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem7().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem8().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem9().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem10().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem11().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem11().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem12().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem12().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem13().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem13().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem14().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem14().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem15().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem15().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.YinYLR[i++]);
-			oiten.add(tab.getYinYeLiRun().getItem16().split(",")[0]);
-			oiten.add(tab.getYinYeLiRun().getItem16().split(",")[1]);
-			item.add(oiten);
-			
-			break;
-			default: break;
-		}
-		return item;
-	}
-	private static ArrayList<ArrayList> getXJLLItem(CompanyTable tab,int tablepart){
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
-		ArrayList<String> oiten;
-		int i=0;
-		switch(tablepart){
-		case 1:
-			i=0;
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem1().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem1().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem2().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem2().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem3().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem3().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem4().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem4().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem5().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem5().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem6().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem6().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem7().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem7().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem8().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem8().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem9().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem9().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem10().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem10().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem11().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem11().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem12().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem12().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem13().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem13().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem14().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem14().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem15().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem15().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem16().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem16().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem17().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem17().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem18().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem18().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem19().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem19().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem20().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem20().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem21().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem21().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem22().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem22().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem23().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem23().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem24().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem24().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem25().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem25().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem26().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem26().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem27().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem27().split(",")[1]);
-			item.add(oiten);
-			oiten=new ArrayList<String>();
-			oiten.add(tab.getCompany().getName());
-			oiten.add(TableItem.XJLL[i++]);
-			oiten.add(tab.getXianJinLl().getItem28().split(",")[0]);
-			oiten.add(tab.getXianJinLl().getItem28().split(",")[1]);
-			item.add(oiten);
-			break;
-			default: break;
-		}
-		return item;
-	}
-	private static ArrayList<ArrayList> getSYZQYBDItem(CompanyTable tab,int tablepart){
+	private static ArrayList<ArrayList> getSYZQYBDItem(CompanyTable tab,int tablepart,String column[]){
 		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
 		switch(tablepart){
 		case 0:
-			
 			break;
 			default: break;
 		}

@@ -17,4 +17,6 @@ public interface Reptile {
 	void DealInfo();
 	
 	int runStatus();
+	
+	void setPlanTime(int h,int m);
 }

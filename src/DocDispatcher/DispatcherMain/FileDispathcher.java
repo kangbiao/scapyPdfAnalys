@@ -72,14 +72,14 @@ public class FileDispathcher {
 			   .append(htmlholder).append(ServerPublic.HTMLINDEX);
 			try {
 				Runtime runtime=Runtime.getRuntime();
-				runtime.exec(builder.toString());
+				Process ps=runtime.exec(builder.toString());
+				ps.waitFor();
 				DataBase.File file=FileDataControl.getControl().getFileByPath(pdf.getFilepath().replace(ServerPublic.FolderPath, ""));
 				file.setHtmlpath(htmlpath.replace(ServerPublic.FolderPath, ""));
 				HibernateTools.updateData(file);
-				
 				/* 目录提取 */
 				IndexCreate.getIndexCreate().createIndex(htmlpath);
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

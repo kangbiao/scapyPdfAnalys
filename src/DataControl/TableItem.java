@@ -4,40 +4,9 @@ import java.util.HashMap;
 
 
 public class TableItem {
-	public static final String[] TableName=new String[]{
-		"",
-		"",
-		"",
-		""
-	};
-	public static  HashMap<Integer, String[]> ItemMap=new HashMap<Integer, String[]>();
-	static{
-		String mZCFZ[]=new String[]{
-				"流动资产",
-				"非流动资产",
-				"流动负债",
-				"非流动负债",
-				"所有者权益(或股东权益)"
-		};
-		String mXJLL[]=new String[]{
-				"营业总收入",
-				"营业利润"
-		};
-		String mLRB[]=new String[]{
-				"现金流量"
-		};
-		String mSYZQY[]=new String[]{
-				"所有者权益"
-		};
-		ItemMap.put(TableTools.ZCFZ, mZCFZ);
-		ItemMap.put(TableTools.XJLL, mXJLL);
-		ItemMap.put(TableTools.LRB, mLRB);
-		ItemMap.put(TableTools.SYZQYBD, mSYZQY);
-		
-	}
 	public static final String [] LDZC=new String[]{
 		"货币资金",
-		"交易性金融资产",
+		"金融资产",
 		"应收票据",
 		"应收账款",
 		"预付款项",
@@ -71,7 +40,7 @@ public class TableItem {
 	};
 	public static final String [] LDFZ=new String[]{
 		"短期借款",
-		"交易性金融负债",
+		"金融负债",
 		"应付票据",
 		"应付账款",
 		"预收款项",
@@ -97,58 +66,58 @@ public class TableItem {
 	};
 	
 	public static final String [] SYZQY=new String[]{
-		"实收资本(或股本)",
+		"股本",
 		"资本公积",
-		"减:库存股",
-		"其他综合收益",
+		"库存股",
 		"专项储备",
 		"盈余公积",
 		"未分配利润",
 		"外币报表折算差额",
-		"归属于母公司所有者权益合计",
+		"归属于母公司",
 		"少数股东权益",
-		"所有者权益合计"
+		"权益合计",
+		"权益总计"
 	};
 	
 	public static final String [] YinYSY=new String[]{
-		"其中:营业收入",
-		"其中:营业成本",
+		"营业收入",
+		"营业成本",
 		"营业税金及附加",
 		"销售费用",
 		"管理费用",
 		"财务费用",
 		"资产减值损失",
-		"加:公允价值变动收益",
+		"公允价值变动收益",
 		"投资收益",
-		"其中:对联营企业和合营企业的投资收益",
-		"汇总收益"
+		"对联营企业和合营",
+		""
 	};
 	
 	public static final String [] YinYLR=new String[]{
 		"营业外收入",
-		"非流动资产处置利得",
+		"",
 		"营业外支出",
 		"非流动资产处置损失",
 		"利润总额",
-		"减:所得税费用",
+		"所得税费用",
 		"净利润",
-		"归属于母公司所有者的净利润",
+		"归属于母公司",
 		"少数股东损益",
 		"每股收益",
 		"基本每股收益",
 		"稀释每股收益",
 		"其他综合收益",
 		"综合收益总额",
-		"归属于母公司所有者的综合收益",
-		"归属于少数股东的综合收益"
+		"归属于母公司",
+		"归属于少数股东"
 	};
 	
 	public static final String [] XJLL=new String[]{
-		"销售商品、提供劳务收到的现金",
+		"提供劳务收到的现金",
 		"收到的税费返还",
 		"收到其他与经营活动有关的现金",
 		"经营活动现金流入小计",
-		"购买商品，接受劳务支付的现金",
+		"接受劳务支付的现金",
 		"支付给职工以及为职工支付的现金",
 		"支付的各项税费",
 		"支付其他与经营活动有关的现金",
@@ -157,20 +126,20 @@ public class TableItem {
 		"投资活动产生的现金流量",
 		"收回投资收到的现金",
 		"取得投资收益收到的现金",
-		"处置固定资产…收回的现金净额",
+		"无形资产和其他长期资产收回",
 		"处置子公司及其他营业单位收到的现金净额",
 		"收到其他与投资活动有关的现金",
 		"投资活动现金流入小计",
-		"购建固定资产，无形资产和其他长期资产支付的现金",
+		"无形资产和其他长期资产支付",
 		"投资支付的现金",
 		"取得子公司及其他营业单位支付的现金净额",
 		"支付其他与投资活动有关的现金",
 		"投资活动现金流出小计",
-		"投资活动产生的现金流量净额",
-		"筹资活动产生的现金流量净额",
+		"投资活动",
+		"筹资活动",
 		"汇率变动对现金及现金等价物的影响",
 		"现金及现金等价物净增加额",
-		"加:期初现金及现金等价物余额",
+		"期初现金及现金等价物余额",
 		"期末现金及现金等价物余额"
 	};
 	
@@ -201,4 +170,50 @@ public class TableItem {
 		"",
 		""
 	};
+	
+	public static final String[] TableName=new String[]{
+		"",
+		"",
+		"",
+		""
+	};
+	public static  HashMap<Integer, String[]> ItemMap=new HashMap<Integer, String[]>();
+	public static  HashMap<Integer, String[]> ZCFZMap=new HashMap<Integer, String[]>();
+	public static  HashMap<Integer, String[]> LRMap=new HashMap<Integer, String[]>();
+	public static  HashMap<Integer, String[]> XJLLMap=new HashMap<Integer, String[]>();
+	public static  HashMap<Integer, String[]> SYZQYMap=new HashMap<Integer, String[]>();
+	static{
+		ZCFZMap.put(1, LDZC);
+		ZCFZMap.put(2, FLDZC);
+		ZCFZMap.put(3, LDFZ);
+		ZCFZMap.put(4, FLDFZ);
+		ZCFZMap.put(5, SYZQY);
+		LRMap.put(1, YinYSY);
+		LRMap.put(2, YinYLR);
+		XJLLMap.put(1, XJLL);
+		SYZQYMap.put(1, SYouZQYMain);
+		String mZCFZ[]=new String[]{
+				"流动资产",
+				"非流动资产",
+				"流动负债",
+				"非流动负债",
+				"所有者权益(或股东权益)"
+		};
+		String mXJLL[]=new String[]{
+				"现金流量"
+		};
+		String mLRB[]=new String[]{
+				"营业总收入",
+				"营业利润"
+		};
+		String mSYZQY[]=new String[]{
+				"所有者权益"
+		};
+		ItemMap.put(TableTools.ZCFZ, mZCFZ);
+		ItemMap.put(TableTools.LRB, mLRB);
+		ItemMap.put(TableTools.XJLL, mXJLL);
+//		ItemMap.put(TableTools.SYZQYBD, mSYZQY);
+		
+	}
+
 }

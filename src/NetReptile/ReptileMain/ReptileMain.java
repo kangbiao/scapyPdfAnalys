@@ -30,9 +30,14 @@ public class ReptileMain implements Reptile{
 	private static final int THREADNUM = 4;   /* 并发的线程数量 */
 	private static boolean Running=false;
 	private static int runStatus=-1;
-	
+	/**
+	 * 已经获取的公司
+	 */
+	private static int getNum=0;
 	/* 运行线程数量 */
 	private static int runThreadNum;
+	/* 是否检查数量 */
+	private static boolean isCheckNumForRun=false;
 	
 	/* 链表存储公司编号等基本数据,供子线程抓取 */
 	private LinkedList<CompanyData> list;
@@ -59,6 +64,8 @@ public class ReptileMain implements Reptile{
 		get = new HttpGet(Internet.DATAURL);
 		Running=true;
 		runStatus=Reptile.RUNNING;
+		isCheckNumForRun=false;
+		getNum=0;
 		LogTool.I("Init ReptileMain ReptileMain running!");
 	}
     /* 对接口的实现 */
@@ -71,14 +78,17 @@ public class ReptileMain implements Reptile{
 	}
 	/*关闭*/
 	public void closeReptile(){
-		runStatus=Reptile.STOP;
-		timer=null;
-		conf=null;
-		list=null;
-		client=null;
-		get=null;
+//		runStatus=Reptile.STOP;
+//		timer=null;
+//		conf=null;
+//		list=null;
+//		client=null;
+//		get=null;
 		Running=false;
 		runThreadNum=0;
+		conf.setRightSus(false);
+		conf.setDealnum(getNum);
+		Suspend();
 		System.gc();
 	}
 	/*重启*/
@@ -129,6 +139,15 @@ public class ReptileMain implements Reptile{
 		runStatus=Reptile.SUSPEND;
 		System.gc();
 	}
+	/**
+	 * 设置计划时间
+	 * @param h
+	 * @param m
+	 */
+	public void setPlanTime(int h,int m){
+		conf.setTaskHour(h);
+		conf.setTaskMin(m);
+	}
 	
 	/* 重新开始Plan  */
 	private void rePlan() {
@@ -143,7 +162,15 @@ public class ReptileMain implements Reptile{
 	}
 	/* 获取数据 */
 	protected synchronized CompanyData getCompany() {
+		/* 数据检查!实现断点续传*/
+		if(!isCheckNumForRun){
+			if(!conf.isRightSus())
+				ListNum=conf.getDealnum();
+			isCheckNumForRun=true;
+		}
+		
 		if (ListNum < list.size()) {
+			getNum=ListNum;
 			return list.get(ListNum).setPosition(ListNum++);
 		}
 		return null;

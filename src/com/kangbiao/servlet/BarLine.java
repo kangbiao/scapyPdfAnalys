@@ -27,10 +27,10 @@ public class BarLine extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		String string="{\"公司一\":{\"五月\":\"21\",\"六月\":\"34\",\"七月\":\"23\"},\"公司二\":{\"五月\":\"12\",\"六月\":\"16\",\"七月\":\"16\"}}";
+		String string="{\"公s司一\":{\"五月\":\"21\",\"六月\":\"34\",\"七月\":\"23\"},\"公司二\":{\"五月\":\"12\",\"六月\":\"16\",\"七月\":\"16\"}}";
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(string); 
+		response.getWriter().print(string);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

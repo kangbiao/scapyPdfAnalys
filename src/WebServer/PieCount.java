@@ -1,6 +1,7 @@
 package WebServer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import DataBase.CompanyTable;
+import DataControl.TableDataControl;
 import DataControl.TableTools;
 import ServerTools.ServletTools;
 /**
@@ -20,39 +23,46 @@ import ServerTools.ServletTools;
 public class PieCount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String COMPANY="companyName";
-    private static final String TABLETYPR="tableType";
+    private static final String TABLETYPE="tableType";
+    private static final String TABLEPART="tablePart";
+    private static final String YEAR="year";
+	private static final String STATUS="status";	
     public PieCount() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletTools.charSet(request, response);
-		String name=request.getParameter(COMPANY);
-		int type=Integer.valueOf(request.getParameter(TABLETYPR));
+		String companyName,year;
+		int status,tableType,tablePart;
+		companyName=request.getParameter(COMPANY);
+		tableType=Integer.valueOf(request.getParameter(TABLETYPE));
+		tablePart=Integer.valueOf(request.getParameter(TABLEPART));
+		year=request.getParameter(YEAR);
+		status=Integer.valueOf(request.getParameter(STATUS));
+		String name[]=companyName.split(",");//公司名称
 		JSONObject json=new JSONObject();
-		switch(type){
-		case TableTools.ZCFZ:
-			json.put("现金流量", "6985632.15");
-			json.put("利润总计", "4344252.15");
-			json.put("流动负债", "644632.15");
-			break;
-		case TableTools.LRB:
-			json.put("管理费用", "234632.15");
-			json.put("经营活动", "6425632.15");
-			break;
-		case TableTools.XJLL:
-			json.put("投资活动", "7432632.15");
-			json.put("利润分配", "5325632.15");
-			break;
-		case TableTools.SYZQYBD:
-			break;
-			default: break;
+		
+		for (int i = 0; i < name.length; i++) {
+			CompanyTable mtable = TableDataControl.getControl()
+					.getTableByFilteValue(name[i], year, status);
+			if (mtable == null)
+				continue;
+			ArrayList<ArrayList> list = null;
+			list = TableTools.getTableItem(mtable, tableType, tablePart,	null);
+			for (ArrayList<String> mlist : list) {
+				json.put(mlist.get(1), mlist.get(2));
+			}
 		}
 		response.getWriter().write(json.toString());
+		System.gc();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doGet(req, resp);
 	}
+	
 	
 }
