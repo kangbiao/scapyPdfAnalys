@@ -52,7 +52,8 @@ public class DocumentDao
             {
                 CompanyBean companyBean = new CompanyBean();
                 companyBean.setId(rs.getInt("id"));
-                companyBean.setName(rs.getString("name")+"("+rs.getString("num")+")");
+                companyBean.setName(rs.getString("name"));
+                companyBean.setCode(rs.getString("num"));
                 list.add(companyBean);
             }
             pst.close();

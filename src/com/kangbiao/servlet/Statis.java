@@ -76,7 +76,6 @@ public class Statis extends HttpServlet
         String action = request.getParameter("action");
         String tableColumns = "{\"errorMsg\":\"\",\"success\":true,\"jsonString\":[{\"id\":\"1\",\"name\":\"货币资金\"}," +
                 "{\"id\":\"2\",\"name\":\"非货币资金\"}]}";
-
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         switch (action)

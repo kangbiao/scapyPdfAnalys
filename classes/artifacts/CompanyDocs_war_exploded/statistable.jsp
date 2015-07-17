@@ -288,7 +288,7 @@
         if (result) {
           company_list=[];
           for (var temp in result) {
-            company_list.push(result[temp]['name']);
+            company_list.push(result[temp]['code']+"-"+result[temp]['name']);
           }
         }
       },
