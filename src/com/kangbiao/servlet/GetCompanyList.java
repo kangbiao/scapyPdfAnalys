@@ -25,7 +25,6 @@ public class GetCompanyList extends HttpServlet
         DocumentDao documentDao = new DocumentDao();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(documentDao.getAllCompany());
     }
 
 }

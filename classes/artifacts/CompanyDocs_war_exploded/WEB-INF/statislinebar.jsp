@@ -149,67 +149,46 @@
 <script type="text/javascript">
   <%--选择表格项--%>
   var flag = 1;
+  $("#tablePart").change(function(){
+    var companyName = $("#one").find("#company_name").val();
+    var tablePart = $("#tablePart option:selected").val();
+    var tableType = $("#tableType option:selected").val();
+    if(companyName!=""&&tablePart!=""&&tableType!="")
+    {
+      $.ajax({
+        type: "post",
+        async: false, //同步执行
+        url: "statis.do",
+        data: {
+          "action": "getTableColumns",
+          "companyName": companyName,
+          "tableType": tableType,
+          "tablePart": tablePart
+        },
+        dataType: "json", //返回数据形式为json
+        success: function (result) {
+          if (result.success) {
+            $(".panel").empty();
+            $(result.jsonString).each(function(){
+              var option = "<label>";
+              option += "<input type='checkbox' value='" + this.id + "'/>" + this.name +
+                      "</label>&nbsp;&nbsp;&nbsp;";
+              $(".panel").append(option);
+            });
+          } else {
+            alert(result.errorMsg);
+          }
+        },
+        error: function (errorMsg) {
+          alert("暂没有相关数据!");
+        }
+      });
+    }
+  });
   $(".flip").click(function () {
     if (0 == flag) {
       $(".panel").slideUp("10000");
       flag = 1;
-    }
-    else if (!$(".panel").find("input").length > 0) {
-      var companyName = "";
-      var tableType = "";
-      var tablePart = "";
-      var year = "";
-      var status = "";
-      var temp = 0;
-      companyName = $("#one").find("#company_name").val();
-      tablePart = $("#tablePart option:selected").val();
-      tableType = $("#tableType option:selected").val();
-      year = $("#year option:selected").val();
-      year_status = year.split(".");
-      year = year_status[0];
-      status = year_status[1];
-      if (companyName == "") {
-        alert("请选择公司!");
-      } else if (tableType == "") {
-        alert("请选择表格类型");
-      } else if (tablePart == "") {
-        alert("请选择需要显示的表部分");
-      } else if (year == "") {
-        alert("请选择年份");
-      } else {
-        $.ajax({
-          type: "post",
-          async: false, //同步执行
-          url: "statis.do",
-          data: {
-            "action": "getTableColumns",
-            "companyName": companyName,
-            "tableType": tableType,
-            "tablePart": tablePart,
-            'year': year,
-            "status": status
-          },
-          dataType: "json", //返回数据形式为json
-          success: function (result) {
-            if (result.success) {
-              $(".panel").empty();
-              $(result.jsonString).each(function(){
-                var option = "<label>";
-                option += "<input type='checkbox' value='" + this.id + "'/>" + this.name +
-                        "</label>&nbsp;&nbsp;&nbsp;";
-                $(".panel").append(option);
-              });
-              $(".panel").slideDown("10000");
-              flag = 0;
-            } else {
-              alert(result.errorMsg);
-            }
-          },
-          error: function (errorMsg) {
-            alert("暂没有相关数据!");
-          }
-        });
-      }
     }
     else {
       $(".panel").slideDown("10000");
@@ -292,17 +271,19 @@
       }
     }
   }
-  $(function () {
-    //获取公司列表
+  function getCompanyList()
+  {
+    var value=$("#company_name").val();
     $.ajax({
       type: "post",
       async: false, //同步执行
       url: "statis.do",
-      data: {"action": "getCompanyList"},
+      data: {"action": "getCompanyList","value":value},
       dataType: "json", //返回数据形式为json
       success: function (result) {
         //myChart.hideLoading();
         if (result) {
+          company_list=[];
           for (var temp in result) {
             company_list.push(result[temp]['name']);
           }
@@ -312,12 +293,15 @@
         alert("数据加载失败，请重试");
       }
     });
-
+  }
+  $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
+      getCompanyList();
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
+      getCompanyList();
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 

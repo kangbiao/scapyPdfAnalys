@@ -84,7 +84,7 @@ public class Statis extends HttpServlet
             //1.获取所有的公司列表
             case "getCompanyList":
                 DocumentDao documentDao = new DocumentDao();
-                response.getWriter().print(documentDao.getAllCompany());
+                response.getWriter().print(documentDao.getAllCompany(request.getParameter("value")));
                 break;
 
             //2.获取表格的part列表

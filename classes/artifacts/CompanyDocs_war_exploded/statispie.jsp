@@ -72,10 +72,10 @@
         </select>
       </div>
       <div class="form-group">
-          <select id="tablePart" class="form-control">
-            <option value="">--请选择--</option>
-          </select>
-        </div>
+        <select id="tablePart" class="form-control">
+          <option value="">--请选择--</option>
+        </select>
+      </div>
       <div class="form-group">
         <select id="year" class="form-control">
           <option value="">--请选择--</option>
@@ -167,17 +167,18 @@
       }
     }
   }
-  $(function () {
-    //获取公司列表
+  function getCompanyList() {
+    var value = $("#company_name").val();
     $.ajax({
       type: "post",
       async: false, //同步执行
       url: "statis.do",
-      data: {"action": "getCompanyList"},
+      data: {"action": "getCompanyList", "value": value},
       dataType: "json", //返回数据形式为json
       success: function (result) {
         //myChart.hideLoading();
         if (result) {
+          company_list = [];
           for (var temp in result) {
             company_list.push(result[temp]['name']);
           }
@@ -187,12 +188,15 @@
         alert("数据加载失败，请重试");
       }
     });
-
+  }
+  $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
+      getCompanyList();
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
+      getCompanyList();
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 
@@ -240,19 +244,13 @@
 
     //获取扇形图数据
     $("#filter").click(function () {
-      var companyName = "";
-      var tableType = "";
-      var tablePart = "";
-      var year = "";
-      var status = "";
-      // console.log($(this).children());
-      companyName = $("#company_name").val();
-      tableType = $("#tableType option:selected").val();
-      tablePart = $("#tablePart option:selected").val();
-      year = $("#year option:selected").val();
-      year_status = year.split(".");
+      var companyName = $("#company_name").val();
+      var tableType = $("#tableType option:selected").val();
+      var tablePart = $("#tablePart option:selected").val();
+      var year = $("#year option:selected").val();
+      var year_status = year.split(".");
       year = year_status[0];
-      status = year_status[1];
+      var status = year_status[1];
       if (companyName == "") {
         alert("请选择公司!");
       } else if (tableType == "") {

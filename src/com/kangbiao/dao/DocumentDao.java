@@ -15,6 +15,7 @@ import com.kangbiao.beans.FileBean;
 import com.kangbiao.beans.FilterBean;
 import com.kangbiao.jdbc.ConnectDB;
 import com.kangbiao.listener.Log;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 /**
  * 文档数据访问对象，用来提供Ajax返回公司文档数据和直接返回待处理文档数据
@@ -27,22 +28,31 @@ public class DocumentDao
     String temp = null;// 存储json数据的临时变量
 
     // 获取所有的公司的名称和id
-    public String getAllCompany()
+    public String getAllCompany(String value)
     {
-        String sql = "SELECT DISTINCT name,id FROM Company";
-        List<CompanyBean> list = new ArrayList<CompanyBean>();
+        String sql;
+        if (value.equals(""))
+            sql="SELECT DISTINCT name,id,num FROM Company LIMIT 100";
+        else
+            sql = "SELECT DISTINCT name,id,num FROM Company WHERE num LIKE(?) OR name LIKE(?) LIMIT 100";
+        List<CompanyBean> list = new ArrayList<>();
         conn = ConnectDB.GetConnectionMysql();
-        PreparedStatement pst = null;
-        ResultSet rs = null;
+        PreparedStatement pst ;
+        ResultSet rs ;
         try
         {
             pst = conn.prepareStatement(sql);
+            if (!value.equals(""))
+            {
+                pst.setString(1,"%"+value+"%");
+                pst.setString(2,"%"+value+"%");
+            }
             rs = pst.executeQuery();
             while (rs.next())
             {
                 CompanyBean companyBean = new CompanyBean();
                 companyBean.setId(rs.getInt("id"));
-                companyBean.setName(rs.getString("name"));
+                companyBean.setName(rs.getString("name")+"("+rs.getString("num")+")");
                 list.add(companyBean);
             }
             pst.close();
@@ -52,7 +62,7 @@ public class DocumentDao
         {
             Log.errorlog("执行SQL：" + sql + " 失败", "dao.DocumentDao.getAllCompany");
         }
-        ObjectMapper objectMapper = null;
+        ObjectMapper objectMapper;
         objectMapper = new ObjectMapper();
         try
         {
@@ -110,6 +120,7 @@ public class DocumentDao
     {
         String sql;
         String countsql;
+        String failDocNum;
         List<CompanyBean> list = new ArrayList<>();
         conn = ConnectDB.GetConnectionMysql();
         AjaxReturnDocumentBean ajaxReturnDocumentBean = new AjaxReturnDocumentBean();
@@ -145,7 +156,12 @@ public class DocumentDao
             {
                 CompanyBean companyBean = new CompanyBean();
                 companyBean.setCode(rs.getString("num"));
-                companyBean.setName(rs.getString("name"));
+                //System.out.println(this.getFailDocNumByCompanyID(rs.getInt("id"),-1));
+                failDocNum=this.getFailDocNumByCompanyID(rs.getInt("id"),-1);
+                if(!failDocNum.equals("0"))
+                    companyBean.setName(rs.getString("name")+"(<font color='red'>"+failDocNum+"</font>个失败文档)");
+                else
+                    companyBean.setName(rs.getString("name"));
                 companyBean.setKind(rs.getString("kind"));
                 companyBean.setTrade(rs.getString("trade"));
                 companyBean.setDetail("<a href='list.jsp?companyid=" + rs.getInt("id") + "'>详细信息</a>");
@@ -225,7 +241,7 @@ public class DocumentDao
                 {
                     fileBean.setTwopath("<a class='btn btn-primary btn-xs' href='file/" + rs.getString("pdfpath") +
                             "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' href='file/" + rs.getString
-                            ("htmlpath") + "'>HTML</a>");
+                            ("htmlpath")+"?fileid="+rs.getInt("fileid") + "'>HTML</a>");
                 }
                 else
                 {
