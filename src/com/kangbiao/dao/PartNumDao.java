@@ -17,6 +17,7 @@ public class PartNumDao
 	public String getCompanyNum()
 	{
 		return CompanyControl.getControl().getNumForCompany()+"";
+//		return "2";
 	}
 
 	// 获取总的文档数量

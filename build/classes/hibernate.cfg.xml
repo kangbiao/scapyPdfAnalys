@@ -6,8 +6,9 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
-        <property name="hibernate.connection.password">liaosc</property>
-         <property name="hibernate.connection.url"><![CDATA[jdbc:mysql://localhost/CompanyDocs?useUnicode=true&characterEncoding=utf8]]></property>
+        <property name="hibernate.connection.password">kb123456</property>
+         <property
+                 name="hibernate.connection.url"><![CDATA[jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8]]></property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>

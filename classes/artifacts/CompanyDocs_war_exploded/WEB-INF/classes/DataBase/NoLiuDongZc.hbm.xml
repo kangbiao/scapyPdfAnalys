@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-24 20:13:35 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="DataBase.NoLiuDongZc" table="NoLiuDongZC" catalog="CompanyDocs">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="item1" type="string">
+            <column name="item1" length="50" />
+        </property>
+        <property name="item2" type="string">
+            <column name="item2" length="50" />
+        </property>
+        <property name="item3" type="string">
+            <column name="item3" length="50" />
+        </property>
+        <property name="item4" type="string">
+            <column name="item4" length="50" />
+        </property>
+        <property name="item5" type="string">
+            <column name="item5" length="50" />
+        </property>
+        <property name="item6" type="string">
+            <column name="item6" length="50" />
+        </property>
+        <property name="item7" type="string">
+            <column name="item7" length="50" />
+        </property>
+        <property name="item8" type="string">
+            <column name="item8" length="50" />
+        </property>
+        <property name="item9" type="string">
+            <column name="item9" length="50" />
+        </property>
+        <property name="item10" type="string">
+            <column name="item10" length="50" />
+        </property>
+        <property name="item11" type="string">
+            <column name="item11" length="50" />
+        </property>
+        <property name="item12" type="string">
+            <column name="item12" length="50" />
+        </property>
+        <property name="item13" type="string">
+            <column name="item13" length="50" />
+        </property>
+        <property name="item14" type="string">
+            <column name="item14" length="50" />
+        </property>
+        <property name="item15" type="string">
+            <column name="item15" length="50" />
+        </property>
+        <property name="item16" type="string">
+            <column name="item16" length="50" />
+        </property>
+        <property name="item17" type="string">
+            <column name="item17" length="50" />
+        </property>
+        <property name="item18" type="string">
+            <column name="item18" length="50" />
+        </property>
+        <set name="companyTables" table="CompanyTable" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fldzjId" />
+            </key>
+            <one-to-many class="DataBase.CompanyTable" />
+        </set>
+    </class>
+</hibernate-mapping>

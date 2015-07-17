@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-14 14:07:09 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="DataBase.File" table="File" catalog="CompanyDocs">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="filename" type="string">
+            <column name="filename" length="100" not-null="true" />
+        </property>
+        <property name="pdfpath" type="string">
+            <column name="pdfpath" length="500" not-null="true" />
+        </property>
+        <property name="htmlpath" type="string">
+            <column name="htmlpath" length="500" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <set name="fileCompanies" table="FileCompany" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fileid" not-null="true" />
+            </key>
+            <one-to-many class="DataBase.FileCompany" />
+        </set>
+        <set name="companyTables" table="CompanyTable" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fileid" not-null="true" />
+            </key>
+            <one-to-many class="DataBase.CompanyTable" />
+        </set>
+        <set name="fileTags" table="FileTag" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fileid" not-null="true" />
+            </key>
+            <one-to-many class="DataBase.FileTag" />
+        </set>
+    </class>
+</hibernate-mapping>
