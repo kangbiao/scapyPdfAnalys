@@ -29,43 +29,37 @@ public class TableTools {
 	 * @param i
 	 * @return
 	 */
-	public static ArrayList<String> getTableHead(int i) {
+	public static ArrayList<String> getTableHead(int i,String name[]) {
 		ArrayList<String> item = new ArrayList<String>();
-		switch(i){
-		case ZCFZ:
-			item.add("公司名称");
-			item.add("项目");
-			item.add("期末余额");
-			item.add("年初余额");
-			break;
-		case LRB:
-			item.add("公司名称");
-			item.add("项目");
-			item.add("期末余额");
-			item.add("年初余额");
-			break;
-		case XJLL:
-			item.add("公司名称");
-			item.add("项目");
-			item.add("期末余额");
-			item.add("年初余额");
-			break;
+		switch (i) {
 		case SYZQYBD:
-			item.add("公司名称");
-			item.add("项目");
-			item.add("实收资本");
-			item.add("资本公积");
-			item.add("减:库存股");
-			item.add("其他综合收益");
-			item.add("专项储备");
-			item.add("盈余公积");
-			item.add("未分配利润");
 			break;
-			default : break;
+		default:
+			item.add(" ");
+			for (int n = 0; n < name.length; n++){
+				item.add(name[n]);
+				item.add(" ");
+			}
+				break;
 		}
 		return item;
 	}
 	
+	public static ArrayList<String> getTableColumnHead(int i,String name[]){
+		ArrayList<String> item = new ArrayList<String>();
+		switch (i) {
+		case SYZQYBD:
+			break;
+		default:
+			item.add("项目");
+			for (int n = 0; n < name.length; n++){
+				item.add("期末");
+				item.add("年初");
+			}
+				break;
+		}
+		return item;
+	}
 	/**
 	 * 获取完整的第三级表
 	 * @param tab CompanyTable
@@ -73,8 +67,8 @@ public class TableTools {
 	 * @param tablepart 表格part
 	 * @return
 	 */
-	public static ArrayList<ArrayList> getTableItem(CompanyTable tab,int tabletype, int tablepart,String column[]) {
-		ArrayList<ArrayList> item = null;
+	public static ArrayList<ArrayList<String>> getTableItem(CompanyTable tab,int tabletype, int tablepart,String column[]) {
+		ArrayList<ArrayList<String>> item = null;
 		switch (tabletype) {
 		case ZCFZ:
 			try {
@@ -121,8 +115,8 @@ public class TableTools {
 		return column;
 	}
 	
-	private static ArrayList<ArrayList> getZCFZItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+	private static ArrayList<ArrayList<String>> getZCFZItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList<String>> item=new ArrayList<ArrayList<String>>();
 		ArrayList<String> oiten;
 		int i=0;
 		switch(tablepart){
@@ -136,7 +130,6 @@ public class TableTools {
 			Class clsldzc=ldzc.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.LDZC[Integer.valueOf(column[n])-1]);
 				Method method=clsldzc.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(ldzc));
@@ -160,7 +153,6 @@ public class TableTools {
 			Class clsnldzc=nldzc.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.FLDZC[Integer.valueOf(column[n])-1]);
 				Method method=clsnldzc.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(nldzc));
@@ -184,7 +176,6 @@ public class TableTools {
 			Class clsldfz=ldfz.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.LDFZ[Integer.valueOf(column[n])-1]);
 				Method method=clsldfz.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(ldfz));
@@ -208,7 +199,6 @@ public class TableTools {
 			Class clsfldfz=fldfz.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.FLDFZ[Integer.valueOf(column[n])-1]);
 				Method method=clsfldfz.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(fldfz));
@@ -232,7 +222,6 @@ public class TableTools {
 			Class clssyzqy=syzqy.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.SYZQY[Integer.valueOf(column[n])-1]);
 				Method method=clssyzqy.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(syzqy));
@@ -253,8 +242,8 @@ public class TableTools {
 		}
 		return item;
 	}
-	private static ArrayList<ArrayList> getLRBItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+	private static ArrayList<ArrayList<String>> getLRBItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList<String>> item=new ArrayList<ArrayList<String>>();
 		ArrayList<String> oiten;
 		int i=0;
 		switch(tablepart){
@@ -268,7 +257,6 @@ public class TableTools {
 			Class clsyysy=yysy.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.YinYSY[Integer.valueOf(column[n])-1]);
 				Method method=clsyysy.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(yysy));
@@ -292,7 +280,6 @@ public class TableTools {
 			Class clsyylr=yylr.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.YinYLR[Integer.valueOf(column[n])-1]);
 				Method method=clsyylr.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(yylr));
@@ -313,8 +300,8 @@ public class TableTools {
 		}
 		return item;
 	}
-	private static ArrayList<ArrayList> getXJLLItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+	private static ArrayList<ArrayList<String>> getXJLLItem(CompanyTable tab,int tablepart,String column[]) throws Exception{
+		ArrayList<ArrayList<String>> item=new ArrayList<ArrayList<String>>();
 		ArrayList<String> oiten;
 		switch(tablepart){
 		case 1:
@@ -324,7 +311,6 @@ public class TableTools {
 			Class clsxjll=xjll.getClass();
 			for(int n=0;n<column.length;n++){
 				oiten=new ArrayList<String>();
-				oiten.add(tab.getCompany().getName());
 				oiten.add(TableItem.XJLL[Integer.valueOf(column[n])-1]);
 				Method method=clsxjll.getDeclaredMethod("getItem"+column[n]);
 				String temp=(String)(method.invoke(xjll));
@@ -346,8 +332,8 @@ public class TableTools {
 		return item;
 	}
 	
-	private static ArrayList<ArrayList> getSYZQYBDItem(CompanyTable tab,int tablepart,String column[]){
-		ArrayList<ArrayList> item=new ArrayList<ArrayList>();
+	private static ArrayList<ArrayList<String>> getSYZQYBDItem(CompanyTable tab,int tablepart,String column[]){
+		ArrayList<ArrayList<String>> item=new ArrayList<ArrayList<String>>();
 		switch(tablepart){
 		case 0:
 			break;

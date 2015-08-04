@@ -12,18 +12,28 @@ import DataBase.YinYeLiRun;
 import DataBase.YinYeShouY;
 import DataControl.TableItem;
 import DocDistill.DealInterface.TableDealAction;
+import DocDistill.TableTools.TableRegx;
 import DocDistill.TableTools.TableTools;
 
 public class TableLR implements TableDealAction{
 	private static Pattern p[];
 	private static String Item[];
+	private static String mItem[];
 	static {
-		p = new Pattern[1];
-		p[0] = Pattern.compile("^.{0,10}利润表.{0,20}$");
+		p = new Pattern[3];
+		p[0] = Pattern.compile("^[ :,　：合并]{0,50}.{0,5}利润表[ :,　：]{0,50}$");
+		p[1]=Pattern.compile("^.{0,10}利润分配表.{0,20}$");
+		p[2]=Pattern.compile("^.{0,10}利.{0,2}润.{0,2}表.{0,10}$");
+		
 		Item = new String[TableItem.YinYLR.length+TableItem.YinYSY.length+1];
-		TableTools.StringArrayCopy(Item, TableItem.YinYSY, 0);
-		TableTools.StringArrayCopy(Item, TableItem.YinYLR, TableItem.YinYSY.length);
+		TableTools.StringArrayCopy(Item, TableRegx.YinYSY, 0);
+		TableTools.StringArrayCopy(Item, TableRegx.YinYLR, TableRegx.YinYSY.length);
 		Item[Item.length-1]="法定代表人";
+		
+		mItem = new String[TableItem.YinYLR.length+TableItem.YinYSY.length+1];
+		TableTools.StringArrayCopy(mItem, TableItem.YinYSY, 0);
+		TableTools.StringArrayCopy(mItem, TableItem.YinYLR, TableItem.YinYSY.length);
+		mItem[mItem.length-1]="法定代表人";
 	}
 	public TableLR(){}
 	/*表内容相关区域的String*/
@@ -33,8 +43,12 @@ public class TableLR implements TableDealAction{
 	
 	@Override
 	public boolean isTable(String str) {
+//		return false;
+		String temp=str.replace(" ", "");
+		if(temp.length()<18&&temp.contains("利润表"))
+			return true;
 		for (int i = 0; i < p.length; i++)
-			if (p[i].matcher(str).matches()){
+			if (p[i].matcher(str).matches()) {
 				return true;
 			}
 		return false;
@@ -61,7 +75,7 @@ public class TableLR implements TableDealAction{
 					mlist = new ArrayList<String>();
 				}
 				isAdd = true;
-				name = Item[n++];
+				name = mItem[n++];
 				if (n >= Item.length)
 					n--;
 			}

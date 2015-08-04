@@ -47,7 +47,7 @@ public class LineCount extends HttpServlet {
 		year=request.getParameter(YEAR);
 		status=Integer.valueOf(request.getParameter(STATUS));
 		
-		String name[]=companyName.split(",");//公司名称
+		String name[]=dealCompanyArray(companyName.split(","));//公司名称
 		
 		HashMap<String, HashMap<String, String>> map = new HashMap<String, HashMap<String, String>>();
 		HashMap<String, String> itemmap;
@@ -57,7 +57,7 @@ public class LineCount extends HttpServlet {
 					.getTableByFilteValue(name[i], year, status);
 			if(mtable==null)	continue;
 			itemmap=new HashMap<String, String>();
-			ArrayList<ArrayList> list=null;
+			ArrayList<ArrayList<String>> list=null;
 			 //获得表数据项目
 			if (columns == null || columns.equals(""))
 				list = TableTools.getTableItem(mtable, tableType, tablePart,
@@ -66,7 +66,7 @@ public class LineCount extends HttpServlet {
 				list = TableTools.getTableItem(mtable, tableType, tablePart,
 						columns.split(","));
 			for(ArrayList<String> mlist:list){
-				itemmap.put(mlist.get(1),mlist.get(2));
+				itemmap.put(mlist.get(0),mlist.get(1));
 			}
 			map.put(name[i], itemmap);
 		}
@@ -77,5 +77,15 @@ public class LineCount extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
+	/**
+	 * 出于前端数据交换的需要
+	 * @param name
+	 * @return
+	 */
+	private String [] dealCompanyArray(String name[]){
+		String temp[]=new String[name.length];
+		for(int i=0;i<name.length;i++)
+			temp[i]=name[i].split("-")[1];
+		return temp;
+	}
 }

@@ -40,7 +40,7 @@ public class PieCount extends HttpServlet {
 		tablePart=Integer.valueOf(request.getParameter(TABLEPART));
 		year=request.getParameter(YEAR);
 		status=Integer.valueOf(request.getParameter(STATUS));
-		String name[]=companyName.split(",");//公司名称
+		String name[]=dealCompanyArray(companyName.split(","));//公司名称
 		JSONObject json=new JSONObject();
 		
 		for (int i = 0; i < name.length; i++) {
@@ -48,10 +48,11 @@ public class PieCount extends HttpServlet {
 					.getTableByFilteValue(name[i], year, status);
 			if (mtable == null)
 				continue;
-			ArrayList<ArrayList> list = null;
+			ArrayList<ArrayList<String>> list = null;
 			list = TableTools.getTableItem(mtable, tableType, tablePart,	null);
+			// 1 , 2仅限于前三张表
 			for (ArrayList<String> mlist : list) {
-				json.put(mlist.get(1), mlist.get(2));
+				json.put(mlist.get(0), mlist.get(1));
 			}
 		}
 		response.getWriter().write(json.toString());
@@ -63,6 +64,16 @@ public class PieCount extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(req, resp);
 	}
-	
+	/**
+	 * 出于前端数据交换的需要
+	 * @param name
+	 * @return
+	 */
+	private String [] dealCompanyArray(String name[]){
+		String temp[]=new String[name.length];
+		for(int i=0;i<name.length;i++)
+			temp[i]=name[i].split("-")[1];
+		return temp;
+	}
 	
 }

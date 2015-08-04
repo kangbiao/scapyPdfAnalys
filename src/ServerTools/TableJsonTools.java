@@ -17,7 +17,7 @@ public class TableJsonTools {
 		this.success=success;
 	}
 	
-	public void putData(ArrayList<ArrayList> list){
+	public void putData(ArrayList<ArrayList<String>> list){
 		jsonString.put("data", list);
 	}
 	

@@ -1,30 +1,34 @@
-import java.util.ArrayList;
+import java.io.File;
 
-import javax.swing.text.GapContent;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-import com.google.gson.Gson;
-
-import DataControl.TableItem;
-
-
+import NetReptile.DataFormat.LogTool;
 
 public class Test {
 	public static void main(String[] args) {
-		String listname[]=TableItem.ItemMap.get(1);
-		ArrayList<ItemClass> list=new ArrayList<ItemClass>();
-		for(int i=0;i<listname.length;i++){
-			list.add(new ItemClass(i+"",listname[i]));
+		String htmlpath="/home/liaoshichao/Doctemp1/pic/index-html.html";
+		File file = new File(htmlpath);
+		Document doc = null;
+		try {
+			doc = Jsoup.parse(file, null);
+		} catch (Exception e) {
+			LogTool.E("error in IndexCreate(createIndexMap) Jsoup parse-->"+e.toString());
 		}
-		System.out.println(new Gson().toJson(list));
+		Elements eles=doc.select("p,img");
+		System.out.println(eles.size());
+		for(Element ele:eles){
+			if(ele.nodeName().equals("p")){
+				ele.attr("style",dealStyleStr(ele.attr("style")));
+				System.out.println(ele.toString());
+			}
+		}	
 	}
 	
-
-}
-class ItemClass{
-	String id;
-	String name;
-	public ItemClass(String id,String name) {
-		this.id=id;
-		this.name=name;
+	private static String dealStyleStr(String str){
+		String s[]=str.split(";");
+		return s[0]+";"+s[2]+";"+s[3];
 	}
 }

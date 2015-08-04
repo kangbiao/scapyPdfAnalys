@@ -167,8 +167,8 @@
       }
     }
   }
-  function getCompanyList() {
-    var value = $("#company_name").val();
+  function getCompanyList(obj) {
+    var value = $(obj).val();
     $.ajax({
       type: "post",
       async: false, //同步执行
@@ -192,11 +192,11 @@
   $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 

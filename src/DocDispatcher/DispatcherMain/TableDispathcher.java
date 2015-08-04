@@ -88,7 +88,8 @@ public class TableDispathcher {
 				/*非年度报告*/
 				if (!(p1.matcher(file.getFilename()).matches() || p2.matcher(
 						file.getFilename()).matches())
-						|| p3.matcher(file.getFilename()).matches()) {
+						|| p3.matcher(file.getFilename()).matches()
+						|| file.getFilename().contains("通知")) {
 					file.setStatus(File.SUCCESS);
 					HibernateTools.updateData(file);
 					continue;
@@ -167,13 +168,19 @@ public class TableDispathcher {
 	 */
 	private static String getYearFromStr(String str){
 		StringBuilder temp=new StringBuilder();
-		for(int i=0;i<str.length();i++){
-			if(str.charAt(i)>=48 && str.charAt(i)<=57)
+		for(int i=0,n=0;i<str.length();i++){
+			if(n>=4) break;
+			if(str.charAt(i)>=48 && str.charAt(i)<=57){
+				n++;
 				temp.append(str.charAt(i));
+			}
 		}
 		return temp.toString();
 	}
-	
+	/**
+	 * 筛选表格的类
+	 * @author liaoshichao
+	 */
 	class TableFilter {
 		List<TableDealAction> dealList = new ArrayList<TableDealAction>();
 

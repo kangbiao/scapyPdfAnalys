@@ -60,7 +60,7 @@ public class IndexCreate {
 	/*创建目录*/
 	protected void createIndex(String htmlpath){
 		String folder=new File(htmlpath).getParent();
-		String FrameFile=createFrameFile();
+//		String FrameFile=createFrameFile();
 
 //		LinkedList<TempLink> list=new LinkedList<TempLink>();
 //		File file=new File(htmlpath);
