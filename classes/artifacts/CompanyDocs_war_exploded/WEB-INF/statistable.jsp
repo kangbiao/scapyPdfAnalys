@@ -64,7 +64,8 @@
     <ul class="nav nav-pills nav-stacked">
       <hr/>
       <li class="text-center" style="font-size: 1.2em">图形统计</li>
-      <li class="text-center"><a href="statislinebar.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisbar.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisline.jsp">折线图</a></li>
       <li class="text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
@@ -274,9 +275,9 @@
       }
     }
   }
-  function getCompanyList()
+  function getCompanyList(obj)
   {
-    var value=$("#company_name").val();
+    var value=$(obj).val();
     $.ajax({
       type: "post",
       async: false, //同步执行
@@ -300,11 +301,11 @@
   $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 
@@ -400,7 +401,7 @@
       } else {
         $.ajax({
           type: "post",
-          async: false, //同步执行
+          async: true, //同步执行
           url: "statis.do",
           data: {
             "action": "getTable",
@@ -433,7 +434,7 @@
               alert(result.errorMsg);
             }
           },
-          error: function (errorMsg) {
+          error: function () {
             alert("暂没有相关数据!");
           }
         });

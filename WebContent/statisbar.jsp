@@ -61,7 +61,8 @@
     <ul class="nav nav-pills nav-stacked">
       <hr/>
       <li class="text-center" style="font-size:1.2em">图形统计</li>
-      <li class="active text-center"><a href="statislinebar.jsp">坐标图</a></li>
+      <li class="active text-center"><a href="statisbar.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisline.jsp">折现图</a></li>
       <li class="text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
@@ -136,7 +137,15 @@
             class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
     </form>
     <br/>
+    <button id="show_table" style="display: none" class="btn btn-default" type="button">显示数据表格</button>
+    <div id="data_table" style="display: none">
+      <table id="tableArea"
+             class="table table-striped table-bordered table-hover"
+             cellspacing="0" width="100%">
 
+      </table>
+    </div>
+    <br/>
     <div id="barlinepanel" style="height:500px;"></div>
   </div>
 
@@ -194,6 +203,11 @@
       $(".panel").slideDown("10000");
       flag = 0;
     }
+  });
+
+  //表格视图显示
+  $("#show_table").click(function () {
+    $("#data_table").css('display',$("#data_table").css('display')=='none'?'':'none');
   });
 
   var company_list = new Array();
@@ -271,9 +285,9 @@
       }
     }
   }
-  function getCompanyList()
+  function getCompanyList(obj)
   {
-    var value=$("#company_name").val();
+    var value=$(obj).val();
     $.ajax({
       type: "post",
       async: false, //同步执行
@@ -297,11 +311,11 @@
   $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 
@@ -358,6 +372,8 @@
 
     //获取柱状图数据
     $("#filter").click(function () {
+      $("#show_table").fadeOut();
+      $("#data_table").hide();
       var companyName = "";
       var tableType = "";
       var tablePart = "";
@@ -428,26 +444,25 @@
               'echarts/chart/bar',
               'echarts/chart/line'
             ],
-            function (ec) {
+            function show(ec) {
               var myChart = ec.init(document.getElementById('barlinepanel'));
-              myChart.showLoading(
-                      {
-                        text: "正在努力加载数据。。。",
-                        textStyle: {
-                          fontSize: 20,
-                          color: "white"
-                        }
-                      }
-              );
               var legendArr = [];//返回文档数据的一级键值
               var xAxisArr = [];//返回文档数据的二级键值（取样来自第一条记录）
               var jsonObj = new Object();
               $.ajax({
                 type: "post",
-                async: false, //同步执行
+                async: true, //同步执行
                 url: "statis.do",
                 data: data,
                 dataType: "json", //返回数据形式为json
+                beforeSend:function(){
+                  myChart.showLoading(
+                          {
+                            text:"数据加载中...",
+                            effect:"whirling"
+                          }
+                  );
+                },
                 success: function (result) {
                   //myChart.hideLoading();
                   if (result) {
@@ -456,73 +471,101 @@
                       //console.log(temp);
                       legendArr.push(temp);
                     }
-                    //console.log(legendArr);
+//                    console.log(legendArr);
                     for (var temp1 in result[legendArr[0]]) {
                       //console.log(temp1);
                       xAxisArr.push(temp1);
                     }
-                    //console.log(xAxisArr);
+//                    console.log(xAxisArr);
                   }
                 },
-                error: function (errorMsg) {
+                error: function () {
                   myChart.hideLoading();
                   alert("数据加载失败，请重试");
+                },
+                complete: function() {
+                  $("#tableArea").empty();
+                  var tableHead="<tr><th></th>";
+                  for (var tableHeadIndex in xAxisArr)
+                  {
+                    tableHead+="<th>"+xAxisArr[tableHeadIndex]+"</th>";
+                  }
+                  tableHead+="</tr>";
+                  $("#tableArea").html(tableHead);
+//                  console.log(jsonObj);
+//                  console.log(legendArr);
+//                  console.log(tableHead);
+                  for (var index in jsonObj)
+                  {
+                    lineData="<tr><td>"+index+"</td>";
+//                    console.log(jsonObj[index]);
+                    for (var tableHeadIndex in xAxisArr)
+                    {
+                      var item=xAxisArr[tableHeadIndex];
+                      lineData+="<td>"+(jsonObj[index][item])+"</td>";
+                    }
+                    lineData+="</tr>";
+                    $("#tableArea").append(lineData);
+                    console.log(lineData);
+                  }
+                  $("#show_table").fadeIn(1000);
+                  option = {
+                    tooltip: {
+                      trigger: 'axis'
+                    },
+                    legend: {
+                      data: legendArr
+                    },
+                    toolbox: {
+                      show: true,
+                      feature: {
+                        dataView: {show: true, readOnly: false},
+                        magicType: {show: true, type: ['line', 'bar']},
+                        saveAsImage: {show: true}
+                      }
+                    },
+                    calculable: true,
+                    xAxis: [
+                      {
+                        type: 'category',
+                        data: xAxisArr
+                      }
+                    ],
+                    yAxis: [
+                      {
+                        type: 'value',
+                        splitArea: {show: true}
+                      }
+                    ],
+                    series: (function () {
+                      var seriesArr = [];
+                      //遍历生成数据项数组，将对象放入seriesArr数组中
+                      for (var temp2 in legendArr) {
+                        //console.log(temp2);
+                        var chartObj = new Object();
+                        var datatemp = [];
+                        //从数据对象中遍历循环取出数据值
+                        for (var temp3 in jsonObj[legendArr[temp2]]) {
+                          //console.log(temp3);
+                          datatemp.push(jsonObj[legendArr[temp2]][temp3]);
+                        }
+                        //console.log(datatemp);
+                        chartObj.name = legendArr[temp2];
+                        chartObj.type = 'bar';
+                        chartObj.data = datatemp;
+                        seriesArr.push(chartObj);
+                      }
+                      //console.log(seriesArr);
+                      return seriesArr;
+                    })()
+                  };
+                  myChart.setOption(option);
+                  myChart.hideLoading();
                 }
               });
-              option = {
-                tooltip: {
-                  trigger: 'axis'
-                },
-                legend: {
-                  data: legendArr
-                },
-                toolbox: {
-                  show: true,
-                  feature: {
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    saveAsImage: {show: true}
-                  }
-                },
-                calculable: true,
-                xAxis: [
-                  {
-                    type: 'category',
-                    data: xAxisArr
-                  }
-                ],
-                yAxis: [
-                  {
-                    type: 'value',
-                    splitArea: {show: true}
-                  }
-                ],
-                series: (function () {
-                  var seriesArr = [];
-                  //遍历生成数据项数组，将对象放入seriesArr数组中
-                  for (var temp2 in legendArr) {
-                    //console.log(temp2);
-                    var chartObj = new Object();
-                    var datatemp = [];
-                    //从数据对象中遍历循环取出数据值
-                    for (var temp3 in jsonObj[legendArr[temp2]]) {
-                      //console.log(temp3);
-                      datatemp.push(jsonObj[legendArr[temp2]][temp3]);
-                    }
-                    //console.log(datatemp);
-                    chartObj.name = legendArr[temp2];
-                    chartObj.type = 'bar';
-                    chartObj.data = datatemp;
-                    seriesArr.push(chartObj);
-                  }
-                  //console.log(seriesArr);
-                  return seriesArr;
-                })()
-              };
-              myChart.hideLoading();
-              myChart.setOption(option);
+
             }
-    );
+      );
   }
 </script>
 <script src="static/js/bootstrap.min.js"></script>

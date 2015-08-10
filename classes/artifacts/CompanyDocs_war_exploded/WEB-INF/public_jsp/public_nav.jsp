@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<div class="container">
+	<div class="container-fluid">
 	<%--<div class="row" style="height:20px"></div>--%>
     <div class="row">
 			<div class="navbar navbar-default" style="background-color:#1c588f;color:white" role="navigation">

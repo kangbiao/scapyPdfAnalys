@@ -7,8 +7,10 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>数据统计-折线图&柱状图</title>
-  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <title>数据统计-表格统计</title>
+  <link rel="stylesheet" type="text/css"
+        href="static/css/bootstrap.min.css">
+  <script src="static/js/jquery-1.11.2.min.js"></script>
   <style type="text/css">
     .search {
       left: 0;
@@ -29,6 +31,7 @@
     .glyphicon:hover {
       cursor: pointer;
     }
+
     p.flip {
       cursor: pointer;
       margin: 0px;
@@ -46,13 +49,13 @@
       background: #fdfff4
     }
   </style>
-  <script src="static/js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 
 <%@ include file="public_jsp/public_nav.jsp" %>
 
-<div class="row" style="width: 100%; height: 600px; height: auto !important; min-height: 600px;">
+<div class="row"
+     style="width: 100%; height: 600px; height: auto !important; min-height: 600px;">
   <div class="col-md-2" style="margin-top: 40px;">
     <ul class="nav nav-pills nav-stacked">
       <li class="text-center"><a href="statistable.jsp">表格数据</a></li>
@@ -60,8 +63,9 @@
 
     <ul class="nav nav-pills nav-stacked">
       <hr/>
-      <li class="text-center" style="font-size:1.2em">图形统计</li>
-      <li class="active text-center"><a href="statislinebar.jsp">坐标图</a></li>
+      <li class="text-center" style="font-size: 1.2em">图形统计</li>
+      <li class="text-center"><a href="statisbar.jsp">坐标图</a></li>
+      <li class="text-center active"><a href="statislien.jsp">折线图</a></li>
       <li class="text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
@@ -124,9 +128,7 @@
           <label for="company_name" class="control-label">选择公司三:&nbsp;&nbsp;&nbsp;</label>
 
           <div class="input-group">
-            <input type="text" class="form-control" id="company_name"
-                   placeholder="输入公司名">
-
+            <input type="text" class="form-control" id="company_name" placeholder="输入公司名"/>
             <div id="auto_div"></div>
           </div>
         </div>
@@ -134,15 +136,22 @@
       &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-minus-sign"
                               aria-hidden="true"></span> <span
             class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+
     </form>
+
     <br/>
 
-    <div id="barlinepanel" style="height:500px;"></div>
+    <div>
+      <table id="tableArea"
+             class="table table-striped table-bordered table-hover"
+             cellspacing="0" width="100%">
+
+      </table>
+    </div>
   </div>
-
-
 </div>
 <!-- 中间容器结束 -->
+
 <%@ include file="public_jsp/public_footer.jsp" %>
 
 
@@ -179,7 +188,7 @@
             alert(result.errorMsg);
           }
         },
-        error: function (errorMsg) {
+        error: function () {
           alert("暂没有相关数据!");
         }
       });
@@ -196,10 +205,11 @@
     }
   });
 
+  //测试用的数据
   var company_list = new Array();
   var old_value = "";
   var highlightindex = -1; //高亮
-  //公司列表弹出层
+  //自动完成
   function AutoComplete(obj, auto, search, mylist) {
     if ($(obj).val() != old_value || old_value == "") {
       var autoNode = $("#" + auto); //缓存对象（弹出框）
@@ -219,8 +229,7 @@
       for (i in carlist) {
         var wordNode = carlist[i]; //弹出框里的每一条内容
         var newDivNode = $("<div>").attr("id", i); //设置每个节点的id值
-        newDivNode
-                .attr("style", "font:14px/25px;height:25px;padding:0 8px;cursor: pointer;");
+        newDivNode.attr("style", "font:14px/25px;height:25px;padding:0 8px;cursor: pointer;");
         newDivNode.html(wordNode).appendTo(autoNode); //追加到弹出框
         //鼠标移入高亮，移开不高亮
         newDivNode.mouseover(function () {
@@ -238,8 +247,7 @@
         //鼠标点击文字上屏
         newDivNode.click(function () {
           //取出高亮节点的文本内容
-          var comText = autoNode.hide().children("div").eq(
-                  highlightindex).text();
+          var comText = autoNode.hide().children("div").eq(highlightindex).text();
           highlightindex = -1;
           //文本框中的内容变成高亮节点的内容
           $(obj).val(comText);
@@ -247,11 +255,7 @@
         if (carlist.length > 0) { //如果返回值有内容就显示出来
           var offsettop = $(obj).offset().top;
           var offsetleft = $(obj).offset().left;
-          autoNode.css({
-            position: "fixed",
-            'top': offsettop + 34,
-            'left': offsetleft
-          });
+          autoNode.css({position: "fixed", 'top': offsettop + 34, 'left': offsetleft});
           autoNode.show();
         } else { //服务器端无内容返回 那么隐藏弹出框
           autoNode.hide();
@@ -271,9 +275,9 @@
       }
     }
   }
-  function getCompanyList()
+  function getCompanyList(obj)
   {
-    var value=$("#company_name").val();
+    var value=$(obj).val();
     $.ajax({
       type: "post",
       async: false, //同步执行
@@ -297,18 +301,19 @@
   $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
+
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
       //  console.log($(this).children(":selected").val());
-      var conpanyName = $(this).parent().prev().children().children().val()
+      var companyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
       //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
@@ -320,13 +325,12 @@
         url: "statis.do",
         data: {
           "action": "getTablePartList",
-          "conpanyName": conpanyName,
+          "companyName": companyName,
           "tableType": tableType
         },
         dataType: "json", //返回数据形式为json
         success: function (result) {
           if (result.success) {
-
             $(result.jsonString).each(function () {
               tablePartSelect.append("<option value='" + this.id + "'>" + this.name + "</option>");
             });
@@ -339,7 +343,6 @@
         }
       });
     });
-
     //生成年份下拉框
     var myDate = new Date();
     for (var i = myDate.getFullYear(); i >= 2005; i--) {
@@ -355,8 +358,7 @@
     $(".glyphicon-plus-sign").click(function () {
       $(this).prevAll().filter(":hidden").not(".panel").last().show();
     });
-
-    //获取柱状图数据
+    //获取表格数据
     $("#filter").click(function () {
       var companyName = "";
       var tableType = "";
@@ -366,7 +368,7 @@
       var temp = 0;
       var tableColumus="";
       $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
-        // console.log($(this).children());
+
         if (temp == 0)
           companyName = $(this).eq(0).find("#company_name").val();
         else
@@ -381,6 +383,7 @@
           tableColumus=tableColumus+","+$(this).val();
         temp++;
       });
+
       tablePart = $("#tablePart option:selected").val();
       tableType = $("#tableType option:selected").val();
       year = $("#year option:selected").val();
@@ -396,134 +399,48 @@
       } else if (year == "") {
         alert("请选择年份");
       } else {
-        var data = {};
-        data['companyName'] = companyName;
-        data['tableType'] = tableType;
-        data['tablePart'] = tablePart;
-        data['status'] = status;
-        data['year'] = year;
-        data['action'] = "getLineBar";
-        data['tableColumns']=tableColumus;
-        loadechart(data);
-      }
-    });
-  });
-</script>
-<script src="static/js/echarts.js"></script>
-<script type="text/javascript">
-  require.config({
-    paths: {
-      echarts: 'static/js'
-    }
-  });
-  function loadechart(data) {
-    require.config({
-      paths: {
-        echarts: 'static/js'
-      }
-    });
-    require(
-            [
-              'echarts',
-              'echarts/chart/bar',
-              'echarts/chart/line'
-            ],
-            function (ec) {
-              var myChart = ec.init(document.getElementById('barlinepanel'));
-              myChart.showLoading(
-                      {
-                        text: "正在努力加载数据。。。",
-                        textStyle: {
-                          fontSize: 20,
-                          color: "white"
-                        }
-                      }
-              );
-              var legendArr = [];//返回文档数据的一级键值
-              var xAxisArr = [];//返回文档数据的二级键值（取样来自第一条记录）
-              var jsonObj = new Object();
-              $.ajax({
-                type: "post",
-                async: false, //同步执行
-                url: "statis.do",
-                data: data,
-                dataType: "json", //返回数据形式为json
-                success: function (result) {
-                  //myChart.hideLoading();
-                  if (result) {
-                    jsonObj = result;
-                    for (var temp in result) {
-                      //console.log(temp);
-                      legendArr.push(temp);
-                    }
-                    //console.log(legendArr);
-                    for (var temp1 in result[legendArr[0]]) {
-                      //console.log(temp1);
-                      xAxisArr.push(temp1);
-                    }
-                    //console.log(xAxisArr);
-                  }
-                },
-                error: function (errorMsg) {
-                  myChart.hideLoading();
-                  alert("数据加载失败，请重试");
+        $.ajax({
+          type: "post",
+          async: true, //同步执行
+          url: "statis.do",
+          data: {
+            "action": "getTable",
+            "companyName": companyName,
+            "tableType": tableType,
+            "tablePart": tablePart,
+            'year': year,
+            "status": status,
+            'tableColumns':tableColumus
+          },
+          dataType: "json", //返回数据形式为json
+          success: function (result) {
+            if (result.success) {
+              $("#tableArea").empty();
+              var lineData = "<tr>";
+              for (var index in result.jsonString.tableheadArr) {
+                lineData += "<th>" + result.jsonString.tableheadArr[index] + "</th>";
+              }
+              lineData += "</tr>";
+              $("#tableArea").html(lineData);
+              for (var index1 in result.jsonString.data) {
+                lineData = "<tr>";
+                for (var index2 in result.jsonString.data[index1]) {
+                  lineData += "<td>" + result.jsonString.data[index1][index2] + "</td>";
                 }
-              });
-              option = {
-                tooltip: {
-                  trigger: 'axis'
-                },
-                legend: {
-                  data: legendArr
-                },
-                toolbox: {
-                  show: true,
-                  feature: {
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    saveAsImage: {show: true}
-                  }
-                },
-                calculable: true,
-                xAxis: [
-                  {
-                    type: 'category',
-                    data: xAxisArr
-                  }
-                ],
-                yAxis: [
-                  {
-                    type: 'value',
-                    splitArea: {show: true}
-                  }
-                ],
-                series: (function () {
-                  var seriesArr = [];
-                  //遍历生成数据项数组，将对象放入seriesArr数组中
-                  for (var temp2 in legendArr) {
-                    //console.log(temp2);
-                    var chartObj = new Object();
-                    var datatemp = [];
-                    //从数据对象中遍历循环取出数据值
-                    for (var temp3 in jsonObj[legendArr[temp2]]) {
-                      //console.log(temp3);
-                      datatemp.push(jsonObj[legendArr[temp2]][temp3]);
-                    }
-                    //console.log(datatemp);
-                    chartObj.name = legendArr[temp2];
-                    chartObj.type = 'bar';
-                    chartObj.data = datatemp;
-                    seriesArr.push(chartObj);
-                  }
-                  //console.log(seriesArr);
-                  return seriesArr;
-                })()
-              };
-              myChart.hideLoading();
-              myChart.setOption(option);
+                lineData += "</tr>";
+                $("#tableArea").append(lineData);
+              }
+            } else {
+              alert(result.errorMsg);
             }
-    );
-  }
+          },
+          error: function () {
+            alert("暂没有相关数据!");
+          }
+        });
+      }
+    });
+  });
 </script>
 <script src="static/js/bootstrap.min.js"></script>
 </body>

@@ -97,29 +97,44 @@ public class Statis extends HttpServlet
 
             //3.获取折线图显示的数据
             case "getLineBar":
-//                response.getWriter().print(barline);
-            	RequestDispatcher lrd=null;
-            	ServletContext lcontext=getServletContext();
-            	lrd=lcontext.getRequestDispatcher("/LineCount");
-            	lrd.forward(request, response);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                response.getWriter().print(barline);
+//            	RequestDispatcher lrd=null;
+//            	ServletContext lcontext=getServletContext();
+//            	lrd=lcontext.getRequestDispatcher("/LineCount");
+//            	lrd.forward(request, response);
                 break;
 
             //4.获取扇形图显示的数据
             case "getPie":
-//                response.getWriter().print(pie);
-            	RequestDispatcher prd=null;
-            	ServletContext pcontext=getServletContext();
-            	prd=pcontext.getRequestDispatcher("/PieCount");
-            	prd.forward(request, response);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                response.getWriter().print(pie);
+//            	RequestDispatcher prd=null;
+//            	ServletContext pcontext=getServletContext();
+//            	prd=pcontext.getRequestDispatcher("/PieCount");
+//            	prd.forward(request, response);
                 break;
 
             //5.获取表格显示的数据
             case "getTable":
-//                response.getWriter().print(table);
-            	RequestDispatcher trd=null;
-            	ServletContext tcontext=getServletContext();
-            	trd=tcontext.getRequestDispatcher("/TableGet");
-            	trd.forward(request, response);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                response.getWriter().print(table);
+//            	RequestDispatcher trd=null;
+//            	ServletContext tcontext=getServletContext();
+//            	trd=tcontext.getRequestDispatcher("/TableGet");
+//            	trd.forward(request, response);
                 break;
 
             //6.获取复选框的所有值

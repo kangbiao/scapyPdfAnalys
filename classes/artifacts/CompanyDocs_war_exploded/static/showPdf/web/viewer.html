@@ -7,6 +7,7 @@
     <title>PDF.js viewer</title>
     <link rel="stylesheet" href="viewer.css"/>
     <link rel="resource" type="application/l10n" href="locale/locale.properties"/>
+    <script src="../../js/jquery-1.11.2.min.js"></script>
     <script src="compatibility.js"></script>
     <script src="l10n.js"></script>
     <script src="../build/pdf.js"></script>
@@ -474,6 +475,27 @@
         </div>
     </div>
 </div>
+<script src="../../js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+
+        $("#viewerContainer").click(function(){
+            var txt = '';
+            if (window.getSelection) {
+                txt= window.getSelection().toString();
+            }else if (document.getSelection) {
+                txt=document.getSelection();
+            }else if (document.selection) {
+                txt=document.selection.createRange().text;
+            }
+            console.log(txt.toString());
+            $.cookie('clipBoard', txt.toString(), { expires: 7, path: '/' });
+//            alert(getCookie("clipBoard"));
+
+        });
+    })
+</script>
 
 </body>
 </html>

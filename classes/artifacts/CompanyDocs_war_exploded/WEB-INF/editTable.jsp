@@ -545,7 +545,15 @@
     </div>
     <!-- row结束 -->
   </div>
+  <script src="static/js/jquery.cookie.js"></script>
   <script type="text/javascript">
+    $(":input").click(function () {
+      if($(this).val()=="") {
+        $(this).val($.cookie("clipBoard"));
+        $.cookie('clipBoard', "", { expires: 7, path: '/' });
+      }
+    })
+
     $("#table1").click(function () {
       submitEdit(this, 1);
     });

@@ -46,7 +46,8 @@
     <ul class="nav nav-pills nav-stacked">
       <hr/>
       <li class="text-center" style="font-size:1.2em">图形统计</li>
-      <li class="text-center"><a href="statislinebar.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisbar.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisline.jsp">坐标图</a></li>
       <li class="active text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
@@ -82,7 +83,7 @@
         </select>
       </div>
       <div class="form-group">
-        <span class="input-group-btn"><button id="filter" class="btn btn-default" type="button">确定</button></span>
+        <button id="filter" class="btn btn-default" type="button">确定</button>
       </div>
     </form>
     <br/>
@@ -167,8 +168,8 @@
       }
     }
   }
-  function getCompanyList() {
-    var value = $("#company_name").val();
+  function getCompanyList(obj) {
+    var value = $(obj).val();
     $.ajax({
       type: "post",
       async: false, //同步执行
@@ -192,11 +193,11 @@
   $(function () {
     old_value = $("#company_name").val();
     $("[id=company_name]").focus(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
     $("[id=company_name]").keyup(function () {
-      getCompanyList();
+      getCompanyList(this);
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 
@@ -286,17 +287,25 @@
               'echarts/chart/pie',
               'echarts/chart/funnel'
             ],
-            function load(ec) {
+            function show(ec) {
               //--- 折柱 ---
               var myChart = ec.init(document.getElementById('piepanel'));
               var jsonObj = new Object();
               var legendArr = [];//返回文档数据的一级键值
               $.ajax({
                 type: "post",
-                async: false, //同步执行
+                async: true, //同步执行
                 url: "statis.do",
                 data: data,
                 dataType: "json", //返回数据形式为json
+                beforeSend:function(){
+                  myChart.showLoading(
+                          {
+                            text:"数据加载中...",
+                            effect:"whirling"
+                          }
+                  );
+                },
                 success: function (result) {
                   //myChart.hideLoading();
                   if (result) {
@@ -307,67 +316,72 @@
                     }
                   }
                 },
-                error: function (errorMsg) {
+                error: function () {
                   myChart.hideLoading();
                   alert("数据加载失败，请重试");
-                }
-              });
-              myChart.setOption({
-                title: {
-                  text: '本月文档情况',
-                  subtext: 'balabala',
-                  x: 'center'
                 },
-                tooltip: {
-                  trigger: 'item',
-                  formatter: "{a} <br/>{b} : {c} ({d}%)"
-                },
-                legend: {
-                  orient: 'vertical',
-                  x: 'left',
-                  data: legendArr
-                },
-                toolbox: {
-                  show: true,
-                  feature: {
-                    dataView: {show: true, readOnly: false},
-                    magicType: {
+                complete: function() {
+                  option={
+                    title: {
+                      text: '本月文档情况',
+                      subtext: 'balabala',
+                      x: 'center'
+                    },
+                    tooltip: {
+                      trigger: 'item',
+                      formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                      orient: 'vertical',
+                      x: 'left',
+                      data: legendArr
+                    },
+                    toolbox: {
                       show: true,
-                      type: ['pie', 'funnel'],
-                      option: {
-                        funnel: {
-                          x: '25%',
-                          width: '50%',
-                          funnelAlign: 'left',
-                          max: 1548
-                        }
+                      feature: {
+                        dataView: {show: true, readOnly: false},
+                        magicType: {
+                          show: true,
+                          type: ['pie', 'funnel'],
+                          option: {
+                            funnel: {
+                              x: '25%',
+                              width: '50%',
+                              funnelAlign: 'left',
+                              max: 1548
+                            }
+                          }
+                        },
+                        saveAsImage: {show: true}
                       }
                     },
-                    saveAsImage: {show: true}
-                  }
-                },
-                calculable: true,
-                series: [
-                  {
-                    name: '文档来源',
-                    type: 'pie',
-                    radius: '65%',
-                    center: ['50%', '60%'],
-                    data: (function () {
-                      var arr = [];
+                    calculable: true,
+                    series: [
+                      {
+                        name: '文档来源',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '60%'],
+                        data: (function () {
+                          var arr = [];
 
-                      for (var temp2 in jsonObj) {
-                        var objtemp = new Object();
-                        objtemp.value = jsonObj[temp2];
-                        objtemp.name = temp2;
-                        //console.log(objtemp);
-                        arr.push(objtemp);
+                          for (var temp2 in jsonObj) {
+                            var objtemp = new Object();
+                            objtemp.value = jsonObj[temp2];
+                            objtemp.name = temp2;
+                            //console.log(objtemp);
+                            arr.push(objtemp);
+                          }
+                          return arr;
+                        })()
                       }
-                      return arr;
-                    })()
-                  }
-                ]
+                    ]
+                  };
+                  myChart.setOption(option);
+                  myChart.hideLoading();
+                }
               });
+
             }
     );
   }

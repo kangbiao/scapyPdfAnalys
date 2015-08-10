@@ -240,13 +240,14 @@ public class DocumentDao
                 fileBean.setFilename(rs.getString("filename"));
                 if (status == 1)
                 {
-                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' href='file/" + rs.getString("pdfpath") +
-                            "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' href='file/" + rs.getString
-                            ("htmlpath")+"?fileid="+rs.getInt("fileid") + "'>HTML</a>");
+                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' target='__black' href='file/" + rs.getString
+                            ("pdfpath") +
+                            "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' target='__black' " +
+                            "href='getHtml.jsp?fileid="+rs.getInt("fileid") + "'>HTML</a>");
                 }
                 else
                 {
-                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' href='/file" + rs.getString("pdfpath") +
+                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' target='__black' href='/file" + rs.getString("pdfpath") +
                             "'>PDF</a>&nbsp;&nbsp;&nbsp;<a fileid='" + rs.getString("fileid") + "' filepath='/file"
                             +rs.getString("pdfpath")+
                             "' class='btn btn-primary btn-xs' href='javascript:void(0);' title='点击修改' " +

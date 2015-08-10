@@ -21,7 +21,7 @@
 
 					<li><a href="index.jsp">系统首页</a></li>
 					<li><a href="list.jsp">文档信息</a></li>
-					<li><a href="statislinebar.jsp">数据统计</a></li>
+					<li><a href="statisbar.jsp">数据统计</a></li>
 					<li><a href="user.jsp">个人设置</a></li>
 				</ul>
 				<p style="float:right;height:10ox;margin-top:15px;">欢迎你:Admin</p>
