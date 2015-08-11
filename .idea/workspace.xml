@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a19b58ec-6ef1-4a03-a050-e7347a702232" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/accountmanage.jsp" afterPath="$PROJECT_DIR$/WebContent/accountmanage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/accountmanage.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/accountmanage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/accountmanage.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/accountmanage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statisbar.jsp" afterPath="$PROJECT_DIR$/WebContent/statisbar.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statisline.jsp" afterPath="$PROJECT_DIR$/WebContent/statisline.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statispie.jsp" afterPath="$PROJECT_DIR$/WebContent/statispie.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/statispie.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/statispie.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/statispie.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/statispie.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statistable.jsp" afterPath="$PROJECT_DIR$/WebContent/statistable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/statistable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/statistable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/statistable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/statistable.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="79330863-275b-4b51-be3f-7c186f0b856b" name="Failed commit: Default" comment="修改了配置" />
@@ -114,7 +100,7 @@
     <favorites_list name="CompanyDocs" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44764957">
+    <splitter split-orientation="horizontal" split-proportion="0.5328608">
       <split-first>
         <leaf>
           <file leaf-file-name="reptilemanage.jsp" pinned="false" current-in-tab="false">
@@ -130,8 +116,8 @@
           <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.16351502">
-                  <caret line="148" column="46" selection-start-line="148" selection-start-column="46" selection-end-line="148" selection-end-column="46" />
+                <state vertical-scroll-proportion="0.6909492">
+                  <caret line="136" column="20" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -154,8 +140,8 @@
           <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3926585">
-                  <caret line="697" column="24" selection-start-line="697" selection-start-column="24" selection-end-line="697" selection-end-column="24" />
+                <state vertical-scroll-proportion="-6.072848">
+                  <caret line="572" column="32" selection-start-line="572" selection-start-column="32" selection-end-line="572" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -237,9 +223,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-4" />
-    <option name="width" value="1920" />
-    <option name="height" value="1084" />
+    <option name="y" value="24" />
+    <option name="width" value="1600" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -894,7 +880,8 @@
       <workItem from="1439009912758" duration="1250000" />
       <workItem from="1439170718467" duration="13521000" />
       <workItem from="1439257211001" duration="12744000" />
-      <workItem from="1439283642175" duration="1809000" />
+      <workItem from="1439283642175" duration="1875000" />
+      <workItem from="1439298350770" duration="3497000" />
     </task>
     <task id="LOCAL-00001" summary="修改了配置">
       <created>1437119894707</created>
@@ -948,7 +935,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82364000" />
+    <option name="totallyTimeSpent" value="85927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -960,8 +947,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -983,7 +970,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16892597" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34146342" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1254,7 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,9 +1299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25666666">
           <caret line="1" column="1334" selection-start-line="1" selection-start-column="1334" selection-end-line="1" selection-end-column="1334" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1344,7 +1327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65302783">
           <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1368,7 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.10310966">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,7 +1373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.2">
           <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1400,7 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2782324">
           <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1424,7 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="15.833333">
           <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1438,8 +1416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3926585">
-          <caret line="697" column="24" selection-start-line="697" selection-start-column="24" selection-end-line="697" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.6909492">
+          <caret line="136" column="20" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
           <folding />
         </state>
       </provider>

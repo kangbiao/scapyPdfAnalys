@@ -202,7 +202,7 @@
           </div>
         </form>
         <br/>
-        <button id="show_table" style="display: none" class="btn btn-default" type="button">显示数据表格</button>
+        <button style="display: none" class="show_table btn btn-default" type="button">显示数据表格</button>
         <div class="data_table" style="display: none">
           <table class="table table-striped table-bordered table-hover tableArea"
                  cellspacing="0" width="100%">
