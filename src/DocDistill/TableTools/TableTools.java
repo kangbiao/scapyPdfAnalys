@@ -58,28 +58,57 @@ public class TableTools {
 			return "-,-";
 		ArrayList<String> li = new ArrayList<String>();
 		for (String s : array) {
-			if (hasNum.matcher(s).matches())
-				li.add(s);
+			if (hasNum.matcher(s).matches()){
+				if(numForSplit(s)>1)  continue;
+				li.add(s.replace(",",""));
+			}
 		}
 		if(li.size()<=0)
 			return "-,-";
-		if (li.size() < 2)
-			return "-,"+li.get(0);
-		if(li.size()==3)
-			return li.get(1).replace(",", "") + ","
-			+ li.get(2).replace(",", "");
-		if (li.size() >= 4) {
-			if (li.size() % 2 == 0)
-				return li.get(0).replace(",", "") + ","
-						+ li.get(2).replace(",", "");
-			return li.get(1).replace(",", "") + ","
-					+ li.get(2).replace(",", "");
+		return dealNumList(li);
+	}
+	/*判断,逻辑不易看懂!*/
+	private static int numForSplit(String str){
+		int num=0;
+		for(int i=0;i<str.length();i++){
+			if(str.charAt(i)==45)
+				num++;
 		}
-		if (li.size() >= 2)
-			return li.get(0).replace(",", "") + ","
-					+ li.get(1).replace(",", "");
+		return num;
+	}
+	private static Pattern mp=Pattern.compile("^[  ]{1,10}[0-9\\.  -]*$");
+	private static Pattern pm=Pattern.compile("^[0-9\\.  -]*[  ]{1,10}$");
+	private static Pattern mpp=Pattern.compile("^[  ]{0,15}.*[  ]{1,15}.*[  ]{0,15}$");
+	private static String dealNumList(ArrayList<String> li ){
+		if(li.size()==1){
+			if(mpp.matcher(li.get(0)).matches())
+				return createForMPP(li.get(0));
+			if(mp.matcher(li.get(0)).matches())
+				return "-,"+li.get(0).replace(" ", "");
+			return li.get(0).replace(" ", "")+",-";
+		}
+		if(li.size()>=4){
+			if (li.size() % 2 == 0)
+				return li.get(0).replace(" ","") + ","
+						+ li.get(2).replace(" ","");
+			return li.get(1).replace(" ","") + ","
+					+ li.get(2).replace(" ","");
+		}
+		if(li.size()>=2)
+			return li.get(0).replace(" ","")+","+li.get(1).replace(" ","");
 		return "-,-";
 	}
+	
+	private static String createForMPP(String str){
+		String num[]=str.split(" ");
+		ArrayList<String> temp=new ArrayList<String>();
+		for(int i=0;i<num.length;i++){
+			if(hasNum.matcher(num[i]).matches())
+				temp.add(num[i]);
+		}
+		return temp.get(0).replace(" ", "")+","+temp.get(1).replace(" ", "");
+	}
+	/*End*/
 	/**
 	 * 提取map中数据到List
 	 * @param list

@@ -13,4 +13,6 @@ public class ServerPublic {
 	public static final String HTMLFOLD="html";
 	public static final String HTMLINDEX=File.separator+"index";
 	public static final String HTMLNAME="index-html.html";
+	public static final String INDEXMODE="index-frame.html";
+	public static final String HTMLMODE="htmlmode.html";
 }

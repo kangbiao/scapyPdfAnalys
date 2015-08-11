@@ -15,28 +15,46 @@ import DataBase.NoLiuDongZc;
 import DataBase.SuoYouZqy;
 import DataControl.TableItem;
 import DocDistill.DealInterface.TableDealAction;
+import DocDistill.TableTools.TableRegx;
 import DocDistill.TableTools.TableTools;
 
 public class TableZCFZ implements TableDealAction{
 	private static Pattern p[];
 	private static String Item[];
+	private static String mItem[];
 	static {
-		p = new Pattern[1];
-		p[0] = Pattern.compile("^.{0,10}资产负债表.{0,20}$");
+		p = new Pattern[2];
+		p[0] = Pattern.compile("^.{0,10}负[  ]{0,5}债[  ]{0,5}表[  ]{0,5}.{0,10}$");
+		p[1]=Pattern.compile("^[ :,　：]{0,50}流动资产[ :,　：]{0,50}$");
 		Item = new String[TableItem.LDZC.length + TableItem.FLDZC.length
 				+ TableItem.LDFZ.length + TableItem.FLDFZ.length
 				+ TableItem.SYZQY.length+1];
-		TableTools.StringArrayCopy(Item, TableItem.LDZC, 0);
+		TableTools.StringArrayCopy(Item, TableRegx.LDZC, 0);
 		TableTools
-				.StringArrayCopy(Item, TableItem.FLDZC, TableItem.LDZC.length);
-		TableTools.StringArrayCopy(Item, TableItem.LDFZ, TableItem.LDZC.length
-				+ TableItem.FLDZC.length);
-		TableTools.StringArrayCopy(Item, TableItem.FLDFZ, TableItem.LDZC.length
-				+ TableItem.FLDZC.length + TableItem.LDFZ.length);
-		TableTools.StringArrayCopy(Item, TableItem.SYZQY, TableItem.LDZC.length
-				+ TableItem.FLDZC.length + TableItem.LDFZ.length
-				+ TableItem.FLDFZ.length);
+				.StringArrayCopy(Item, TableRegx.FLDZC, TableRegx.LDZC.length);
+		TableTools.StringArrayCopy(Item, TableRegx.LDFZ, TableRegx.LDZC.length
+				+ TableRegx.FLDZC.length);
+		TableTools.StringArrayCopy(Item, TableRegx.FLDFZ, TableRegx.LDZC.length
+				+ TableRegx.FLDZC.length + TableRegx.LDFZ.length);
+		TableTools.StringArrayCopy(Item, TableRegx.SYZQY, TableRegx.LDZC.length
+				+ TableRegx.FLDZC.length + TableRegx.LDFZ.length
+				+ TableRegx.FLDFZ.length);
 		Item[Item.length-1]="法定代表人";
+		
+		mItem = new String[TableItem.LDZC.length + TableItem.FLDZC.length
+		  				+ TableItem.LDFZ.length + TableItem.FLDFZ.length
+		  				+ TableItem.SYZQY.length+1];
+		  		TableTools.StringArrayCopy(mItem, TableItem.LDZC, 0);
+		  		TableTools
+		  				.StringArrayCopy(mItem, TableItem.FLDZC, TableItem.LDZC.length);
+		  		TableTools.StringArrayCopy(mItem, TableItem.LDFZ, TableItem.LDZC.length
+		  				+ TableItem.FLDZC.length);
+		  		TableTools.StringArrayCopy(mItem, TableItem.FLDFZ, TableItem.LDZC.length
+		  				+ TableItem.FLDZC.length + TableItem.LDFZ.length);
+		  		TableTools.StringArrayCopy(mItem, TableItem.SYZQY, TableItem.LDZC.length
+		  				+ TableItem.FLDZC.length + TableItem.LDFZ.length
+		  				+ TableItem.FLDFZ.length);
+		  		mItem[mItem.length-1]="法定代表人";
 	}
 	
 	public TableZCFZ(){}
@@ -47,8 +65,12 @@ public class TableZCFZ implements TableDealAction{
 	
 	@Override
 	public boolean isTable(String str) {
+//		return false;
+		String temp=str.replace(" ", "");
+		if(temp.length()<15&&temp.contains("负债表"))
+			return true;
 		for (int i = 0; i < p.length; i++)
-			if (p[i].matcher(str).matches()){
+			if (p[i].matcher(str).matches()) {
 				return true;
 			}
 		return false;
@@ -76,7 +98,7 @@ public class TableZCFZ implements TableDealAction{
 					mlist = new ArrayList<String>();
 				}
 				isAdd = true;
-				name = Item[n++];
+				name = mItem[n++];
 				if (n >= Item.length)
 					n--;
 			}

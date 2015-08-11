@@ -9,21 +9,28 @@ import DataBase.CompanyTable;
 import DataBase.File;
 import DataBase.HibernateTools;
 import DataBase.XianJinLl;
-import DataBase.YinYeLiRun;
-import DataBase.YinYeShouY;
 import DataControl.TableItem;
 import DocDistill.DealInterface.TableDealAction;
+import DocDistill.TableTools.TableRegx;
 import DocDistill.TableTools.TableTools;
 
 public class TableXJLL implements TableDealAction{
 	private static Pattern p[];
 	private static String Item[];
+	private static String mItem[];
 	static {
-		p = new Pattern[1];
-		p[0] = Pattern.compile("^.{0,10}现金流量表.{0,20}$");
+		p = new Pattern[3];
+		p[0] = Pattern.compile("^[ :,　：合并]{0,50}.{0,5}现金流量表[ :,　：]{0,50}$");
+		p[1] = Pattern.compile("^[ :,　：]{0,50}经营活动产生的现金流量[ :,　：]{0,50}$");
+		p[2] = Pattern.compile("^.{0,10}现[  ]{0,5}金[  ]{0,5}流[  ]{0,5}量[  ]{0,5}表[  ]{0,5}.{0,10}$");
+		
 		Item = new String[TableItem.XJLL.length+1];
-		TableTools.StringArrayCopy(Item, TableItem.XJLL, 0);
+		TableTools.StringArrayCopy(Item, TableRegx.XJLL, 0);
 		Item[Item.length-1]="法定代表人";
+		
+		mItem = new String[TableItem.XJLL.length+1];
+		TableTools.StringArrayCopy(mItem, TableItem.XJLL, 0);
+		mItem[mItem.length-1]="法定代表人";
 	}
 	
 	public TableXJLL(){}
@@ -34,8 +41,12 @@ public class TableXJLL implements TableDealAction{
 	
 	@Override
 	public boolean isTable(String str) {
+//		return false;
+		String temp=str.replace(" ", "");
+		if(temp.length()<18&&temp.contains("现金流量表"))
+			return true;
 		for (int i = 0; i < p.length; i++)
-			if (p[i].matcher(str).matches()){
+			if (p[i].matcher(str).matches()) {
 				return true;
 			}
 		return false;
@@ -63,7 +74,7 @@ public class TableXJLL implements TableDealAction{
 					mlist = new ArrayList<String>();
 				}
 				isAdd = true;
-				name = Item[n++];
+				name = mItem[n++];
 				if (n >= Item.length)
 					n--;
 			}

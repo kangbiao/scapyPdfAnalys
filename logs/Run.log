@@ -50,3 +50,4 @@ java.io.FileNotFoundException: /home/liaoshichao/Tomcat/webapps/CompanyDocs/file
 2015.07.13 at 21:05:47 CST ERROR  - error  in TableTools( setItemByClass )( setItem1java.lang.NullPointerException
 2015.07.13 at 21:05:47 CST ERROR  - error  in TableTools( setItemByClass )( setItem1java.lang.NullPointerException
 2015.07.13 at 21:05:47 CST ERROR  - error  in TableTools( setItemByClass )( setItem1java.lang.NullPointerException
+2015.07.20 at 15:15:59 CST ERROR  - error in IndexCreate(createIndexMap) Jsoup parse-->java.io.FileNotFoundException: /home/liaoshichao/Doctemp1/pic/index-html.html (没有那个文件或目录)

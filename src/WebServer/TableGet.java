@@ -49,26 +49,42 @@ public class TableGet extends HttpServlet {
 		year=request.getParameter(YEAR);
 		status=Integer.valueOf(request.getParameter(STATUS));
 		
+		String name[]=dealCompanyArray(companyName.split(","));//公司名称
 		//Json 数据List
-		ArrayList<String> tablearr=TableTools.getTableHead(tableType);//表头
-		ArrayList<ArrayList> data=new ArrayList<ArrayList>(); //数据
-		String name[]=companyName.split(",");//公司名称
+		ArrayList<String> tablearr=TableTools.getTableHead(tableType,name);//表头
+		ArrayList<ArrayList<String>> data=new ArrayList<ArrayList<String>>(); //数据
+		//数据项表头
+		data.add(TableTools.getTableColumnHead(tableType, name));
 		
 		//获取表格
+		ArrayList<ArrayList<String>> temp=new ArrayList<ArrayList<String>>();
 		for(int i=0;i<name.length;i++){
 			CompanyTable mtable = TableDataControl.getControl()
 					.getTableByFilteValue(name[i], year, status);
 			if(mtable==null){
-				data.add(createNullList(name[i],tablearr.size()));
+				temp.add(createNullList(tablearr.size()));
 				continue;
 			}
 			 //获得表数据项目
-			if(columns==null||columns.equals("")){
-				data.addAll(TableTools.getTableItem(mtable, tableType, tablePart,null));
-			}else{
-				data.addAll(TableTools.getTableItem(mtable, tableType, tablePart,columns.split(",")));
+			if (columns == null || columns.equals(""))
+				temp.addAll(TableTools.getTableItem(mtable, tableType,
+						tablePart, null));
+			else
+				temp.addAll(TableTools.getTableItem(mtable, tableType,
+						tablePart, columns.split(",")));
+		}
+		//遍历temp 添加数据到data
+		int dataNum = temp.size() / name.length;
+		ArrayList<String> itemtemp=null;
+		for(int i=0;i<dataNum;i++){
+			itemtemp=new ArrayList<String>();
+			itemtemp.add(temp.get(i).get(0));
+			for(int index=0;index<name.length;index++){
+				//1,2仅仅限于前三个表
+				itemtemp.add(temp.get(i+dataNum*index).get(1));
+				itemtemp.add(temp.get(i+dataNum*index).get(2));
 			}
-			data.add(createSplitList(tablearr.size()));
+			data.add(itemtemp);
 		}
 		
 		table.putTableHead(tablearr);
@@ -81,22 +97,23 @@ public class TableGet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
 	//创建空数据
-	private ArrayList<String> createNullList(String name,int n){
+	private ArrayList<String> createNullList(int n){
 		ArrayList<String> item=new ArrayList<String>();
-		item.add(name);
-		for(int i=0;i<n-1;i++){
+		for(int i=0;i<n-1;i++)
 			item.add("无");
-		}
 		return item;
 	}
 	
-	//创建分割线
-	private ArrayList<String> createSplitList(int n){
-		ArrayList<String> item=new ArrayList<String>();
-		for(int i=0;i<n;i++)
-			item.add("----");
-		return item;
+	/**
+	 * 出于前端数据交换的需要
+	 * @param name
+	 * @return
+	 */
+	private String [] dealCompanyArray(String name[]){
+		String temp[]=new String[name.length];
+		for(int i=0;i<name.length;i++)
+			temp[i]=name[i].split("-")[1];
+		return temp;
 	}
 }

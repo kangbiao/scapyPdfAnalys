@@ -78,6 +78,7 @@ public class TableTypeList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
 	private class ItemClass{
 		String id;
 		String name;
