@@ -95,21 +95,35 @@ public class Statis extends HttpServlet
             	rd.forward(request, response);
                 break;
 
-            //3.获取折线图显示的数据
-            case "getLineBar":
+            //3.获取柱状图显示的数据
+            case "getBar":
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 response.getWriter().print(barline);
-//            	RequestDispatcher lrd=null;
-//            	ServletContext lcontext=getServletContext();
-//            	lrd=lcontext.getRequestDispatcher("/LineCount");
-//            	lrd.forward(request, response);
+                //            	RequestDispatcher lrd=null;
+                //            	ServletContext lcontext=getServletContext();
+                //            	lrd=lcontext.getRequestDispatcher("/LineCount");
+                //            	lrd.forward(request, response);
                 break;
 
-            //4.获取扇形图显示的数据
+            //4.获取折线图显示的数据
+            case "getLine":
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                response.getWriter().print(barline);
+                //            	RequestDispatcher lrd=null;
+                //            	ServletContext lcontext=getServletContext();
+                //            	lrd=lcontext.getRequestDispatcher("/LineCount");
+                //            	lrd.forward(request, response);
+                break;
+
+            //5.获取扇形图显示的数据
             case "getPie":
                 try {
                     Thread.sleep(1000);
@@ -123,7 +137,7 @@ public class Statis extends HttpServlet
 //            	prd.forward(request, response);
                 break;
 
-            //5.获取表格显示的数据
+            //6.获取表格显示的数据
             case "getTable":
                 try {
                     Thread.sleep(1000);
@@ -137,7 +151,7 @@ public class Statis extends HttpServlet
 //            	trd.forward(request, response);
                 break;
 
-            //6.获取复选框的所有值
+            //7.获取复选框的所有值
             case "getTableColumns":
 //                response.getWriter().print(tableColumns);
             	RequestDispatcher crd=null;
@@ -146,7 +160,7 @@ public class Statis extends HttpServlet
             	crd.forward(request, response);
                 break;
 
-            //7.提交对公司文档数据的修改
+            //8.提交对公司文档数据的修改
             case "submitModify":
 //                response.getWriter().print("{\"success\":true}");
             	RequestDispatcher srerd=null;
@@ -155,7 +169,7 @@ public class Statis extends HttpServlet
             	srerd.forward(request, response);
                 break;
 
-            //8.处理或者忽略失败的文档
+            //9.处理或者忽略失败的文档
             case "dealIgnore":
             	RequestDispatcher frerd=null;
             	ServletContext frecontext=getServletContext();
@@ -163,7 +177,7 @@ public class Statis extends HttpServlet
             	frerd.forward(request, response);
                 break;
 
-            //9.设置爬虫进程启动的时间
+            //10.设置爬虫进程启动的时间
             case "reptileControl":
 //                response.getWriter().print("{\"success\":true}");
             	RequestDispatcher rerd=null;

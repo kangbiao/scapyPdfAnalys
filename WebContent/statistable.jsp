@@ -72,7 +72,7 @@
   <div class="col-md-10">
     <form class="form-inline">
       <div class="panel">
-        数据加载错误
+
       </div>
       <div id="one">
         <div class="form-group">

@@ -62,14 +62,14 @@
       <hr/>
       <li class="text-center" style="font-size:1.2em">图形统计</li>
       <li class="active text-center"><a href="statisbar.jsp">坐标图</a></li>
-      <li class="text-center"><a href="statisline.jsp">折现图</a></li>
+      <li class="text-center"><a href="statisline.jsp">折线图</a></li>
       <li class="text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
   <div class="col-md-10">
     <form class="form-inline">
       <div class="panel">
-        数据加载错误
+
       </div>
       <div id="one">
         <div class="form-group">
@@ -207,7 +207,17 @@
 
   //表格视图显示
   $("#show_table").click(function () {
-    $("#data_table").css('display',$("#data_table").css('display')=='none'?'':'none');
+    if($("#data_table").css('display')=='none')
+    {
+      $("#data_table").slideDown("10000");
+      $("#show_table").text("隐藏表格数据");
+    }
+    else
+    {
+      $("#data_table").slideUp("10000");
+      $("#show_table").text("显示表格数据");
+    }
+//    $("#data_table").css('display',$("#data_table").css('display')=='none'?'':'none');
   });
 
   var company_list = new Array();
@@ -372,6 +382,7 @@
 
     //获取柱状图数据
     $("#filter").click(function () {
+      $("#show_table").text("显示表格数据");
       $("#show_table").fadeOut();
       $("#data_table").hide();
       var companyName = "";
@@ -418,7 +429,7 @@
         data['tablePart'] = tablePart;
         data['status'] = status;
         data['year'] = year;
-        data['action'] = "getLineBar";
+        data['action'] = "getBar";
         data['tableColumns']=tableColumus;
         loadechart(data);
       }
@@ -441,8 +452,7 @@
     require(
             [
               'echarts',
-              'echarts/chart/bar',
-              'echarts/chart/line'
+              'echarts/chart/bar'
             ],
             function show(ec) {
               var myChart = ec.init(document.getElementById('barlinepanel'));
@@ -519,8 +529,8 @@
                     toolbox: {
                       show: true,
                       feature: {
-                        dataView: {show: true, readOnly: false},
-                        magicType: {show: true, type: ['line', 'bar']},
+                        dataView: {show: true, readOnly: true},
+//                        magicType: {show: true, type: ['bar']},
                         saveAsImage: {show: true}
                       }
                     },

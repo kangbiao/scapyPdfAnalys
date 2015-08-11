@@ -7,17 +7,15 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>数据统计-表格统计</title>
-  <link rel="stylesheet" type="text/css"
-        href="static/css/bootstrap.min.css">
-  <script src="static/js/jquery-1.11.2.min.js"></script>
+  <title>数据统计-折线图&柱状图</title>
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
   <style type="text/css">
     .search {
       left: 0;
       position: relative;
     }
 
-    #auto_div {
+    #auto_div ,#auto_div_mutilate {
       display: none;
       width: 195px;
       border: 1px #74c0f9 solid;
@@ -32,16 +30,7 @@
       cursor: pointer;
     }
 
-    p.flip {
-      cursor: pointer;
-      margin: 0px;
-      padding: 5px;
-      text-align: center;
-      background: #ffffff;
-      border: solid 1px #c3c3c3;
-    }
-
-    div.panel {
+    div.basicpanel {
       margin: 5px;
       border: solid 1px #c3c3c3;
       padding: 5px;
@@ -49,13 +38,13 @@
       background: #fdfff4
     }
   </style>
+  <script src="static/js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
 
 <%@ include file="public_jsp/public_nav.jsp" %>
 
-<div class="row"
-     style="width: 100%; height: 600px; height: auto !important; min-height: 600px;">
+<div class="row" style="width: 100%; height: 600px; height: auto !important; min-height: 600px;">
   <div class="col-md-2" style="margin-top: 40px;">
     <ul class="nav nav-pills nav-stacked">
       <li class="text-center"><a href="statistable.jsp">表格数据</a></li>
@@ -63,153 +52,181 @@
 
     <ul class="nav nav-pills nav-stacked">
       <hr/>
-      <li class="text-center" style="font-size: 1.2em">图形统计</li>
+      <li class="text-center" style="font-size:1.2em">图形统计</li>
       <li class="text-center"><a href="statisbar.jsp">坐标图</a></li>
-      <li class="text-center active"><a href="statislien.jsp">折线图</a></li>
+      <li class="active text-center"><a href="statisline.jsp">折线图</a></li>
       <li class="text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>
   <div class="col-md-10">
-    <form class="form-inline">
-      <div class="panel">
-        数据加载错误
-      </div>
-      <div id="one">
-        <div class="form-group">
-          <label for="company_name" class="control-label">选择公司一:&nbsp;&nbsp;&nbsp;</label>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#single" aria-controls="single" role="tab" data-toggle="tab">单项比较
+      </a></li>
+      <li role="presentation"><a href="#mutilate" aria-controls="mutilate" role="tab" data-toggle="tab">多项比较</a></li>
+      </li>
+    </ul>
+    <div class="tab-content" style="margin-top: 20px">
+      <div role="tabpanel" class="tab-pane fade in active" id="single">
+        <form class="form-inline">
+          <div class="basicpanel panel">
 
-          <div class="input-group">
-            <input type="text" class="form-control" id="company_name"
-                   placeholder="输入公司名">
-
-            <div id="auto_div"></div>
           </div>
-        </div>
-        <div class="form-group">
-          <select id="tableType" class="form-control">
-            <option value="">--表格类型--</option>
-            <option value="1">资产负载表</option>
-            <option value="2">利润表</option>
-            <option value="3">现金流量表</option>
-            <!--<option value="4">所有者权益变动表</option> -->
-          </select>
-        </div>
-        <div class="form-group">
-          <select id="tablePart" class="form-control">
-            <option value="">--请选择--</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select id="year" class="form-control">
-            <option value="">--请选择--</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <p class="flip">选择表格项</p>
-        </div>
-        <div class="form-group">
-          <button id="filter" class="btn btn-default" type="button">确定</button>
-        </div>
-      </div>
-      <div id="two" style="display: none">
-        <div class="form-group">
-          <label for="company_name" class="control-label">选择公司二:&nbsp;&nbsp;&nbsp;</label>
+          <div id="one">
+            <div class="form-group">
+              <label for="company_name" class="control-label">选择公司一:&nbsp;&nbsp;&nbsp;</label>
 
-          <div class="input-group">
-            <input type="text" class="form-control" id="company_name"
-                   placeholder="输入公司名">
+              <div class="input-group">
+                <input type="text" class="form-control" id="company_name"
+                       placeholder="输入公司名">
 
-            <div id="auto_div"></div>
+                <div id="auto_div"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="tableType" class="form-control">
+                <option value="">--表格类型--</option>
+                <option value="1">资产负载表</option>
+                <option value="2">利润表</option>
+                <option value="3">现金流量表</option>
+                <!--<option value="4">所有者权益变动表</option> -->
+              </select>
+            </div>
+            <div class="form-group">
+              <select id="tablePart" class="form-control">
+                <option value="">--请选择--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="start_year form-control">
+                <option value="">--开始年份--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="end_year form-control">
+                <option value="">--截止年份--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button class="flip btn btn-default" type="button">选择表格项</button>
+            </div>
+            <div class="form-group">
+              <button class="filter btn btn-default" symbol="0" type="button">确定</button>
+            </div>
           </div>
-        </div>
-      </div>
-      <div id="three" style="display: none">
-        <div class="form-group">
-          <label for="company_name" class="control-label">选择公司三:&nbsp;&nbsp;&nbsp;</label>
+          <div id="two" style="display: none">
+            <div class="form-group">
+              <label for="company_name" class="control-label">选择公司二:&nbsp;&nbsp;&nbsp;</label>
 
-          <div class="input-group">
-            <input type="text" class="form-control" id="company_name" placeholder="输入公司名"/>
-            <div id="auto_div"></div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="company_name"
+                       placeholder="输入公司名">
+
+                <div id="auto_div"></div>
+              </div>
+            </div>
           </div>
+          <div id="three" style="display: none">
+            <div class="form-group">
+              <label for="company_name" class="control-label">选择公司三:&nbsp;&nbsp;&nbsp;</label>
+
+              <div class="input-group">
+                <input type="text" class="form-control" id="company_name"
+                       placeholder="输入公司名">
+
+                <div id="auto_div"></div>
+              </div>
+            </div>
+          </div>
+          &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-minus-sign"
+                                  aria-hidden="true"></span> <span
+                class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        </form>
+        <br/>
+        <button id="show_table" style="display: none" class="btn btn-default" type="button">显示数据表格</button>
+        <div id="data_table" style="display: none">
+          <table id="tableArea"
+                 class="table table-striped table-bordered table-hover"
+                 cellspacing="0" width="100%">
+
+          </table>
         </div>
+        <br/>
+        <div id="barlinepanel" style="height:500px;"></div>
       </div>
-      &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-minus-sign"
-                              aria-hidden="true"></span> <span
-            class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+      <div role="tabpanel" class="tab-pane fade" id="mutilate">
+        <form class="form-inline">
+          <div class="basicpanel panel_mutilate">
 
-    </form>
+          </div>
+          <div id="one">
+            <div class="form-group">
+              <label for="company_name_mutilate" class="control-label">选择公司:&nbsp;&nbsp;&nbsp;</label>
 
-    <br/>
+              <div class="input-group">
+                <input type="text" class="form-control company_name" id="company_name_mutilate"
+                       placeholder="输入公司名">
 
-    <div>
-      <table id="tableArea"
-             class="table table-striped table-bordered table-hover"
-             cellspacing="0" width="100%">
+                <div id="auto_div_mutilate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="tableType" class="form-control tableType">
+                <option value="">--表格类型--</option>
+                <option value="1">资产负载表</option>
+                <option value="2">利润表</option>
+                <option value="3">现金流量表</option>
+                <!--<option value="4">所有者权益变动表</option> -->
+              </select>
+            </div>
+            <div class="form-group">
+              <select id="tablePart" class="form-control tablePart">
+                <option value="">--请选择--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="start_year form-control">
+                <option value="">--开始年份--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="end_year form-control">
+                <option value="">--截止年份--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button class="flip_mutilate btn btn-default" type="button">选择表格项</button>
+            </div>
+            <div class="form-group">
+              <button class="filter btn btn-default" symbol="1" type="button">确定</button>
+            </div>
+          </div>
+        </form>
+        <br/>
+        <button id="show_table" style="display: none" class="btn btn-default" type="button">显示数据表格</button>
+        <div class="data_table" style="display: none">
+          <table class="table table-striped table-bordered table-hover tableArea"
+                 cellspacing="0" width="100%">
 
-      </table>
+          </table>
+        </div>
+        <br/>
+        <div id="barlinepanel_mutilate" style="height:500px;"></div>
+      </div>
     </div>
+
   </div>
+
+
 </div>
 <!-- 中间容器结束 -->
-
 <%@ include file="public_jsp/public_footer.jsp" %>
 
 
 <script type="text/javascript">
-  <%--选择表格项--%>
-  var flag = 1;
-  $("#tablePart").change(function(){
-    var companyName = $("#one").find("#company_name").val();
-    var tablePart = $("#tablePart option:selected").val();
-    var tableType = $("#tableType option:selected").val();
-    if(companyName!=""&&tablePart!=""&&tableType!="")
-    {
-      $.ajax({
-        type: "post",
-        async: false, //同步执行
-        url: "statis.do",
-        data: {
-          "action": "getTableColumns",
-          "companyName": companyName,
-          "tableType": tableType,
-          "tablePart": tablePart
-        },
-        dataType: "json", //返回数据形式为json
-        success: function (result) {
-          if (result.success) {
-            $(".panel").empty();
-            $(result.jsonString).each(function(){
-              var option = "<label>";
-              option += "<input type='checkbox' value='" + this.id + "'/>" + this.name +
-                      "</label>&nbsp;&nbsp;&nbsp;";
-              $(".panel").append(option);
-            });
-          } else {
-            alert(result.errorMsg);
-          }
-        },
-        error: function () {
-          alert("暂没有相关数据!");
-        }
-      });
-    }
-  });
-  $(".flip").click(function () {
-    if (0 == flag) {
-      $(".panel").slideUp("10000");
-      flag = 1;
-    }
-    else {
-      $(".panel").slideDown("10000");
-      flag = 0;
-    }
-  });
-
-  //测试用的数据
   var company_list = new Array();
   var old_value = "";
   var highlightindex = -1; //高亮
-  //自动完成
+  //公司列表弹出层
   function AutoComplete(obj, auto, search, mylist) {
     if ($(obj).val() != old_value || old_value == "") {
       var autoNode = $("#" + auto); //缓存对象（弹出框）
@@ -229,7 +246,8 @@
       for (i in carlist) {
         var wordNode = carlist[i]; //弹出框里的每一条内容
         var newDivNode = $("<div>").attr("id", i); //设置每个节点的id值
-        newDivNode.attr("style", "font:14px/25px;height:25px;padding:0 8px;cursor: pointer;");
+        newDivNode
+                .attr("style", "font:14px/25px;height:25px;padding:0 8px;cursor: pointer;");
         newDivNode.html(wordNode).appendTo(autoNode); //追加到弹出框
         //鼠标移入高亮，移开不高亮
         newDivNode.mouseover(function () {
@@ -247,7 +265,8 @@
         //鼠标点击文字上屏
         newDivNode.click(function () {
           //取出高亮节点的文本内容
-          var comText = autoNode.hide().children("div").eq(highlightindex).text();
+          var comText = autoNode.hide().children("div").eq(
+                  highlightindex).text();
           highlightindex = -1;
           //文本框中的内容变成高亮节点的内容
           $(obj).val(comText);
@@ -255,7 +274,11 @@
         if (carlist.length > 0) { //如果返回值有内容就显示出来
           var offsettop = $(obj).offset().top;
           var offsetleft = $(obj).offset().left;
-          autoNode.css({position: "fixed", 'top': offsettop + 34, 'left': offsetleft});
+          autoNode.css({
+            position: "fixed",
+            'top': offsettop + 34,
+            'left': offsetleft
+          });
           autoNode.show();
         } else { //服务器端无内容返回 那么隐藏弹出框
           autoNode.hide();
@@ -309,11 +332,23 @@
       AutoComplete(this, "auto_div", "company_name", company_list);
     });
 
+    old_value = $("#company_name_mutilate").val();
+    $("[id=company_name_mutilate]").focus(function () {
+      getCompanyList(this);
+      AutoComplete(this, "auto_div_mutilate", "company_name_mutilate", company_list);
+    });
+    $("[id=company_name_mutilate]").keyup(function () {
+      getCompanyList(this);
+      AutoComplete(this, "auto_div_mutilate", "company_name_mutilate", company_list);
+    });
+
+
+
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
       //  console.log($(this).children(":selected").val());
-      var companyName = $(this).parent().prev().children().children().val()
+      var conpanyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
       //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
@@ -325,12 +360,13 @@
         url: "statis.do",
         data: {
           "action": "getTablePartList",
-          "companyName": companyName,
+          "conpanyName": conpanyName,
           "tableType": tableType
         },
         dataType: "json", //返回数据形式为json
         success: function (result) {
           if (result.success) {
+
             $(result.jsonString).each(function () {
               tablePartSelect.append("<option value='" + this.id + "'>" + this.name + "</option>");
             });
@@ -343,12 +379,150 @@
         }
       });
     });
+
     //生成年份下拉框
     var myDate = new Date();
     for (var i = myDate.getFullYear(); i >= 2005; i--) {
-      $("#year").append("<option value='" + i + ".1'>" + i + "--上半年</option>");
-      $("#year").append("<option value='" + i + ".2'>" + i + "--下半年</option>");
+      $(".start_year").append("<option value='" + i + ".1'>" + i + "--上半年</option>");
+      $(".start_year").append("<option value='" + i + ".2'>" + i + "--下半年</option>");
+      $(".end_year").append("<option value='" + i + ".1'>" + i + "--上半年</option>");
+      $(".end_year").append("<option value='" + i + ".2'>" + i + "--下半年</option>");
     }
+
+
+
+
+  <%--选择表格项--%>
+    var flag = 1;
+    $("#tablePart").change(function(){
+      var companyName = $(this).parent().parent().find("#company_name").val();
+      var tablePart = $("#tablePart option:selected").val();
+      var tableType = $("#tableType option:selected").val();
+      if(companyName!=""&&tablePart!=""&&tableType!="")
+      {
+        $.ajax({
+          type: "post",
+          async: false, //同步执行
+          url: "statis.do",
+          data: {
+            "action": "getTableColumns",
+            "companyName": companyName,
+            "tableType": tableType,
+            "tablePart": tablePart
+          },
+          dataType: "json", //返回数据形式为json
+          success: function (result) {
+            if (result.success) {
+              $(".panel").empty();
+              $(result.jsonString).each(function(){
+                var option = "<label>";
+                option += "<input type='radio' value='" + this.id + "' name='items'/>" + this.name +
+                        "</label>&nbsp;&nbsp;&nbsp;";
+                $(".panel").append(option);
+              });
+            } else {
+              alert(result.errorMsg);
+            }
+          },
+          error: function (errorMsg) {
+            alert("暂没有相关数据!");
+          }
+        });
+      }
+    });
+    $(".flip").click(function () {
+      if (0 == flag) {
+        $(".panel").slideUp("10000");
+        flag = 1;
+      }
+      else {
+        $(".panel").slideDown("10000");
+        flag = 0;
+      }
+    });
+
+    var flag_mutilate = 1;
+    $(".tablePart").change(function(){
+      var companyName = $("#company_name_mutilate").val();
+      var tablePart = $(".tablePart option:selected").val();
+      var tableType = $(".tableType option:selected").val();
+      if(companyName!=""&&tablePart!=""&&tableType!="")
+      {
+        $.ajax({
+          type: "post",
+          async: false, //同步执行
+          url: "statis.do",
+          data: {
+            "action": "getTableColumns",
+            "companyName": companyName,
+            "tableType": tableType,
+            "tablePart": tablePart
+          },
+          dataType: "json", //返回数据形式为json
+          success: function (result) {
+            if (result.success) {
+              $(".panel_mutilate").empty();
+              $(result.jsonString).each(function(){
+                var option = "<label>";
+                option += "<input type='checkbox' value='" + this.id + "'/>" + this.name +
+                        "</label>&nbsp;&nbsp;&nbsp;";
+                $(".panel_mutilate").append(option);
+              });
+            } else {
+              alert(result.errorMsg);
+            }
+          },
+          error: function (errorMsg) {
+            alert("暂没有相关数据!");
+          }
+        });
+      }
+    });
+    $(".flip_mutilate").click(function () {
+      if (0 == flag_mutilate) {
+        $(".panel_mutilate").slideUp("10000");
+        flag_mutilate = 1;
+      }
+      else {
+        $(".panel_mutilate").slideDown("10000");
+        flag_mutilate = 0;
+      }
+    });
+
+
+
+
+
+  //表格视图显示
+    $("#show_table").click(function () {
+      if($("#data_table").css('display')=='none')
+      {
+        $("#data_table").slideDown("10000");
+        $("#show_table").text("隐藏表格数据");
+      }
+      else
+      {
+        $("#data_table").slideUp("10000");
+        $("#show_table").text("显示表格数据");
+      }
+    });
+
+    $(".show_table").click(function () {
+      if($(".data_table").css('display')=='none')
+      {
+        $(".data_table").slideDown("10000");
+        $(".show_table").text("隐藏表格数据");
+      }
+      else
+      {
+        $(".data_table").slideUp("10000");
+        $(".show_table").text("显示表格数据");
+      }
+    });
+
+
+
+
 
     //减少公司按钮
     $(".glyphicon-minus-sign").click(function () {
@@ -358,89 +532,261 @@
     $(".glyphicon-plus-sign").click(function () {
       $(this).prevAll().filter(":hidden").not(".panel").last().show();
     });
-    //获取表格数据
-    $("#filter").click(function () {
+
+    $(".filter").click(function () {
       var companyName = "";
       var tableType = "";
       var tablePart = "";
-      var year = "";
-      var status = "";
+      var start_year = "";
+      var start_status = "";
+      var end_year = "";
+      var end_status= "";
       var temp = 0;
       var tableColumus="";
-      $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
-
-        if (temp == 0)
-          companyName = $(this).eq(0).find("#company_name").val();
-        else
-          companyName = companyName + "," + $(this).eq(0).find("#company_name").val();
-        temp++;
-      });
-      temp=0;
-      $(".panel").find("input:checkbox:checked").each(function(){
-        if(temp==0)
-          tableColumus=$(this).val();
-        else
-          tableColumus=tableColumus+","+$(this).val();
-        temp++;
-      });
-
-      tablePart = $("#tablePart option:selected").val();
-      tableType = $("#tableType option:selected").val();
-      year = $("#year option:selected").val();
-      year_status = year.split(".");
-      year = year_status[0];
-      status = year_status[1];
+      var symbol=$(this).attr("symbol");
+      if(symbol==0) {
+        $("#show_table").text("显示表格数据");
+        $("#show_table").fadeOut();
+        $("#data_table").hide();
+        $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
+          // console.log($(this).children());
+          if (temp == 0)
+            companyName = $(this).eq(0).find("#company_name").val();
+          else
+            companyName = companyName + "," + $(this).eq(0).find("#company_name").val();
+          temp++;
+        });
+        tableColumus=$(".panel").find("input[name='items']:checked").val();
+        tablePart = $("#tablePart option:selected").val();
+        tableType = $("#tableType option:selected").val();
+        start_year = $(".start_year option:selected").val();
+        var year_status = start_year.split(".");
+        start_year = year_status[0];
+        start_status = year_status[1];
+        end_year = $(".end_year option:selected").val();
+        year_status = end_year.split(".");
+        end_year = year_status[0];
+        end_status = year_status[1];
+      }
+      else
+      {
+        $(".show_table").text("显示表格数据");
+        $(".show_table").fadeOut();
+        $(".data_table").hide();
+        companyName = $("#company_name_mutilate").val();
+        temp = 0;
+        $(".panel_mutilate").find("input:checkbox:checked").each(function () {
+          if (temp == 0)
+            tableColumus = $(this).val();
+          else
+            tableColumus = tableColumus + "," + $(this).val();
+          temp++;
+        });
+        tablePart = $(".tablePart option:selected").val();
+        tableType = $(".tableType option:selected").val();
+        start_year = $(this).parent().parent().find(".start_year").children(":selected").val();
+        var year_status = start_year.split(".");
+        start_year = year_status[0];
+        start_status = year_status[1];
+        end_year = $(this).parent().parent().find(".end_year").children(":selected").val();
+        year_status = end_year.split(".");
+        end_year = year_status[0];
+        end_status = year_status[1];
+      }
       if (companyName == "") {
         alert("请选择公司!");
       } else if (tableType == "") {
         alert("请选择表格类型");
       } else if (tablePart == "") {
         alert("请选择需要显示的表部分");
-      } else if (year == "") {
-        alert("请选择年份");
+      } else if (start_year == "") {
+        alert("请选择开始年份");
+      } else if (end_year == "") {
+        alert("请选择截止年份");
       } else {
-        $.ajax({
-          type: "post",
-          async: true, //同步执行
-          url: "statis.do",
-          data: {
-            "action": "getTable",
-            "companyName": companyName,
-            "tableType": tableType,
-            "tablePart": tablePart,
-            'year': year,
-            "status": status,
-            'tableColumns':tableColumus
-          },
-          dataType: "json", //返回数据形式为json
-          success: function (result) {
-            if (result.success) {
-              $("#tableArea").empty();
-              var lineData = "<tr>";
-              for (var index in result.jsonString.tableheadArr) {
-                lineData += "<th>" + result.jsonString.tableheadArr[index] + "</th>";
-              }
-              lineData += "</tr>";
-              $("#tableArea").html(lineData);
-              for (var index1 in result.jsonString.data) {
-                lineData = "<tr>";
-                for (var index2 in result.jsonString.data[index1]) {
-                  lineData += "<td>" + result.jsonString.data[index1][index2] + "</td>";
-                }
-                lineData += "</tr>";
-                $("#tableArea").append(lineData);
-              }
-            } else {
-              alert(result.errorMsg);
-            }
-          },
-          error: function () {
-            alert("暂没有相关数据!");
-          }
-        });
+        var data = {};
+        data['companyName'] = companyName;
+        data['tableType'] = tableType;
+        data['tablePart'] = tablePart;
+        data['start_status'] = start_status;
+        data['start_year'] = start_year;
+        data['end_status'] = end_status;
+        data['end_year'] = end_year;
+        data['action'] = "getLine";
+        data['tableColumns']=tableColumus;
+        data['symbol']=symbol;
+        loadechart(data);
       }
     });
   });
+</script>
+<script src="static/js/echarts.js"></script>
+<script type="text/javascript">
+  require.config({
+    paths: {
+      echarts: 'static/js'
+    }
+  });
+  function loadechart(data) {
+    require.config({
+      paths: {
+        echarts: 'static/js'
+      }
+    });
+    require(
+            [
+              'echarts',
+              'echarts/chart/line'
+            ],
+            function show(ec) {
+              if(data['symbol']==0)
+                var myChart = ec.init(document.getElementById('barlinepanel'));
+              else
+                var myChart = ec.init(document.getElementById('barlinepanel_mutilate'));
+              var legendArr = [];//返回文档数据的一级键值
+              var xAxisArr = [];//返回文档数据的二级键值（取样来自第一条记录）
+              var jsonObj = new Object();
+              $.ajax({
+                type: "post",
+                async: true, //同步执行
+                url: "statis.do",
+                data: data,
+                dataType: "json", //返回数据形式为json
+                beforeSend:function(){
+                  myChart.showLoading(
+                          {
+                            text:"数据加载中...",
+                            effect:"whirling"
+                          }
+                  );
+                },
+                success: function (result) {
+                  //myChart.hideLoading();
+                  if (result) {
+                    jsonObj = result;
+                    for (var temp in result) {
+                      //console.log(temp);
+                      legendArr.push(temp);
+                    }
+//                    console.log(legendArr);
+                    for (var temp1 in result[legendArr[0]]) {
+                      //console.log(temp1);
+                      xAxisArr.push(temp1);
+                    }
+//                    console.log(xAxisArr);
+                  }
+                },
+                error: function () {
+                  myChart.hideLoading();
+                  alert("数据加载失败，请重试");
+                },
+                complete: function() {
+                  if(data['symbol']==0) {
+                    $("#tableArea").empty();
+                    var tableHead = "<tr><th></th>";
+                    for (var tableHeadIndex in xAxisArr) {
+                      tableHead += "<th>" + xAxisArr[tableHeadIndex] + "</th>";
+                    }
+                    tableHead += "</tr>";
+                    $("#tableArea").html(tableHead);
+//                  console.log(jsonObj);
+//                  console.log(legendArr);
+//                  console.log(tableHead);
+                    for (var index in jsonObj) {
+                      lineData = "<tr><td>" + index + "</td>";
+//                    console.log(jsonObj[index]);
+                      for (var tableHeadIndex in xAxisArr) {
+                        var item = xAxisArr[tableHeadIndex];
+                        lineData += "<td>" + (jsonObj[index][item]) + "</td>";
+                      }
+                      lineData += "</tr>";
+                      $("#tableArea").append(lineData);
+//                    console.log(lineData);
+                    }
+                    $("#show_table").fadeIn(1000);
+                  }
+                  else {
+                    $(".tableArea").empty();
+                    var tableHead = "<tr><th></th>";
+                    for (var tableHeadIndex in xAxisArr) {
+                      tableHead += "<th>" + xAxisArr[tableHeadIndex] + "</th>";
+                    }
+                    tableHead += "</tr>";
+                    $(".tableArea").html(tableHead);
+//                  console.log(jsonObj);
+//                  console.log(legendArr);
+//                  console.log(tableHead);
+                    for (var index in jsonObj) {
+                      lineData = "<tr><td>" + index + "</td>";
+//                    console.log(jsonObj[index]);
+                      for (var tableHeadIndex in xAxisArr) {
+                        var item = xAxisArr[tableHeadIndex];
+                        lineData += "<td>" + (jsonObj[index][item]) + "</td>";
+                      }
+                      lineData += "</tr>";
+                      $(".tableArea").append(lineData);
+//                    console.log(lineData);
+                    }
+                    $(".show_table").fadeIn(1000);
+                  }
+                  option = {
+                    tooltip: {
+                      trigger: 'axis'
+                    },
+                    legend: {
+                      data: legendArr
+                    },
+                    toolbox: {
+                      show: true,
+                      feature: {
+                        dataView: {show: true, readOnly: true},
+//                        magicType: {show: true, type: ['bar']},
+                        saveAsImage: {show: true}
+                      }
+                    },
+                    calculable: true,
+                    xAxis: [
+                      {
+                        type: 'category',
+                        data: xAxisArr
+                      }
+                    ],
+                    yAxis: [
+                      {
+                        type: 'value',
+                        splitArea: {show: true}
+                      }
+                    ],
+                    series: (function () {
+                      var seriesArr = [];
+                      //遍历生成数据项数组，将对象放入seriesArr数组中
+                      for (var temp2 in legendArr) {
+                        //console.log(temp2);
+                        var chartObj = new Object();
+                        var datatemp = [];
+                        //从数据对象中遍历循环取出数据值
+                        for (var temp3 in jsonObj[legendArr[temp2]]) {
+                          //console.log(temp3);
+                          datatemp.push(jsonObj[legendArr[temp2]][temp3]);
+                        }
+                        //console.log(datatemp);
+                        chartObj.name = legendArr[temp2];
+                        chartObj.type = 'line';
+                        chartObj.data = datatemp;
+                        seriesArr.push(chartObj);
+                      }
+                      //console.log(seriesArr);
+                      return seriesArr;
+                    })()
+                  };
+                  myChart.setOption(option);
+                  myChart.hideLoading();
+                }
+              });
+
+            }
+    );
+  }
 </script>
 <script src="static/js/bootstrap.min.js"></script>
 </body>

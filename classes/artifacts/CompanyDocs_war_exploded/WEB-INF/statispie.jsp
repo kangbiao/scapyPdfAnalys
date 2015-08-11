@@ -47,7 +47,7 @@
       <hr/>
       <li class="text-center" style="font-size:1.2em">图形统计</li>
       <li class="text-center"><a href="statisbar.jsp">坐标图</a></li>
-      <li class="text-center"><a href="statisline.jsp">坐标图</a></li>
+      <li class="text-center"><a href="statisline.jsp">折线图</a></li>
       <li class="active text-center"><a href="statispie.jsp">扇形图</a></li>
     </ul>
   </div>

@@ -70,7 +70,7 @@
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
           <input type="button" class="btn btn-primary" id="confirm"
-                 value="确定修改">
+                 value="确定添加">
         </div>
       </div>
     </form>
@@ -90,28 +90,33 @@
       var userid = $("#userid").val();
       var password = $("#password").val();
       var role = $("#role option:selected").val();
+      if(name=="")
+        alert("请输入用户名!");
+      else if(email=="")
+        alert("请输入邮箱!");
+      else if(userid=="")
+        alert("请输入登录名!");
+      else if(password=="")
+        alert("请输入密码!");
+      else if(role=="")
+        alert("请选择用户角色!");
+      else
+        alert("添加成功!");
+//
+//      $.ajax({
+//        type: "post",
+//        async: false, //同步执行
+//        url: "get_company_list.do",
+//        data: {'name': name, "email": email, "userid": userid, "password": password, "role": role},
+//        dataType: "json", //返回数据形式为json
+//        success: function (result) {
+//          //myChart.hideLoading();
+//        },
+//        error: function (errorMsg) {
+//          alert("数据加载失败，请重试");
+//        }
+//      });
 
-      $.ajax({
-        type: "post",
-        async: false, //同步执行
-        url: "get_company_list.do",
-        data: {'name': name, "email": email, "userid": userid, "password": password, "role": role},
-        dataType: "json", //返回数据形式为json
-        success: function (result) {
-          //myChart.hideLoading();
-        },
-        error: function (errorMsg) {
-          alert("数据加载失败，请重试");
-        }
-      });
-
-      old_value = $("#company_name").val();
-      $("[id=company_name]").focus(function () {
-        AutoComplete(this, "auto_div", "company_name", company_list);
-      });
-      $("[id=company_name]").keyup(function () {
-        AutoComplete(this, "auto_div", "company_name", company_list);
-      });
     });
   });
 </script>
