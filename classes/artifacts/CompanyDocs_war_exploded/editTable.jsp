@@ -1,5 +1,3 @@
-</tr>
-<tr>
   <%@ page language="java" contentType="text/html; charset=UTF-8"
            pageEncoding="UTF-8" %>
   <!DOCTYPE html>
@@ -28,11 +26,14 @@
       </div>
       <div class="col-md-4" style="height:800px;overflow:auto">
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#zcfz" aria-controls="zcfz" role="tab"
+          <li role="presentation" class="active"><a id="zcfztable" href="#zcfz" aria-controls="zcfz" role="tab"
                                                     data-toggle="tab">资产负债表</a></li>
-          <li role="presentation"><a href="#lr" aria-controls="lr" role="tab" data-toggle="tab">利润表</a></li>
-          <li role="presentation"><a href="#xjll" aria-controls="xjll" role="tab" data-toggle="tab">现金流量表</a></li>
-          </li>
+          <li
+                  role="presentation"><a id="lrtable" href="#lr" aria-controls="lr" role="tab" data-toggle="tab">利润表
+          </a></li>
+          <li
+                  role="presentation"><a id="xjlltable" href="#xjll" aria-controls="xjll" role="tab" data-toggle="tab">
+            现金流量表</a></li>
         </ul>
         <div class="tab-content" style="margin-top: 20px">
           <div role="tabpanel" class="tab-pane fade in active" id="zcfz"><!-- 资产负债tab开始 -->
@@ -547,12 +548,78 @@
   </div>
   <script src="static/js/jquery.cookie.js"></script>
   <script type="text/javascript">
+    $(function () {
+      var companyType='<%=request.getParameter("companyType") %>';
+      var fileid=<%=request.getParameter("fileid") %>;
+      $.ajax({
+        type: "post",
+        async: true,
+        url: "statis.do",
+        data:
+        {'fileid':fileid,'action':'getFromMsg','companyTtype':companyType},
+        dataType: "json", //返回数据形式为json
+        success: function (result) {
+          for (var table in result)
+          {
+            console.log(result[table]);
+            if(table=="table1")
+            {
+              if(result[table]['status']==0)
+                $("#zcfztable").append("&nbsp;<span class='badge' style='background-color: red'>!</span>");
+              var allInput=$("#zcfz").find("tr");
+              for (var dataindex in result[table]['data'])
+              {
+                result[table]['data'][dataindex]=result[table]['data'][dataindex].split(",");
+                var i=0;
+                $(allInput[dataindex]).find("input").each( function()
+                {
+                  $(this).val(result[table]['data'][dataindex][i++]);
+                })
+              }
+            }
+            else if(table=="table2")
+            {
+              if(result[table]['status']==0)
+                $("#lrtable").append("&nbsp;<span class='badge' style='background-color: red'>!</span>");
+              var allInput=$("#lr").find("tr");
+              for (var dataindex in result[table]['data'])
+              {
+                result[table]['data'][dataindex]=result[table]['data'][dataindex].split(",");
+                var i=0;
+                $(allInput[dataindex]).find("input").each( function()
+                {
+                  $(this).val(result[table]['data'][dataindex][i++]);
+                })
+              }
+            }
+            else if(table=="table3")
+            {
+              if(result[table]['status']==0)
+                $("#xjlltable").append("&nbsp;<span class='badge' style='background-color: red'>!</span>");
+              var allInput=$("#xjll").find("tr");
+              for (var dataindex in result[table]['data'])
+              {
+                result[table]['data'][dataindex]=result[table]['data'][dataindex].split(",");
+                var i=0;
+                $(allInput[dataindex]).find("input").each( function()
+                {
+                  $(this).val(result[table]['data'][dataindex][i++]);
+                })
+              }
+            }
+          }
+        },
+        error: function (errorMsg) {
+          alert("网络连接错误!");
+        }
+      });
+    });
     $(":input").click(function () {
       if($(this).val()=="") {
         $(this).val($.cookie("clipBoard"));
         $.cookie('clipBoard', "", { expires: 7, path: '/' });
       }
-    })
+    });
 
     $("#table1").click(function () {
       submitEdit(this, 1);
@@ -563,9 +630,6 @@
     $("#table3").click(function () {
       submitEdit(this, 3);
     });
-    $("#table4").click(function () {
-      submitEdit(this, 4);
-    });
     function submitEdit(object, tableid) {
       var counter = 1;
       var data = {};
@@ -573,18 +637,23 @@
       $(object).parent().parent().find("input").each(function () {
 
         if (counter % 2 == 1) {
-          data["'" + i + "'"] = $(this).val();
+          data[i] = $(this).val();
           counter = counter + 1;
         }
         else {
-          data["'" + i + "'"] = data["'" + i + "'"] + "," + $(this).val();
+          if(data[i]==""&&$(this).val()=="")
+            delete data[i];
+          else
+            data[i] = data[i] + "," + $(this).val();
           i = i + 1;
           counter = 1;
         }
       });
+      console.log(data);
       data['table'] = tableid;
       data['fileid']=<%=request.getParameter("fileid") %>;
       data['action']='submitModify';
+      data['companyType']='<%=request.getParameter("companyType") %>';
       $.ajax({
         type: "post",
         async: false, //同步执行

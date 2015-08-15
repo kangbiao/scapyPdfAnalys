@@ -603,6 +603,9 @@
         alert("请选择开始年份");
       } else if (end_year == "") {
         alert("请选择截止年份");
+      } else if(start_year>=end_year||(start_year==end_year&&start_status>=end_status))
+      {
+        alert("截止年份必须大于开始年份");
       } else {
         var data = {};
         data['companyName'] = companyName;
@@ -615,7 +618,10 @@
         data['action'] = "getLine";
         data['tableColumns']=tableColumus;
         data['symbol']=symbol;
-        loadechart(data);
+        if(symbol==0&&typeof(tableColumus)=="undefined")
+          alert("请选择一个表格项显示");
+        else
+          loadechart(data);
       }
     });
   });
@@ -648,7 +654,7 @@
               var jsonObj = new Object();
               $.ajax({
                 type: "post",
-                async: true, //同步执行
+                async: true,
                 url: "statis.do",
                 data: data,
                 dataType: "json", //返回数据形式为json

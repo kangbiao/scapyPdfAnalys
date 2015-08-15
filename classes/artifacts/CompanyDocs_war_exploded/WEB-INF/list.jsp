@@ -239,13 +239,19 @@
             }]
           });
           $(document).on('click', '#outside', function () {
-            console.log($(this).attr('value'));
+//            console.log($(this).attr('object'));
+            var companyType=$(this).attr("companyType");
+            if (companyType=="parent")
+              var popTitle="母公司数据更正";
+            else
+              var popTitle="本公司数据更正";
             $.webox({
               height: $(window).height() * 0.9,
               width: $(window).width() * 0.9,
               bgvisibel: true,
-              title: '数据修改',
-              iframe: 'editTable.jsp?filepath=' + $(this).attr('filepath') + "&fileid=" + $(this).attr('fileid')
+              title: popTitle,
+              iframe:
+              'editTable.jsp?filepath=' + $(this).attr('filepath') + "&fileid=" + $(this).attr('fileid')+"&companyType="+$(this).attr("companyType")
             });
           });
         });

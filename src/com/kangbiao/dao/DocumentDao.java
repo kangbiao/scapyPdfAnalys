@@ -32,20 +32,20 @@ public class DocumentDao
     {
         String sql;
         if (value.equals(""))
-            sql="SELECT DISTINCT name,id,num FROM Company LIMIT 100";
+            sql = "SELECT DISTINCT name,id,num FROM Company LIMIT 100";
         else
             sql = "SELECT DISTINCT name,id,num FROM Company WHERE num LIKE(?) OR name LIKE(?) LIMIT 100";
         List<CompanyBean> list = new ArrayList<>();
         conn = ConnectDB.GetConnectionMysql();
-        PreparedStatement pst ;
-        ResultSet rs ;
+        PreparedStatement pst;
+        ResultSet rs;
         try
         {
             pst = conn.prepareStatement(sql);
             if (!value.equals(""))
             {
-                pst.setString(1,"%"+value+"%");
-                pst.setString(2,"%"+value+"%");
+                pst.setString(1, "%" + value + "%");
+                pst.setString(2, "%" + value + "%");
             }
             rs = pst.executeQuery();
             while (rs.next())
@@ -158,9 +158,9 @@ public class DocumentDao
                 CompanyBean companyBean = new CompanyBean();
                 companyBean.setCode(rs.getString("num"));
                 //System.out.println(this.getFailDocNumByCompanyID(rs.getInt("id"),-1));
-                failDocNum=this.getFailDocNumByCompanyID(rs.getInt("id"),-1);
-                if(!failDocNum.equals("0"))
-                    companyBean.setName(rs.getString("name")+"(<font color='red'>"+failDocNum+"</font>个失败文档)");
+                failDocNum = this.getFailDocNumByCompanyID(rs.getInt("id"), -1);
+                if (!failDocNum.equals("0"))
+                    companyBean.setName(rs.getString("name") + "(<font color='red'>" + failDocNum + "</font>个失败文档)");
                 else
                     companyBean.setName(rs.getString("name"));
                 companyBean.setKind(rs.getString("kind"));
@@ -240,24 +240,33 @@ public class DocumentDao
                 fileBean.setFilename(rs.getString("filename"));
                 if (status == 1)
                 {
-                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' target='__black' href='file/" + rs.getString("pdfpath") +
-                            "'>PDF</a>&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-xs' target='__black' href='getHtml.jsp?fileid="+rs.getInt("fileid") + "'>HTML</a>");
+                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' target='__black' href='file/" + rs
+                            .getString("pdfpath") +
+                            "'>PDF</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' target='__black' " +
+                            "href='getHtml.jsp?fileid=" + rs.getInt("fileid") + "'>HTML</a>");
                 }
                 else
                 {
-                    fileBean.setTwopath("<a class='btn btn-primary btn-xs' target='__black' href='/file" + rs.getString("pdfpath") +
-                            "'>PDF</a>&nbsp;&nbsp;&nbsp;<a fileid='" + rs.getString("fileid") + "' filepath='/file"
-                            +rs.getString("pdfpath")+
-                            "' class='btn btn-primary btn-xs' href='javascript:void(0);' title='点击修改' " +
-                            "id='outside'>处理</a>&nbsp;&nbsp;<input " +
-                            "name='selectedfile' value='" + rs.getString("fileid") + "' type='checkbox'>");
+                    String pdfLink = "<a class='btn btn-primary btn-xs' target='__black' href='/file" + rs.getString
+                            ("pdfpath") + "'>PDF</a>&nbsp;&nbsp;";
+                    String selfLink = "<a fileid='" + rs.getString("fileid") + "' filepath='/file" + rs.getString("pdfpath") +
+                            "' class='btn btn-primary btn-xs' href='javascript:void(0);' companyType='self' " +
+                            "title='点击修改' "+"id='outside'>处理</a>&nbsp;&nbsp;";
+                    String parentLink="<a fileid='" + rs.getString("fileid") + "' filepath='/file" + rs.getString("pdfpath") +
+                            "' class='btn btn-primary btn-xs' href='javascript:void(0);' companyType='parent' " +
+                            "title='点击修改' "+"id='outside'>处理母公司文档</a>&nbsp;&nbsp;";
+                    String checkbox="<input name='selectedfile' type='checkbox' value='"+rs.getString("fileid")+"'>";
+                    Boolean parentCompany = true;//这里调用你的方法判断当前公司是否有母公司,参数是rs.getString("fileid"),返回boolean
+                    if (parentCompany)
+                        fileBean.setTwopath(pdfLink+selfLink+parentLink+checkbox);
+                    else
+                        fileBean.setTwopath(pdfLink+selfLink+checkbox);
                 }
                 fileBean.setTime(rs.getString("time"));
                 fileBean.setCompany_name(rs.getString("name"));
                 fileBean.setCompany_code(rs.getString("num"));
                 list.add(fileBean);
-            }
-            pst = conn.prepareStatement(countsql);
+            } pst = conn.prepareStatement(countsql);
             pst.setInt(1, companyid);
             pst.setInt(2, companyid);
             pst.setInt(3, status);
@@ -273,8 +282,7 @@ public class DocumentDao
         catch (SQLException e)
         {
             Log.errorlog("执行SQL：" + sql + " 失败", "dao.DocumentDao.getResult");
-        }
-        ajaxReturnDocumentBean.setData(list);
+        } ajaxReturnDocumentBean.setData(list);
         ObjectMapper objectMapper;
         objectMapper = new ObjectMapper();
         try

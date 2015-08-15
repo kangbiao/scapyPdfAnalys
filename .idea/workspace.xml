@@ -2,6 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a19b58ec-6ef1-4a03-a050-e7347a702232" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/WebContent.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ItemClass.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/file/1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/file/2.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WebContent.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/file/1.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/file/2.pdf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/DocumentDao.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/DocumentDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/DocumentDao.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/DocumentDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/ServerTools/FileReadTools.class" afterPath="$PROJECT_DIR$/build/classes/ServerTools/FileReadTools.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/FileReadTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/FileReadTools.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/IndexCreate.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/IndexCreate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/IndexCreate.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/IndexCreate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/LineCount.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/LineCount.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/PartNumDao.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/PartNumDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/PartNumDao.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/PartNumDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/PieCount.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/PieCount.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/ServerPublic/ServerPublic.class" afterPath="$PROJECT_DIR$/build/classes/ServerPublic/ServerPublic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerPublic/ServerPublic.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerPublic/ServerPublic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDataCheck.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDataCheck.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableFilter.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableThread.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableGet.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableGet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableItem.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/TableJsonTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/TableJsonTools.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableLR.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableLR.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableSYZQY.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableSYZQY.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableTools.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/TableTools/TableTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/TableTools/TableTools.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableTypeList$ItemClass.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableTypeList$ItemClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableXJLL.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableXJLL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableZCFZ.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableZCFZ.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/Test.class" afterPath="$PROJECT_DIR$/build/classes/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/Test.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/editTable.jsp" afterPath="$PROJECT_DIR$/WebContent/editTable.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/editTable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/editTable.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/editTable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/editTable.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/getHtml.jsp" afterPath="$PROJECT_DIR$/WebContent/getHtml.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jdbc.properties" afterPath="$PROJECT_DIR$/src/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/list.jsp" afterPath="$PROJECT_DIR$/WebContent/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/list.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/list.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/netconf" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/netconf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/netconf" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/netconf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statisline.jsp" afterPath="$PROJECT_DIR$/WebContent/statisline.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -35,64 +94,6 @@
         <option name="myItemId" value="MySQL - test@localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - test@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="FileCompany" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - test@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="File" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - test@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="test" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="Company" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -100,56 +101,98 @@
     <favorites_list name="CompanyDocs" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5328608">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="reptilemanage.jsp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/WebContent/reptilemanage.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6909492">
-                  <caret line="136" column="20" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="editTable.jsp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.072848">
-                  <caret line="572" column="32" selection-start-line="572" selection-start-column="32" selection-end-line="572" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7285714">
+              <caret line="559" column="23" selection-start-line="559" selection-start-column="23" selection-end-line="559" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartNumDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocumentDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="258" column="40" selection-start-line="258" selection-start-column="40" selection-end-line="258" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.53333336">
+              <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editTable.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.2">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+              <folding>
+                <marker date="1439624564821" expanded="true" signature="20903:20924" placeholder="..." />
+                <marker date="1439624564821" expanded="true" signature="21556:21577" placeholder="..." />
+                <marker date="1439624564821" expanded="true" signature="22209:22230" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="246" column="44" selection-start-line="246" selection-start-column="44" selection-end-line="246" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/jdbc/ConnectDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -174,9 +217,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" />
-        <option value="$PROJECT_DIR$/WebContent/list.jsp" />
-        <option value="$PROJECT_DIR$/src/jdbc.properties" />
         <option value="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/frame.html" />
         <option value="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/frame.html" />
         <option value="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/static/js/jquery-webox.js" />
@@ -189,21 +229,24 @@
         <option value="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/static/js/jquery-webox.js" />
         <option value="$PROJECT_DIR$/WebContent/info.jsp" />
         <option value="$PROJECT_DIR$/src/com/kangbiao/servlet/GetCompanyList.java" />
-        <option value="$PROJECT_DIR$/WebContent/getHtml.jsp" />
         <option value="$PROJECT_DIR$/WebContent/public_jsp/public_nav.jsp" />
-        <option value="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" />
         <option value="$PROJECT_DIR$/WebContent/static/showPdf/web/jquery.zclip.js" />
         <option value="$PROJECT_DIR$/WebContent/static/jquery.zclip.js" />
         <option value="$PROJECT_DIR$/WebContent/static/showPdf/web/test.html" />
         <option value="$PROJECT_DIR$/WebContent/static/showPdf/web/viewer.html" />
-        <option value="$PROJECT_DIR$/WebContent/editTable.jsp" />
         <option value="$PROJECT_DIR$/WebContent/statislinebar.jsp" />
         <option value="$PROJECT_DIR$/WebContent/public_nav.jsp" />
         <option value="$PROJECT_DIR$/WebContent/statispie.jsp" />
         <option value="$PROJECT_DIR$/WebContent/statistable.jsp" />
-        <option value="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
         <option value="$PROJECT_DIR$/WebContent/statisbar.jsp" />
         <option value="$PROJECT_DIR$/WebContent/accountmanage.jsp" />
+        <option value="$PROJECT_DIR$/src/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" />
+        <option value="$PROJECT_DIR$/WebContent/getHtml.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/editTable.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/list.jsp" />
+        <option value="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
+        <option value="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" />
         <option value="$PROJECT_DIR$/WebContent/statisline.jsp" />
       </list>
     </option>
@@ -218,6 +261,13 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="NamedScopeManager">
     <order />
@@ -234,10 +284,13 @@
           <State>
             <id />
           </State>
+          <State>
+            <id>Spelling</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Ant inspections</id>
+            <id>Spelling</id>
           </State>
         </selected-state>
       </profile-state>
@@ -268,6 +321,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,7 +433,6 @@
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,7 +460,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1145" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
@@ -882,6 +935,13 @@
       <workItem from="1439257211001" duration="12744000" />
       <workItem from="1439283642175" duration="1875000" />
       <workItem from="1439298350770" duration="3497000" />
+      <workItem from="1439344938882" duration="2995000" />
+      <workItem from="1439377780611" duration="895000" />
+      <workItem from="1439457987489" duration="948000" />
+      <workItem from="1439462674283" duration="1250000" />
+      <workItem from="1439514526735" duration="19314000" />
+      <workItem from="1439547964596" duration="2930000" />
+      <workItem from="1439613739585" duration="9299000" />
     </task>
     <task id="LOCAL-00001" summary="修改了配置">
       <created>1437119894707</created>
@@ -935,7 +995,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85927000" />
+    <option name="totallyTimeSpent" value="123558000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -952,7 +1012,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295099" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32862645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295099" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -963,14 +1023,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17948718" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1746134" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21314102" sideWeight="0.5099062" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20811856" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20779915" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34146342" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29396662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -978,35 +1038,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295099" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20811856" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11887383" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295099" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17619784" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31699687" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17948718" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21314102" sideWeight="0.5099062" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1038,35 +1069,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33907428">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/filter/Validate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/frame.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/static/js/jquery-webox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1158,20 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/jdbc/ConnectDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/e8862684/1340de4f-019f-4204-af7a-39c172816791/test..File">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1203,13 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/classes/com/kangbiao/dao/DocumentDao.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5753425">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/static/js/echarts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34333333">
@@ -1233,14 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1287,14 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.9">
-          <caret line="230" column="31" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/static/js/jquery-1.11.2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25666666">
@@ -1316,13 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.5054603">
-          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/statispie.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65302783">
@@ -1334,7 +1292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3322933">
           <caret line="357" column="16" selection-start-line="357" selection-start-column="16" selection-end-line="357" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1342,7 +1299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44189852">
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,19 +1309,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1950078">
-          <caret line="179" column="16" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/statisbar.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.166667">
           <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1387,7 +1334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54134166">
           <caret line="70" column="16" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1399,25 +1345,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/jdbc/ConnectDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09388971">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/showPdf/web/viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14150943">
+          <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/getHtml.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.833333">
-          <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
+        <state vertical-scroll-proportion="1.40991">
+          <caret line="191" column="26" selection-start-line="191" selection-start-column="26" selection-end-line="191" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/桌面/股份转让系统/目录折叠/目录折叠.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="70" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/beans/FileBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42056075">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="e#739#740#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#803#804#0" expanded="false" />
+            <element signature="e#832#833#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/beans/FilterBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5794392">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="258" column="40" selection-start-line="258" selection-start-column="40" selection-end-line="258" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        <state vertical-scroll-proportion="-7.2">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding>
+            <marker date="1439624564821" expanded="true" signature="20903:20924" placeholder="..." />
+            <marker date="1439624564821" expanded="true" signature="21556:21577" placeholder="..." />
+            <marker date="1439624564821" expanded="true" signature="22209:22230" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53333336">
+          <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="246" column="44" selection-start-line="246" selection-start-column="44" selection-end-line="246" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6909492">
-          <caret line="136" column="20" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.7285714">
+          <caret line="559" column="23" selection-start-line="559" selection-start-column="23" selection-end-line="559" selection-end-column="23" />
           <folding />
         </state>
       </provider>
