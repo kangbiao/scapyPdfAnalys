@@ -89,7 +89,8 @@
     <li id="menuItem"><a id="getWord" href="javascript:void(0)">生成word</a></li>
   </ul>
 </div>
-<div id="popmenuarea" style="width:25%;float:left;padding-right:5px;border-right:1px solid grey;height:90%;overflow:auto;">
+<div id="popmenuarea"
+     style="width:25%;position:fixed;padding-right:5px;border-right:1px solid grey;height:90%;overflow:auto;">
   <ul id="first">
     <li partid="1"><a class="menuLink" href="javascript:void(0)">1.文档信息</a></li>
     <li partid="2"><a class="menuLink" href="javascript:void(0)">2.资金信息</a></li>
@@ -116,7 +117,13 @@
   </ul>
 </div>
 <div style="width:73%;float:right;border:1px solid red;" id="contentArea">
-
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
+  <p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p><p>dff</p>
 </div>
 <script type="text/javascript">
   $(function () {
@@ -127,7 +134,6 @@
     {
       $(this).next().css('display',$(this).next().css('display')=='none'?'':'none');
       var partid=$(this).parent().attr("partid");
-       console.log(partid);
        $.ajax({
                type: "post",
                url: "statis.do",
@@ -157,8 +163,6 @@
 
       $(this).addClass("an").siblings("li").removeClass("an");
       $("#menu").css({"left":e.clientX,"top":e.clientY}).fadeIn();
-      // console.log($("#menu").find("#menuItem"));
-      // console.log($(e.target).parent().attr("partid"));
       $("#menu").find("#getWord").attr("partid",$(e.target).parent().attr("partid"));
     });
     $(document).bind("click",function(e){
@@ -169,7 +173,6 @@
       }
     });
     $("#getWord").click(function () {
-      console.log($(this).attr("partid"));
       var form=$("<form>");//定义一个form表单
       form.attr("style","display:none");
       form.attr("target","");

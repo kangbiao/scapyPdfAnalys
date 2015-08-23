@@ -108,6 +108,12 @@
           <p class="flip">选择表格项</p>
         </div>
         <div class="form-group">
+          <select id="companyType" class="form-control">
+            <option value="self">子公司</option>
+            <option value="parent">母公司</option>
+          </select>
+        </div>
+        <div class="form-group">
           <button id="filter" class="btn btn-default" type="button">确定</button>
         </div>
       </div>
@@ -312,10 +318,8 @@
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
-      //  console.log($(this).children(":selected").val());
       var companyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
-      //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
       var tablePartSelect = $(this).parent().next().children("#tablePart");
       tablePartSelect.append("<option value=''>--请选择--</option>");
@@ -367,6 +371,8 @@
       var status = "";
       var temp = 0;
       var tableColumus="";
+      var companyType="self";
+      companyType=$("#companyType option:selected").val();
       $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
 
         if (temp == 0)
@@ -410,7 +416,8 @@
             "tablePart": tablePart,
             'year': year,
             "status": status,
-            'tableColumns':tableColumus
+            'tableColumns':tableColumus,
+            'companyType':companyType
           },
           dataType: "json", //返回数据形式为json
           success: function (result) {

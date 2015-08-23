@@ -83,6 +83,12 @@
         </select>
       </div>
       <div class="form-group">
+        <select id="companyType" class="form-control">
+          <option value="self">子公司</option>
+          <option value="parent">母公司</option>
+        </select>
+      </div>
+      <div class="form-group">
         <button id="filter" class="btn btn-default" type="button">确定</button>
       </div>
     </form>
@@ -203,10 +209,8 @@
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
-      //  console.log($(this).children(":selected").val());
       var conpanyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
-      //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
       var tablePartSelect = $(this).parent().next().children("#tablePart");
       tablePartSelect.append("<option value=''>--请选择--</option>");
@@ -250,6 +254,8 @@
       var tablePart = $("#tablePart option:selected").val();
       var year = $("#year option:selected").val();
       var year_status = year.split(".");
+      var companyType="self";
+      companyType=$("#companyType option:selected").val();
       year = year_status[0];
       var status = year_status[1];
       if (companyName == "") {
@@ -268,6 +274,7 @@
         data['status'] = status;
         data['year'] = year;
         data['action'] = "getPie";
+        data['companyType']=companyType;
         loadechart(data);
       }
     });
@@ -311,7 +318,6 @@
                   if (result) {
                     jsonObj = result;
                     for (var temp in result) {
-                      //console.log(temp);
                       legendArr.push(temp);
                     }
                   }
@@ -369,7 +375,6 @@
                             var objtemp = new Object();
                             objtemp.value = jsonObj[temp2];
                             objtemp.name = temp2;
-                            //console.log(objtemp);
                             arr.push(objtemp);
                           }
                           return arr;

@@ -102,6 +102,12 @@
           </select>
         </div>
         <div class="form-group">
+          <select id="companyType" class="form-control">
+            <option value="self">子公司</option>
+            <option value="parent">母公司</option>
+          </select>
+        </div>
+        <div class="form-group">
           <p class="flip">选择表格项</p>
         </div>
         <div class="form-group">
@@ -331,10 +337,8 @@
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
-      //  console.log($(this).children(":selected").val());
       var conpanyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
-      //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
       var tablePartSelect = $(this).parent().next().children("#tablePart");
       tablePartSelect.append("<option value=''>--请选择--</option>");
@@ -392,8 +396,9 @@
       var status = "";
       var temp = 0;
       var tableColumus="";
+      var companyType="self";
+      companyType=$("#companyType option:selected").val();
       $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
-        // console.log($(this).children());
         if (temp == 0)
           companyName = $(this).eq(0).find("#company_name").val();
         else
@@ -431,6 +436,7 @@
         data['year'] = year;
         data['action'] = "getBar";
         data['tableColumns']=tableColumus;
+        data['companyType']=companyType;
         loadechart(data);
       }
     });
@@ -474,19 +480,14 @@
                   );
                 },
                 success: function (result) {
-                  //myChart.hideLoading();
                   if (result) {
                     jsonObj = result;
                     for (var temp in result) {
-                      //console.log(temp);
                       legendArr.push(temp);
                     }
-//                    console.log(legendArr);
                     for (var temp1 in result[legendArr[0]]) {
-                      //console.log(temp1);
                       xAxisArr.push(temp1);
                     }
-//                    console.log(xAxisArr);
                   }
                 },
                 error: function () {
@@ -502,13 +503,9 @@
                   }
                   tableHead+="</tr>";
                   $("#tableArea").html(tableHead);
-//                  console.log(jsonObj);
-//                  console.log(legendArr);
-//                  console.log(tableHead);
                   for (var index in jsonObj)
                   {
                     lineData="<tr><td>"+index+"</td>";
-//                    console.log(jsonObj[index]);
                     for (var tableHeadIndex in xAxisArr)
                     {
                       var item=xAxisArr[tableHeadIndex];
@@ -516,7 +513,6 @@
                     }
                     lineData+="</tr>";
                     $("#tableArea").append(lineData);
-                    console.log(lineData);
                   }
                   $("#show_table").fadeIn(1000);
                   option = {
@@ -551,21 +547,17 @@
                       var seriesArr = [];
                       //遍历生成数据项数组，将对象放入seriesArr数组中
                       for (var temp2 in legendArr) {
-                        //console.log(temp2);
                         var chartObj = new Object();
                         var datatemp = [];
                         //从数据对象中遍历循环取出数据值
                         for (var temp3 in jsonObj[legendArr[temp2]]) {
-                          //console.log(temp3);
                           datatemp.push(jsonObj[legendArr[temp2]][temp3]);
                         }
-                        //console.log(datatemp);
                         chartObj.name = legendArr[temp2];
                         chartObj.type = 'bar';
                         chartObj.data = datatemp;
                         seriesArr.push(chartObj);
                       }
-                      //console.log(seriesArr);
                       return seriesArr;
                     })()
                   };

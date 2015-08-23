@@ -561,7 +561,6 @@
         success: function (result) {
           for (var table in result)
           {
-            console.log(result[table]);
             if(table=="table1")
             {
               if(result[table]['status']==0)
@@ -649,7 +648,6 @@
           counter = 1;
         }
       });
-      console.log(data);
       data['table'] = tableid;
       data['fileid']=<%=request.getParameter("fileid") %>;
       data['action']='submitModify';

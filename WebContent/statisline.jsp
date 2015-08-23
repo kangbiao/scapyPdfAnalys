@@ -107,6 +107,12 @@
               </select>
             </div>
             <div class="form-group">
+              <select id="companyType" class="form-control">
+                <option value="self">子公司</option>
+                <option value="parent">母公司</option>
+              </select>
+            </div>
+            <div class="form-group">
               <button class="flip btn btn-default" type="button">选择表格项</button>
             </div>
             <div class="form-group">
@@ -191,6 +197,12 @@
             <div class="form-group">
               <select class="end_year form-control">
                 <option value="">--截止年份--</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select id="companyType" class="form-control">
+                <option value="self">子公司</option>
+                <option value="parent">母公司</option>
               </select>
             </div>
             <div class="form-group">
@@ -347,10 +359,8 @@
 
     //获取表格部分的列表
     $("[id=tableType]").change(function () {
-      //  console.log($(this).children(":selected").val());
       var conpanyName = $(this).parent().prev().children().children().val()
       var tableType = $(this).children(":selected").val();
-      //  console.log($(this).parent().next().children("#tablePart"));
       $(this).parent().next().children("#tablePart").empty();
       var tablePartSelect = $(this).parent().next().children("#tablePart");
       tablePartSelect.append("<option value=''>--请选择--</option>");
@@ -543,13 +553,14 @@
       var end_status= "";
       var temp = 0;
       var tableColumus="";
+      var companyType="self";
       var symbol=$(this).attr("symbol");
+      companyType=$("#companyType option:selected").val();
       if(symbol==0) {
         $("#show_table").text("显示表格数据");
         $("#show_table").fadeOut();
         $("#data_table").hide();
         $(this).parent().parent().parent().children().not(":hidden").not("span").not(".panel").each(function () {
-          // console.log($(this).children());
           if (temp == 0)
             companyName = $(this).eq(0).find("#company_name").val();
           else
@@ -618,6 +629,7 @@
         data['action'] = "getLine";
         data['tableColumns']=tableColumus;
         data['symbol']=symbol;
+        data['companyType']=companyType;
         if(symbol==0&&typeof(tableColumus)=="undefined")
           alert("请选择一个表格项显示");
         else
@@ -671,15 +683,11 @@
                   if (result) {
                     jsonObj = result;
                     for (var temp in result) {
-                      //console.log(temp);
                       legendArr.push(temp);
                     }
-//                    console.log(legendArr);
                     for (var temp1 in result[legendArr[0]]) {
-                      //console.log(temp1);
                       xAxisArr.push(temp1);
                     }
-//                    console.log(xAxisArr);
                   }
                 },
                 error: function () {
@@ -695,19 +703,14 @@
                     }
                     tableHead += "</tr>";
                     $("#tableArea").html(tableHead);
-//                  console.log(jsonObj);
-//                  console.log(legendArr);
-//                  console.log(tableHead);
                     for (var index in jsonObj) {
                       lineData = "<tr><td>" + index + "</td>";
-//                    console.log(jsonObj[index]);
                       for (var tableHeadIndex in xAxisArr) {
                         var item = xAxisArr[tableHeadIndex];
                         lineData += "<td>" + (jsonObj[index][item]) + "</td>";
                       }
                       lineData += "</tr>";
                       $("#tableArea").append(lineData);
-//                    console.log(lineData);
                     }
                     $("#show_table").fadeIn(1000);
                   }
@@ -719,19 +722,14 @@
                     }
                     tableHead += "</tr>";
                     $(".tableArea").html(tableHead);
-//                  console.log(jsonObj);
-//                  console.log(legendArr);
-//                  console.log(tableHead);
                     for (var index in jsonObj) {
                       lineData = "<tr><td>" + index + "</td>";
-//                    console.log(jsonObj[index]);
                       for (var tableHeadIndex in xAxisArr) {
                         var item = xAxisArr[tableHeadIndex];
                         lineData += "<td>" + (jsonObj[index][item]) + "</td>";
                       }
                       lineData += "</tr>";
                       $(".tableArea").append(lineData);
-//                    console.log(lineData);
                     }
                     $(".show_table").fadeIn(1000);
                   }
@@ -767,21 +765,17 @@
                       var seriesArr = [];
                       //遍历生成数据项数组，将对象放入seriesArr数组中
                       for (var temp2 in legendArr) {
-                        //console.log(temp2);
                         var chartObj = new Object();
                         var datatemp = [];
                         //从数据对象中遍历循环取出数据值
                         for (var temp3 in jsonObj[legendArr[temp2]]) {
-                          //console.log(temp3);
                           datatemp.push(jsonObj[legendArr[temp2]][temp3]);
                         }
-                        //console.log(datatemp);
                         chartObj.name = legendArr[temp2];
                         chartObj.type = 'line';
                         chartObj.data = datatemp;
                         seriesArr.push(chartObj);
                       }
-                      //console.log(seriesArr);
                       return seriesArr;
                     })()
                   };

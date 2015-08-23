@@ -2,66 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a19b58ec-6ef1-4a03-a050-e7347a702232" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/WebContent.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ItemClass.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/file/1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/file/2.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WebContent.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/file/1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/file/2.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/DocumentDao.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/DocumentDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/DocumentDao.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/DocumentDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/FileDispathcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/ServerTools/FileReadTools.class" afterPath="$PROJECT_DIR$/build/classes/ServerTools/FileReadTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/FileReadTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/FileReadTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/IndexCreate.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/IndexCreate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/IndexCreate.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/IndexCreate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/LineCount.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/LineCount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/PartNumDao.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/dao/PartNumDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/PartNumDao.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/dao/PartNumDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/PieCount.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/PieCount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/ServerPublic/ServerPublic.class" afterPath="$PROJECT_DIR$/build/classes/ServerPublic/ServerPublic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerPublic/ServerPublic.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerPublic/ServerPublic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/build/classes/com/kangbiao/servlet/Statis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/com/kangbiao/servlet/Statis.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDataCheck.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDataCheck.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableFilter.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableThread.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher$TableThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" afterPath="$PROJECT_DIR$/build/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDispatcher/DispatcherMain/TableDispathcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableGet.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableGet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableItem.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/TableJsonTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/ServerTools/TableJsonTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableLR.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableLR.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableSYZQY.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableSYZQY.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DataControl/TableTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/TableTools/TableTools.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/TableTools/TableTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableTypeList$ItemClass.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/WebServer/TableTypeList$ItemClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableXJLL.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableXJLL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableZCFZ.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/DocDistill/Main/TableZCFZ.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/Test.class" afterPath="$PROJECT_DIR$/build/classes/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/Test.class" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" afterPath="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/editTable.jsp" afterPath="$PROJECT_DIR$/WebContent/editTable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/editTable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/editTable.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/editTable.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/editTable.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/getHtml.jsp" afterPath="$PROJECT_DIR$/WebContent/getHtml.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jdbc.properties" afterPath="$PROJECT_DIR$/src/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/list.jsp" afterPath="$PROJECT_DIR$/WebContent/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/list.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/list.jsp" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/netconf" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/netconf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/netconf" afterPath="$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/netconf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statisbar.jsp" afterPath="$PROJECT_DIR$/WebContent/statisbar.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statisline.jsp" afterPath="$PROJECT_DIR$/WebContent/statisline.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statispie.jsp" afterPath="$PROJECT_DIR$/WebContent/statispie.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/statistable.jsp" afterPath="$PROJECT_DIR$/WebContent/statistable.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="79330863-275b-4b51-be3f-7c186f0b856b" name="Failed commit: Default" comment="修改了配置" />
@@ -102,92 +48,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="statisline.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
+      <file leaf-file-name="getHtml.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/getHtml.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7285714">
-              <caret line="559" column="23" selection-start-line="559" selection-start-column="23" selection-end-line="559" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.49652296">
+              <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PartNumDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="258" column="40" selection-start-line="258" selection-start-column="40" selection-end-line="258" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/list.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53333336">
-              <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editTable.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-              <folding>
-                <marker date="1439624564821" expanded="true" signature="20903:20924" placeholder="..." />
-                <marker date="1439624564821" expanded="true" signature="21556:21577" placeholder="..." />
-                <marker date="1439624564821" expanded="true" signature="22209:22230" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Statis.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="246" column="44" selection-start-line="246" selection-start-column="44" selection-end-line="246" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kangbiao/jdbc/ConnectDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -236,18 +102,18 @@
         <option value="$PROJECT_DIR$/WebContent/static/showPdf/web/viewer.html" />
         <option value="$PROJECT_DIR$/WebContent/statislinebar.jsp" />
         <option value="$PROJECT_DIR$/WebContent/public_nav.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/statispie.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/statistable.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/statisbar.jsp" />
         <option value="$PROJECT_DIR$/WebContent/accountmanage.jsp" />
         <option value="$PROJECT_DIR$/src/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java" />
-        <option value="$PROJECT_DIR$/WebContent/getHtml.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/editTable.jsp" />
         <option value="$PROJECT_DIR$/WebContent/list.jsp" />
         <option value="$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java" />
         <option value="$PROJECT_DIR$/src/com/kangbiao/dao/DocumentDao.java" />
+        <option value="$PROJECT_DIR$/WebContent/statisbar.jsp" />
         <option value="$PROJECT_DIR$/WebContent/statisline.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/statistable.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/statispie.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/getHtml.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/editTable.jsp" />
       </list>
     </option>
   </component>
@@ -273,9 +139,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1600" />
-    <option name="height" value="876" />
+    <option name="x" value="49" />
+    <option name="y" value="-4" />
+    <option name="width" value="1551" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -315,7 +182,7 @@
       <hideEmptyPackages />
       <abbreviatePackageNames />
       <autoscrollToSource />
-      <autoscrollFromSource />
+      <autoscrollFromSource ProjectPane="true" />
       <sortByType />
     </navigator>
     <panes>
@@ -351,82 +218,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CompanyDocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="companydocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CompanyDocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="companydocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kangbiao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CompanyDocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="companydocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kangbiao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CompanyDocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="companydocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kangbiao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -942,6 +733,11 @@
       <workItem from="1439514526735" duration="19314000" />
       <workItem from="1439547964596" duration="2930000" />
       <workItem from="1439613739585" duration="9299000" />
+      <workItem from="1439880134734" duration="2006000" />
+      <workItem from="1440126316403" duration="597000" />
+      <workItem from="1440166458325" duration="3066000" />
+      <workItem from="1440225736974" duration="3571000" />
+      <workItem from="1440307487338" duration="2790000" />
     </task>
     <task id="LOCAL-00001" summary="修改了配置">
       <created>1437119894707</created>
@@ -995,7 +791,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123558000" />
+    <option name="totallyTimeSpent" value="135588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1007,8 +803,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="49" y="-4" width="1551" height="904" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1023,14 +819,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1746134" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1736527" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21314102" sideWeight="0.5099062" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20779915" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29396662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29268292" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1038,6 +834,35 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295099" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20779915" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29301354" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32862645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17619784" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31699687" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32766616" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17388919" sideWeight="0.49009386" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21314102" sideWeight="0.5099062" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1069,109 +894,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/static/js/jquery-webox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/static/css/jquery-webox.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/static/js/jquery-webox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6508972">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/static/css/jquery-webox.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/conf/frame.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57632935">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/WEB-INF/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10277325">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/artifacts/CompanyDocs_war_exploded/conf/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28816468">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/info.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028806584">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6166924">
-          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/Run.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16996047">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1340de4f-019f-4204-af7a-39c172816791/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e8862684/1340de4f-019f-4204-af7a-39c172816791/test..File">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/e8862684/1340de4f-019f-4204-af7a-39c172816791/test..Company">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1235,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.4">
           <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,13 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/statispie.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65302783">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3322933">
@@ -1295,24 +1009,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/statistable.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44189852">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/public_nav.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.10310966">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/statisbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.166667">
-          <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1341,24 +1041,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kangbiao/jdbc/ConnectDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.4348762">
           <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09388971">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1366,14 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14150943">
           <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/getHtml.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.40991">
-          <caret line="191" column="26" selection-start-line="191" selection-start-column="26" selection-end-line="191" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,12 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42056075">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="e#739#740#0" expanded="false" />
-            <element signature="e#760#761#0" expanded="false" />
-            <element signature="e#803#804#0" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1401,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1409,35 +1083,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5794392">
           <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kangbiao/dao/PartNumDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.38966632">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,46 +1097,177 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="258" column="40" selection-start-line="258" selection-start-column="40" selection-end-line="258" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding>
-            <marker date="1439624564821" expanded="true" signature="20903:20924" placeholder="..." />
-            <marker date="1439624564821" expanded="true" signature="21556:21577" placeholder="..." />
-            <marker date="1439624564821" expanded="true" signature="22209:22230" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53333336">
+        <state vertical-scroll-proportion="0.0">
           <caret line="128" column="17" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kangbiao/servlet/Statis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.5705059">
           <caret line="246" column="44" selection-start-line="246" selection-start-column="44" selection-end-line="246" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/HibernateTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataControl/CompanyControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DocDispatcher/DataFormat/Conf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DocDispatcher/DataFormat/PdfFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/Run.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27664155">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/Company.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11302476">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SWDataBase/SWDealFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NetReptile/DataFormat/LogTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/log4j-api-2.2.jar!/org/apache/logging/log4j/LogManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6958333">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54251885">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06781486">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.022604952">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/static/img/close.fw.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08411215">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/statisline.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7285714">
-          <caret line="559" column="23" selection-start-line="559" selection-start-column="23" selection-end-line="559" selection-end-column="23" />
+        <state vertical-scroll-proportion="-2.8681319">
+          <caret line="565" column="14" selection-start-line="565" selection-start-column="14" selection-end-line="565" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/statisbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8681319">
+          <caret line="403" column="12" selection-start-line="403" selection-start-column="12" selection-end-line="403" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/statistable.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8681319">
+          <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/statispie.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.08206687">
+          <caret line="213" column="35" selection-start-line="213" selection-start-column="35" selection-end-line="213" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/editTable.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23708206">
+          <caret line="647" column="22" selection-start-line="647" selection-start-column="22" selection-end-line="647" selection-end-column="22" />
+          <folding>
+            <marker date="1440309891461" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440309891461" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440309891461" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/getHtml.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49652296">
+          <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
           <folding />
         </state>
       </provider>
